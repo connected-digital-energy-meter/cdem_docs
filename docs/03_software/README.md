@@ -8,14 +8,14 @@ First we build a `settings.h` file with all general constants and variables.
 
 1. The Wifi credentials
 
-```c++
+```cpp
 #define WIFI_SSID "<YOUR WIFI SSID>"
 #define WIFI_PASSWORD "YOUR WIFI PASSWORD"
 ```
 
 2. The MQTT broker credentials
 
-```c++
+```cpp
 #define MQTT_HOST "<IP-ADRESS OF YOUR BROKER>"
 #define MQTT_PORT 1883
 ```
@@ -23,7 +23,7 @@ First we build a `settings.h` file with all general constants and variables.
 
 We define some shorthands for the MQTT topics.
 
-```c++
+```cpp
 #define MQTT_C_L_TARIF "sensors/smartmeter/consumption_low_tarif"
 #define MQTT_C_H_TARIF "sensors/smartmeter/consumption_high_tarif"
 #define MQTT_P_L_TARIF "sensors/smartmeter/production_low_tarif"
@@ -38,7 +38,7 @@ We define some shorthands for the MQTT topics.
 
 We use 2 serial communications, one for the P1 data and the other for debugging on the serial monitor.
 
-```c++
+```cpp
 #define SERIAL_DEBUG_BAUDRATE 115200
 #define METER_BAUDRATE 115200
 #define SerialDebug Serial
@@ -48,7 +48,7 @@ We use 2 serial communications, one for the P1 data and the other for debugging 
 
 We use the onboard led (on port 13) to indicate a datarequest.
 
-```c++
+```cpp
 const int STATE_LED = 13;
 const int REQUEST_PIN = 14;
 ```
@@ -56,7 +56,7 @@ const int REQUEST_PIN = 14;
 
 We use a class to keep track of the state the communication module is in.
 
-```c++
+```cpp
 enum class State {
   IDLE,
   READING_DATAGRAM,
@@ -68,7 +68,7 @@ enum class State {
 
 7. Defining a buffer to store incomming data
 
-```c++
+```cpp
 char datagramBuffer[1024] = { 0 };
 ```
 
@@ -76,14 +76,14 @@ char datagramBuffer[1024] = { 0 };
 
 We need a indicator (pointer) to know what character we are reading in the buffer and a boolean that can be set true if the start of the telegram was detected.
 
-```c++
+```cpp
 unsigned int readPointer = 0;
 bool startDetected = false;
 ```
 
 9. We define some variables to store the incoming data
 
-```c++
+```cpp
 double CONSUMPTION_LOW_TARIF;
 double CONSUMPTION_HIGH_TARIF;
 double PRODUCTION_LOW_TARIF;
@@ -97,7 +97,7 @@ double ACTUAL_TARIF;
 
 10. We define some variables for the periodic measurement
 
-```c++
+```cpp
 const long    period = 60000; // adjust this value to set the period
 unsigned long startMillis;            
 unsigned long currentMillis;
@@ -110,7 +110,7 @@ Now we write the general program named `FluviusSmart_FeatherReader_MQTT.ino`.
 
 First we need to include some libraries and initiate some variables.
 
-```c++
+```cpp
 // Include general libraries
 #include <cstring>
 #include <WiFi.h>
@@ -131,7 +131,7 @@ State currentState = State::IDLE;
 
 Next we need to write some methodes that handle the WiFi and MQTT connections.
 
-```c++
+```cpp
 // Connect to WiFi
 void connectToWifi() {
   Serial.println("Connecting to WiFi...");
@@ -181,7 +181,7 @@ void onMqttDisconnect(AsyncMqttClientDisconnectReason reason) {
 
 Now we write 2 methodes to enable of disable the P1 communication.
 
-```c++
+```cpp
 // Enable the meter sending
 void enable_meter(void) {
   digitalWrite(REQUEST_PIN, HIGH);
@@ -202,7 +202,7 @@ Now we are ready to write the setup for our program:
 4. We setup Wifi and MQTT
 5. We start the timer for the periodic measurement
 
-```c++
+```cpp
 void setup() {
   
   // Set the bautrate for both serial connections
@@ -250,7 +250,7 @@ void setup() {
 
 Before we build the loop we now have to write some methodes. We start with a methode for reading the datagram of the P1 port.
 
-```c++
+```cpp
 // Read the next byte of the telegram
 void read_datagram(void) {
   if (SerialMeter.available() > 0) {
@@ -291,7 +291,7 @@ void read_datagram(void) {
 
 Next we write a function that decodes the datagram into values by the OBIS reference and returns `true` if the datagram was valid and `false` if it was not.
 
-```c++
+```cpp
 // Decode the telegram
 bool decode_datagram()
 {
@@ -341,7 +341,7 @@ bool decode_datagram()
 
 Then we write a function that parses the value of a single OBIS reference from the datagram and return it.
 
-```c++
+```cpp
 // Parse value of single OBIS reference
 double ParseDataValue(char* key, int datablock)
 {
@@ -379,7 +379,7 @@ double ParseDataValue(char* key, int datablock)
 
 Finaly we write a methode that publishes the recieved values to the MQTT broker.
 
-```c++
+```cpp
 // Publish received data to MQTT
 void publish_received_data(){
    uint16_t packetIdPub1 = mqttClient.publish(MQTT_C_L_TARIF, 1, true, String(CONSUMPTION_LOW_TARIF).c_str());                            
@@ -399,7 +399,7 @@ void publish_received_data(){
 
 Now we build the loop and use the state of the IoT-device as a guide for the programming.
 
-```c++
+```cpp
 void loop() {
 
   // Current time for period
