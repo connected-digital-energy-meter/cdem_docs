@@ -45,7 +45,7 @@ We still need to confirm that the +5V from the Fluvius meter can power the compl
 
 From this circuit we build a PCB as a plugin module for the P1 port of the Fluvius meter.
 
-![image](./images/afbeelding5.png)
+<!-- ![image](./images/afbeelding5.png) -->
 
 There are no male RJ12 pcb mounted connectors so we had to get a bit creative here.
 
