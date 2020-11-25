@@ -7,6 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/pwo-iot-opportunities/smartmeter_docs/issues"
   },
-  "homepage": "https://github.com/pwo-iot-opportunities/smartmeter_docs#readme"
+  "homepage": "https://github.com/pwo-iot-opportunities/smartmeter_docs#readme",
+  "dependencies": {
+    "vuepress": "^1.7.1"
+  }
 }

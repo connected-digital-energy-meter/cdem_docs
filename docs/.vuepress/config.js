@@ -9,16 +9,16 @@ module.exports = {
       { text: 'Contact', link: 'mailto:ronny.mees@vives.be' },
     ],
     sidebarDepth: 1,
-    repo: 'https://github.com/ronnymees/fluviussmartmeter',
+    repo: 'https://github.com/pwo-iot-opportunities/smartmeter_docs',
     docsDir: 'docs',
     docsBranch: 'master',
     sidebar: [
 		      '/01_communication/',
-          '/02_hoofdstuk2/',
-          '/03_hoofdstuk3/',
-          '/04_hoofdstuk4/',
-          '/05_hoofdstuk5/',
-          '/06_hoofdstuk6/',          
+          '/02_hardware/',
+          '/03_software/',
+          // '/04_hoofdstuk4/',
+          // '/05_hoofdstuk5/',
+          // '/06_hoofdstuk6/',          
     ]    
   },
   markdown: {
