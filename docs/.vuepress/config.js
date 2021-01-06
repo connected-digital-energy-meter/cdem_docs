@@ -13,12 +13,15 @@ module.exports = {
     docsDir: 'docs',
     docsBranch: 'master',
     sidebar: [
-		      '/01_communication/',
-          '/02_hardware/',
-          '/03_software/',
-          // '/04_hoofdstuk4/',
-          // '/05_hoofdstuk5/',
-          // '/06_hoofdstuk6/',          
+		      '/01_introduction/',
+          '/02_content/',
+          '/03_assembly/',
+          '/04_firmware/',
+          '/05_configuration/',
+          '/06_connect/',         
+          '/07_working/',    
+          '/08_development/',    
+          '/09_output/',    
     ]    
   },
   markdown: {
