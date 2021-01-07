@@ -1,22 +1,29 @@
 # Fluvius Smart Meter
 
+
+**landingspagina voorzien?**
+**licentie**
+
 ## Intro
 
-This information is the result of a research project from the [University College VIVES](https://www.vives.be) in commissioned by [Fluvius](https://www.fluvius.be). The main goal of this project is to build a open platform for DIY users and manufactureres that want to use the P1 port of the Fluvius Smart Meter to register its data.
+This is the result of a research project from the [University College VIVES](https://www.vives.be) commissioned by [Fluvius](https://www.fluvius.be). The main goal of this project was to build a open source kit for DIY users and manufacturers that want to use the P1 port of the Fluvius Smart Meter to register its data to a broker.
 
-## General idea
+## Researchers
 
-The general idea is to build a communication module that can be pluged into the P1 port of the Fluvius smart meter, uses the P1 port as powersource and send the data periodically to a MQTT broker.
-
-Next some data visualisation options are explored.
+* Nico De Witte
+* Ronny Mees
 
 ## Content
 
-1. Data communication
-2. Hardware for the communication module
-3. Software for the communication module
-4. 
-5. 
+1. Introduction
+2. Content of the kit
+3. Assembly of the kit
+4. Installing the firmware
+5. Configuration 
+6. Connecting to the Fluvius smart meter
+7. The kit in use
+8. Development information
+9. Using the output
 
 
 

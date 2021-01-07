@@ -5,8 +5,8 @@ module.exports = {
     logo: '/files/afbeelding1.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Company', link: 'https://www.vives.be' },      
-      { text: 'Contact', link: 'mailto:ronny.mees@vives.be' },
+      { text: 'Company', link: 'https://www.vives.be/nl/onderzoek' },      
+      { text: 'Contact', link: 'mailto:nico.dewitte@vives.be' },
     ],
     sidebarDepth: 1,
     repo: 'https://github.com/pwo-iot-opportunities/smartmeter_docs',
