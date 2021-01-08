@@ -3,9 +3,12 @@
 
 ## Soldering the pcb
 
+**Nico maak jij dit stuk?**
 
 ## Printing the housing
 
-**STL files**
+**STL files, materiaal, settings**
 
 ## Assemble the kit
+
+**In stapjes via afbeeldingen**

@@ -20,7 +20,7 @@ This is the result of a research project from the [University College VIVES](htt
 3. Assembly of the kit
 4. Installing the firmware
 5. Configuration 
-6. Connecting to the Fluvius smart meter
+6. Connecting to the Fluvius meter
 7. The kit in use
 8. Development information
 9. Using the output

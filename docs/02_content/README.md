@@ -16,8 +16,8 @@ Parts you still need to buy:
 
 Tools you need for assembly:
 
-* Hotair solderingstation
-* Solderingpaste
+* Hotair solderingstation or solderingstation with a fine solderingpoint
+* Solderingpaste or fine soldering tin
 * Tweezers
 * Magnifying glass (optional)
 
