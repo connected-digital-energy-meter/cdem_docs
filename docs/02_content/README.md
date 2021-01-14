@@ -12,6 +12,7 @@ You need all these parts for this solution.
 | --|:--|:--|
 | Huzzah32 ESP32 Feather board | 1 | [https://www.adafruit.com/product/3405](https://www.adafruit.com/product/3405) |
 | RJ12 cable | 0,5m or larger | |
+| USB power adapter with cable | 1 | |
 
 ## Tools
 
