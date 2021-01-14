@@ -1,16 +1,19 @@
-# Assembly of the kit
+# Assembly
 
+![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
 ## Soldering the pcb
 
-**Nico maak jij dit stuk?**
+`Place here a tutorial movie to solder the pcb`
 
 ## Printing the housing
 
 ![image](./images/afbeelding1.jpg)
-![image](./images/afbeelding2.jpg)
 
 For the housing you have to print two part (top and bottom).
+
+`We should move these files to a repo for easy download and new versions`
+
 * [top](/files/top.stl)
 * [bottom](/files/bottom.stl)
 
@@ -18,4 +21,4 @@ We advice you to print the parts in PLA material with standard parameters but wi
 
 ## Assemble the kit
 
-**In stapjes via afbeeldingen**
+`Place assemble steps here`

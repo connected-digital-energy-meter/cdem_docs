@@ -1,5 +1,7 @@
 # Configuration
 
+![UNDER CONSTRUCTION](./images/underconstruction.jpg)
+
 Upon the first startup of the firmware the factory default settings are loaded and you automaticly are redirected to the configuration wizard. 
 You can acces this via a serial communication software like [PuTTY](https://www.putty.org/). You just need to connect the ESP32 to your system with a USB cable.
 

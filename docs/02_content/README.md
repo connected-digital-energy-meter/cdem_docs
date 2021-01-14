@@ -1,20 +1,19 @@
-# Content of the kit
+# Content
 
-**hier komt een foto van de kit**
+![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
-Parts included in the kit:
+## Parts
 
-* Card with the QR-link to this website
-* 
+You need all these parts for this solution.
 
-**place here the BOM of the PCB**
+`place here the table with all parts needed with ref on farnell`
 
-Parts you still need to buy:
+| Part | Quantity | Reference |
+| --|:--|:--|
+| Huzzah32 ESP32 Feather board | 1 | [https://www.adafruit.com/product/3405](https://www.adafruit.com/product/3405) |
+| RJ12 cable | 0,5m or larger | |
 
-* Huzzah32 - ESP32 Feather board ([https://www.adafruit.com/product/3405](https://www.adafruit.com/product/3405))
-* RJ12 cable (length depending on your situation)
-
-Tools you need for assembly:
+## Tools
 
 * Hotair solderingstation or solderingstation with a fine solderingpoint
 * Solderingpaste or fine soldering tin

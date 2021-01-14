@@ -1,4 +1,20 @@
 # Connecting to the Fluvius meter
 
-* verbinden met P1 poort
-* usb voeding
+![UNDER CONSTRUCTION](./images/underconstruction.jpg)
+
+## Activate the Fluvius meter
+
+You have to fill in a request form on the Fluvius website to activate (or deactivate) your Fluvius smart meter.
+
+You need the following in order to make your request:
+* your ID card
+* a cardreader or itsme to login
+* a recent energy invoice of your current supplyer
+
+:::tip Note
+It can take up to **72 hours** to active your user ports. If your meter is newly placed, you should wait a few days before making this request.
+:::
+
+## Connecting to the Fluvius meter
+
+`Instruction to connect to the P1 port and power with usb power supply`

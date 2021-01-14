@@ -1,5 +1,6 @@
 # Development information
 
+![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
 ## Communication with the P1 port of the Fluvius Smart Meter
 
@@ -168,9 +169,9 @@ Be aware of the fact that the number of OBIS codes and the order of them is not 
 
 ## Development of the hardware
 
-* hoe zit de pcb in elkaar + link naar files
+`Place here the information (schematics) of the pcb and the links to the Circuitmaker files`
 
 ## Development of the firmware
 
-* hoe zit de firmware in elkaar ( flowchart )
+`Place here a flowchart of the firmware`
 

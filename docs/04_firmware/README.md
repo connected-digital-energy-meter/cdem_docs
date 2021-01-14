@@ -1,6 +1,16 @@
 # Installing the firmware
 
-* link naar laatste versie in repo voor download
-* hoe flashen, via arduino IDE is niet ideaal omdat ze dan ook de library's nodig hebben...
+![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
-xloader ?
+## Install and setup Arduino Ide
+
+`Place here the instructions for installation Arduino Ide and the neccesary libraries`
+
+## Download the firmware
+
+`Link for downloading the latest version`
+
+## Compile and upload the firmware
+
+`Instructions to compile and upload the sketch to your ESP32.`
+
