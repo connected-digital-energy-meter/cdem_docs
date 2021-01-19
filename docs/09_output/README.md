@@ -7,7 +7,10 @@ We provide some examples to get you started with that.
 
 ## Node-red example
 
-`Place here the example for Node-red`
+Here is a [example](/files/example.json) of a dashboard build in Node-red.
+Node-red doesn't keep history, so when exiting Node-red you loose all data history.
+
+![Image](./images/afbeelding1.png)
 
 # Home assistant example
 
