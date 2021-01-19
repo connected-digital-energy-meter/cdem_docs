@@ -23,6 +23,8 @@ The next table provides an overview of the required components to assemble the C
 | 1k Resistor | RK73H2ATTD1001F | `R4` - `R7` | 4 | [3548772](https://be.farnell.com/webapp/wcs/stores/servlet/ProductDisplay?catalogId=15001&langId=32&storeId=10154&urlLangId=32&productId=268867943) | SMD 0805 |
 | RGB LED | ASMB-MTB0-0A3A2 | `LD1`, `LD2` | 2 | [2401105](https://be.farnell.com/broadcom-limited/asmb-mtb0-0a3a2/led-hb-rgb-0-09w-plcc-4/dp/2401105) | SMD, PLCC-4 |
 | Tactile Switch | B3U-1000P | `SW1` | 1 | [1333652](https://be.farnell.com/omron/b3u-1000p/switch-spst-no-0-05a-12v-smd/dp/1333652) | SMD, SPST-NO |
+| 12 Pin Header | 22-28-4120 | `U2` | 1 | [3049539](https://be.farnell.com/molex/22-28-4120/connector-header-12pos-1row-2/dp/3049539) | Male, 2.54 mm Pitch, 1 Rows, 12 Contacts, Through Hole Straight |
+| 16 Pin Header | 22-28-4161 | `U2` | 1 | [3049545](https://be.farnell.com/molex/22-28-4161/connector-header-16pos-1row-2/dp/3049545) | Male, 2.54 mm Pitch, 1 Rows, 16 Contacts, Through Hole Straight |
 
 ::: tip Datasheets
 While Farnell only allow SME's to order components, the part numbers are provided so you can easily look for alternatives. Make sure to consult the datasheets of the components when selecting alternative components. While resistors and such are not that critical, the pinouts of the connectors and IC's are. Also make sure to take the key properties into account.

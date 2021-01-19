@@ -7,5 +7,3 @@ This information is open source and intended to support the do-it-yourself commu
 ::: tip Activating the P1 port
 Before you are able to use the P1 port of your Fluvius smart meter it has to be [activated](/06_connect). This process can take up to **72 hours**.
 :::
-
-
