@@ -169,9 +169,10 @@ Be aware of the fact that the number of OBIS codes and the order of them is not 
 
 ## Development of the hardware
 
-`Place here the information (schematics) of the pcb and the links to the Circuitmaker files`
+<!-- TODO - Place here the information (schematics) of the pcb and the links to the Circuitmaker files. -->
 
 ## Development of the firmware
 
-`Place here a flowchart of the firmware`
+<!-- TODO - Place here a flowchart of the firmware. -->
+
 

@@ -17,4 +17,4 @@ It can take up to **72 hours** to active your user ports. If your meter is newly
 
 ## Connecting to the Fluvius meter
 
-`Instruction to connect to the P1 port and power with usb power supply`
+<!-- TODO - Place here the instruction to connect to the fluvius meter and power supply ?. -->

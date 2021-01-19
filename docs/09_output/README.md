@@ -14,5 +14,6 @@ Node-red doesn't keep history, so when exiting Node-red you loose all data histo
 
 # Home assistant example
 
-`Place here the example for Home assistant`
+<!-- TODO - Place here the example for Home assistant. -->
+
 
