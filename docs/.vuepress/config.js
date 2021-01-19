@@ -1,11 +1,11 @@
 module.exports = {
-  title: 'Fluvius Smart Meter',
-  description: 'Make the Fluvius P1 port data available.',
+  title: 'Connected Digital Energy Meter',
+  description: 'The first steps towards making your digital utility meters smart',
   themeConfig: {
     logo: '/files/afbeelding1.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Company', link: 'https://www.vives.be/nl/onderzoek' },      
+      { text: 'VIVES', link: 'https://www.vives.be/nl/onderzoek' },      
       { text: 'Contact', link: 'mailto:nico.dewitte@vives.be' },
     ],
     sidebarDepth: 1,

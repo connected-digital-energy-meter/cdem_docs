@@ -1,6 +1,6 @@
-# Smart Meter Docs
+# Connected Digital Energy Meter
 
-Smart Meter documentation for the PWO project IoT opportunities.
+Connected Digital Energy Meter documentation for the PWO project IoT opportunities.
 
 ## Development
 
