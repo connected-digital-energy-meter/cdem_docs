@@ -10,12 +10,7 @@
 
 ![image](./images/afbeelding1.jpg)
 
-For the housing you have to print the following parts:
-
-<!-- TODO - Place these files in a repo ?. -->
-
-* [top](/files/top.stl) half of the housing
-* [bottom](/files/bottom.stl) half of the housing
+For the housing you have to print a bottom and top part, you can find those files [here](https://github.com/pwo-iot-opportunities/smartmeter_housing).
 
 We advice you to print the parts in PLA material with standard parameters but without supports or rafts.
 

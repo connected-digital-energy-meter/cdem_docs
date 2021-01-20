@@ -17,4 +17,11 @@ It can take up to **72 hours** to active your user ports. If your meter is newly
 
 ## Connecting to the Fluvius meter
 
-<!-- TODO - Place here the instruction to connect to the fluvius meter and power supply ?. -->
+Use a RJ11 or RJ12 cable to connect your Digital Energy Meter device to the Fluvius digital meter.
+Make sure you have a straight cable and not a crossover cable!
+
+Connect to the P1 port of the digital meter, the S1 port won't work.
+
+![image](./images/afbeelding1.jpg)
+
+Now just power your Digital Energy Meter device with a USB powersupply.
