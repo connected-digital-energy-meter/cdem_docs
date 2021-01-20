@@ -21,7 +21,8 @@ module.exports = {
           '/06_connect/',         
           '/07_working/',    
           '/08_development/',    
-          '/09_output/',    
+          '/09_output/',
+          '/10_faq/',    
     ]    
   },
   markdown: {
