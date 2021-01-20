@@ -171,7 +171,14 @@ Be aware of the fact that the number of OBIS codes and the order of them is not 
 
 <!-- TODO - Place here the information (schematics) of the pcb and the links to the Circuitmaker files. -->
 
+You can download the circuit, pcb and gerber files [here](https://workspace.circuitmaker.com/Projects/Details/Nico-De-Witte/cdem).
+
+<!-- TODO - Build a mirrored version in a project with better name. -->
+<!-- TODO - Add the Gerber files to the circuitmaker project. -->
+
 ## Development of the firmware
+
+This flowchart explains the program structure of the firmware.
 
 <!-- TODO - Place here a flowchart of the firmware. -->
 
