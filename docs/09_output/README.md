@@ -2,14 +2,12 @@
 
 ![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
-The firmware publishes your data to a MQTT broker. In order to use it, you still need to integrate that information into your dashboard or domotica system.
-We have provided you with a node-red example to get you started with that. The same technic can be applied in Home Assistant, Open Hab, Domoticz, ...
-
-## Node-red example
+The firmware publishes your data to a MQTT broker. In order to use it, you still need to integrate that information into your dashboard or demotics system.
+We have provided you with a example of how to do that with the help of Node-Red, InfluxDB and Grafana.
 
 Because this information must be available at all times you need a installation device that is running constantly. This can be a PC, NAS or in our case a Raspberry Pi.
 
-### Getting up to date
+## Getting up to date
 
 First off we’ll make sure everything is up to date. This could take a while, especially on a new Pi:
 
@@ -18,7 +16,7 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-### Installing Node-red
+## Installing Node-red
 
 ![image](./images/redicon.png)
 
@@ -28,7 +26,7 @@ See [these](https://nodered.org/docs/getting-started/raspberrypi) installation i
 If you are not, please get familiar with the usage of Node-Red before continuing.
 :::
 
-### Installing InfluxDB
+## Installing InfluxDB
 
 ![image](./images/influxdb.png)
 
@@ -74,7 +72,7 @@ grafana true
 If you are not, please get familiar with the usage of InfluxDB before continuing.
 :::
 
-### Installing Grafana
+## Installing Grafana
 
 ![image](./images/grafana.png)
 
@@ -99,7 +97,7 @@ sudo systemctl enable grafana-server.service
 
 Now we can check that grafana is up by loading it in a browser: `http://<ipaddress>:3000`. If so, you can log in with the username and password = admin and set a new admin password.
 
-### Add InfluxDB as a Grafana data source
+## Add InfluxDB as a Grafana data source
 
 Now we have both Influx and Grafana running, we can stitch them together. Log in to your Grafana instance and head to “Data Sources”. Select “Add new Data Source” and find InfluxDB under “Timeseries Databases”.
 
@@ -115,25 +113,46 @@ That’s all we need! Now go ahead and hit “Save & Test” to connect everythi
 
 ![image](./images/afbeelding3.png)
 
-<!-- TODO: Check all previous info on this page  -->
+## Use Node-red to retrieve published MQTT data and add it to InfluxDB
 
-### Import the Node-red flow
+Now we use Node-red to retrieve published data of your Digital Energy Meter device from the MQTT broker and publish it to your InfluxDB.
 
-[This flow](/files/example.json) will retrieve the published MQTT information and add it into the InfluxDB database.
+![image](./images/afbeelding4.png)
 
-<!-- TODO: Build the flow for this  -->
+First we use a `MQTT in` node:
+* Fill in your MQTT server info
+* Set the correct topic: `<basetopic>/consumption_low_tarif` for example.
 
-### Import the grafana dashboard
+Next we use a `function` node to convert the data from string to number:
 
-<!-- TODO: Build the grafana dashboard and export it to a file  -->
+```
+msg.payload = Number(msg.payload);
+return msg;
+```
 
-With [this file](/files/?) you can import the grafana dashboard we have made.
+We end the flow with a `influxdb out` node to publish the data as a measurement in your InfluxDB:
+* Fill in your InfluxDB server info
+* Set the correct measurement: `consumption_low_tarif` for example.
+
+In order to use the `influxdb out` node you will have to install `node-red-contrib-influxdb`.
+
+Just repeat this flow for all data recieved from your Digital Energy Meter device.
+
+Once all the MQTT data from your Digital Energy Meter device is redirected to your InfluxDB you can add extra's like:
+- Power info from your Solar Panel Inverter
+- Outdoor and indoor temperature
+- Your central heating system
+
+## Use Grafana to build a dashboard with the data in your InfluxDB
+
 
 <!-- TODO: Show a image of the dashboard  -->
 
-### The next step
+## The next step
 
 Next you could build in some automation via your Node-red flow.
 If you have a way of controlling some poweroutlets or even maybe your heatingsystem you could append automation to your flow so depending on your energy consumption and the current tarif certain devices are powered down.
 
+This is only one example, if you already have some home automation system setup like Home Assistant, OpenHab, Domoticz, ... you should be able to integrate the MQTT data into your system.
 
+<!-- TODO: Ask to send there output elaboration, Is there a way to make a real community of this with input from users ?  -->
