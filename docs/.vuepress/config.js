@@ -14,7 +14,7 @@ module.exports = {
     docsBranch: 'master',
     sidebar: [
 		      '/01_introduction/',
-          '/02_content/',
+          '/02_hardware/',
           '/03_assembly/',
           '/04_firmware/',
           '/05_configuration/',

@@ -1,4 +1,4 @@
-# Content
+# Required Hardware
 
 ![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
@@ -30,7 +30,7 @@ The next table provides an overview of the required components to assemble the C
 While Farnell only allow SME's to order components, the part numbers are provided so you can easily look for alternatives. Make sure to consult the datasheets of the components when selecting alternative components. While resistors and such are not that critical, the pinouts of the connectors and IC's are. Also make sure to take the key properties into account.
 :::
 
-<!-- TODO - Provide another alternative ? GOTRON ?-->
+<!-- TODO - Provide another alternative ? GOTRON https://www.gotron.be/ ?-->
 
 ### Microcontroller
 
