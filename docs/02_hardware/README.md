@@ -1,16 +1,20 @@
 # Required Hardware
 
+This chapter contains a listing of all the components and tools required to build your very own Connected Digital Energy Meter device.
+
 ![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
 <!-- TODO - Add a picture here of all the components layed out -->
 
-## Parts
+## CDEM Device Parts
 
-This section contains a listing of all the components and tools required to setup your very own Connected Digital Energy Meter device.
+The following sections give a detailed overview of all the parts that will be required to create a CDEM device.
 
 ### PCB Components
 
-The next table provides an overview of the required components to assemble the Connected Digital Energy Meter shield for the ESP32 Huzzah32.
+The table below provides an overview of the components required for the CDEM shield for the ESP32 Huzzah32.
+
+![CDEM - Shield](./images/cdem_v3.png)
 
 | Description | Part | PCB Designator | Quantity | Farnell Order Code | Key Properties |
 | :---: | :---: |  :---: |  :---: |  :---: |  :---: |
@@ -44,7 +48,7 @@ While it can be directly ordered from [Adafruit](https://www.adafruit.com/produc
 * [Kiwi Electronics - HUZZAH32 – ESP32 Feather Board](https://www.kiwi-electronics.nl/adafruit-huzzah32-esp32-feather-board)
 * [Digi-Key Electronics - HUZZAH32 – ESP32 Feather Board](https://www.digikey.be/product-detail/en/adafruit-industries-llc/3405/1528-2181-ND/7244967)
 
-::: tip Huzzah32
+::: tip 🔎 Huzzah32
 When selecting another distributor make sure to select the exact same module as documented here. Other modules exists that are very similar but not compatible.
 :::
 
@@ -68,15 +72,30 @@ Connecting the Connected Digital Energy Meter to the Fluvius Digital meter requi
 
 When ordering cables one of the cheapest distributors with the wides range of products is [AlleKabels](https://www.allekabels.nl/rj11-kabel/7399/1377759/rj11-kabel.html). A length of `0.5 meter` is more than enough.
 
-::: warning Check Connections
-Make sure that the RJ11 cable has 4 or 6 wires (actually RJ12 - also usable) and that both sides have the wires in the same order.
+::: warning 🕵️ Check Connections
+Make sure that the RJ11 cable has 4 or 6 wires (actually RJ12, which is also usable) and that both sides have the wires in the same order.
 :::
 
-## Tools
+## Soldering Tools
 
-To assemble the shield PCB some tools are required. 
+To assemble the PCB shield, some basic soldering tools are required.
 
-* Hotair solderingstation or solderingstation with a fine solderingpoint
-* Solderingpaste or fine soldering tin
-* Tweezers
-* Magnifying glass (optional)
+To solder the PCB you will need either **a hot air soldering station** and some **soldering paste**
+
+![Soldering Station](./images/soldering_station.png)
+
+or a **soldering iron with a small tip** and **thin soldering tin** (0.5mm - 0.7mm).
+
+![Soldering Iron](./images/soldering_iron.png)
+
+A **pair of tweezers** to hold and place the SMD components.
+
+![Tweezers](./images/tweezers.jpg)
+
+And optionally a **magnifying glass** to check on the placement of the components or possible short circuits.
+
+![Magnifying Glass](./images/magnifying_glass.jpg)
+
+If you made a mistake it may be required to have some **desoldering braid** at hand too. This will allow you to cleanup some excessive tin.
+
+![Tweezers](./images/desoldering_braid.png)
