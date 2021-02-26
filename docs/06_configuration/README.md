@@ -30,7 +30,7 @@ Your password is also save inside the device and will never be made public. It i
 
 ![WiFi Configuration](./images/wifi.png)
 
-::: tip Arduino Serial Monitor
+::: tip 🖥 Arduino Serial Monitor
 To supply information to the device, type your text in the top of the Arduino Serial Monitor and press enter to confirm.
 ::::
 
@@ -72,7 +72,7 @@ Once the touch has been detected, the boot menu and the current device configura
 
 The menu will also allow you to start the configuration wizard or reset the device to factory default settings.
 
-::: warning Factory Default
+::: warning 🏭 Factory Default
 If you ever lend the device or give it to someone else, make sure to reset the device to its factory default settings.
 :::
 

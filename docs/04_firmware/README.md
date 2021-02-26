@@ -1,8 +1,6 @@
 # Compiling and Flashing the Firmware
 
-![UNDER CONSTRUCTION](./images/underconstruction.jpg)
-
-<!-- Maybe a nice image here of arduino ide with arrow to our PCB -->
+![Flashing Firmware](./images/flash_firmware.jpg)
 
 ## Install Arduino IDE
 
