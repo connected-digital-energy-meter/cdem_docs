@@ -122,6 +122,8 @@ That’s all we need! Now go ahead and hit “Save & Test” to connect everythi
 
 ### Use Node-red to retrieve published MQTT data and add it to InfluxDB
 
+TODO - Install `node-red-contrib-influxdb`  via Palette
+
 Now we use Node-red to retrieve published data of your Connected Digital Energy Meter from the MQTT broker and publish it to your InfluxDB.
 
 ![image](./images/afbeelding4.png)

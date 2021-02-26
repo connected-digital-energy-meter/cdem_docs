@@ -14,7 +14,7 @@ You will need the following in order to make your request:
 
 After filling in the online form, the activation process can take up to several days. If your meter has just been placed, you should wait a couple of days before making this request to make sure that the meter is registered with Fluvius.
 
-Once the activation process has been completed, your digital meter will start to send its telemetry data via the S1 and P1 ports. Do note that the meter itself does not send its data to the cloud or any other service. However, if ever required, the P1 port can be deactivated using the same online form. 
+Once the activation process has been completed, your digital meter will start to send its telemetry data via the S1 and P1 ports. Do note that the meter itself does not send its data to the cloud or any other service. However, if ever required, the P1 port can be deactivated using the same online form.
 
 ::: tip ⌚ Can take some time
 The actual meter activation process can take up to **72 hours**. Normally you should receive an email from Fluvius when the process is finished and the ports have become available.
@@ -32,7 +32,7 @@ Do make sure you have a straight cable and not a crossover cable.
 
 Connect to the P1 port of the digital meter (the right one if standing in front of the meter). The S1 port will not work.
 
-![image](./images/afbeelding1.jpg)
+![image](./images/digital_meter.png)
 
 <!-- TODO - Draw arrow on P1 and cross on S1 -->
 

@@ -5,11 +5,6 @@
 Upon the first startup of the firmware the factory default settings are loaded and you automaticly are redirected to the configuration wizard. 
 You can acces this via a serial communication software like [PuTTY](https://www.putty.org/) or the serial monitor of Arduino IDE. You just need to connect the ESP32 to your system with a USB cable.
 
-## Setup your MQTT broker
-
-You can either install a MQTT broker (Mosquitto for example) localy (on a Raspberry Pi for example) or use a cloud based MQTT broker.
-The MQTT broker must have a Static IP-adress and you also need to know the port used for communication.
-
 ## Configuration settings
 
 * Wifi SSID
