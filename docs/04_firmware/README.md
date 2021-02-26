@@ -10,7 +10,7 @@ In order to compile and flash the firmware for your ESP32 you will need to insta
 
 ## Download the Latest Firmware
 
-Download the latest firmware for the ESP32 from the [CDEM GitHub page](https://github.com/pwo-iot-opportunities/smartmeter_featherfirmware/releases). Extract the ZIP file somewhere on your system.
+Download the latest firmware for the ESP32 from the [CDEM Firmware GitHub page](https://github.com/connected-digital-energy-meter/cdem_firmware/releases). Extract the ZIP file somewhere on your system.
 
 Open Arduino IDE and traverse to the location you extracted the ZIP file.
 
@@ -30,7 +30,7 @@ Last select the `Adafruit ESP32 Feather` board from the `Tools => Board => ESP32
 
 Several libraries have to be installed in order for the firmware to be compiled. The following sections describe how each library can be installed.
 
-::: tip  Git
+::: tip 😺 Git
 If you are familiar with git you can also clone the library repositories in your user home directory under `Arduino/libraries` and checkout the required release tags. The `Arduino/libraries` path is automatically included when the project is compiled.
 :::
 
@@ -47,10 +47,6 @@ The Async MQTT client depends on the Async TCP Library to setup a TCP connection
 Navigate to the GitHub page of the [Async TCP Library](https://github.com/me-no-dev/AsyncTCP) and click the **green** `Code` button. Select `Download ZIP` from the dropdown.
 
 Include the ZIP file in Arduino IDE via `Sketch => Include Library => Add ZIP Library ...`.
-
-::: tip Git
-If you are familiar with git you can also clone the repository in your user home directory under `Arduino/libraries` and checkout the `v0.8.1` tag.
-:::
 
 ### ArduinoJson
 
@@ -69,7 +65,7 @@ Follow the instructions below or [checkout the video of the author](https://www.
 
 Now connect your ESP32 via USB. Select the correct `COM-port` from `Tools => Port` and compile and upload the firmware to the ESP32.
 
-::: warning Configuration
+::: warning ⌨ Configuration
 Keep the ESP32 connected and Arduino IDE running for a quick configuration of your firmware.
 :::
 
