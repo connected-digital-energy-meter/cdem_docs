@@ -10,7 +10,13 @@ In order to compile and flash the firmware for your ESP32 you will need to insta
 
 ## Download the Latest Firmware
 
-Download the latest firmware for the ESP32 from the [CDEM Firmware GitHub page](https://github.com/connected-digital-energy-meter/cdem_firmware/releases). Extract the ZIP file somewhere on your system.
+Download the latest firmware for the ESP32 from the [CDEM Firmware GitHub page](https://github.com/connected-digital-energy-meter/cdem_firmware/releases).
+
+Under `Assets` you will find the ZIP file `cdem_firmware_vx_x_x.zip`.
+
+![Firmware](./images/download_firmware.png)
+
+Extract the ZIP file somewhere on your system.
 
 Open Arduino IDE and traverse to the location you extracted the ZIP file.
 
