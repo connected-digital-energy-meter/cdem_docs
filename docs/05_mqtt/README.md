@@ -61,3 +61,11 @@ If you have a docker environment on any of your network devices (server, NAS, ..
 ### Docker-compose - All in One
 
 For a more advanced [all in one setup](/11_docker_compose) checkout the documentation on using docker-compose.
+
+## MQTT Explorer
+
+Feel free to test your broker using a tool such as [MQTT Explorer](http://mqtt-explorer.com/). It's an MQTT client application that allows you to see all data passing by on your broker as well as allow you to publish messages on a topic.
+
+Once your CDEM device is operational you should see its data pass by just as shown in the next screenshot.
+
+![MQTT Explorer](./images/mqtt_explorer.png)
