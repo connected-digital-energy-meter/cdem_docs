@@ -8,7 +8,7 @@ As of January 2021 the constitutional Court has decided these digital meters wil
 
 Now more then ever it is in everybody's interest to monitor your energy consumption and if possible automate your home for optimal use of energy.
 
-<!-- TODO: Add image of energy saving by smart home -->
+![Home automation](./images/afbeelding1.png)
 
 This is where the **Connected Digital Energy Meter - CDEM** device comes into play. It allows you to extract your utility meter data from the devices (digital electricity and gas meters) and put it to better use.
 

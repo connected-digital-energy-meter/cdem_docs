@@ -47,7 +47,7 @@ The MQTT broker must have a Static IP-adress and you also need to know the port 
 * MQTT broker base topic
 
     Each data is published to a topic on the MQTT broker. Data from the same device usualy is combined in a base topic.
-    The factory default for the base topic is `iot/vives/smartmeter/`.
+    The factory default for the base topic is `iot/myhome/cdem`.
 
 * Period
 
