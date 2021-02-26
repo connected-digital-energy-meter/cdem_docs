@@ -134,8 +134,6 @@ Before deploying you still need to correct your `base topic` of the MQTT broker 
 
 In order to use the `influxdb out` node you will have to install `node-red-contrib-influxdb`.
 
-Just repeat this flow for all data recieved from your Connected Digital Energy Meter.
-
 Once all the MQTT data from your Connected Digital Energy Meter is redirected to your InfluxDB you can add extra's like:
 - Power info from your Solar Panel Inverter
 - Outdoor and indoor temperature
@@ -151,17 +149,18 @@ You can download a sample dashboard [here](/files/grafana.json).
 
 <!-- TODO: Change this image once we have actual data  -->
 
-### The next step
+### Interpret your dashboard
 
-Next you could build in some automation via your Node-red flow.
-If you have a way of controlling some poweroutlets or even maybe your heatingsystem you could append automation to your flow so depending on your energy consumption and the current tarif certain devices are powered down.
+* In the electricity graphs you can detect spikes in delivery and start investegating the cause and if you can either make improvements or redirect this energy usage to a low tarif period.
 
-This is only one example, if you already have some home automation system setup like Home Assistant, OpenHab, Domoticz, ... you should be able to integrate the MQTT data into your system.
+![image](./images/afbeelding6.png)
+
+* You can also evaluate your consumption in low and normal tarif to make decisions about when to use the large energy consuming appliences.
+
+* If you have a form of dometics you could use the tarif indicator to shut down some of your appliences (freezer, boiler, ...) while in normal tarif. You can do this by adding some automation with Node-red.
 
 ## Example with Homeassistant
 
+Comming soon...
 
-
-
-
-<!-- TODO: Ask to send there output elaboration, Is there a way to make a real community of this with input from users ?  -->
+<!-- TODO: Home assitant example -->

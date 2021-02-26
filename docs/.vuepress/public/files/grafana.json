@@ -197,103 +197,6 @@
       "type": "stat"
     },
     {
-      "datasource": "Smartmeter DB",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "super-light-yellow",
-                "value": null
-              },
-              {
-                "color": "yellow",
-                "value": 10
-              },
-              {
-                "color": "orange",
-                "value": 20
-              },
-              {
-                "color": "red",
-                "value": 30
-              }
-            ]
-          },
-          "unit": "kwatt"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 4,
-        "x": 8,
-        "y": 0
-      },
-      "id": 5,
-      "options": {
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "7.3.7",
-      "targets": [
-        {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "total_power_consumption",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT last(value) FROM \"total_power_consumption\"",
-          "queryType": "randomWalk",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Current electricity usage",
-      "type": "gauge"
-    },
-    {
       "aliasColors": {
         "Electricity injected into net": "green",
         "Electricity used from net": "red",
@@ -314,8 +217,8 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 9,
-        "w": 12,
-        "x": 12,
+        "w": 16,
+        "x": 8,
         "y": 0
       },
       "hiddenSeries": false,
@@ -364,7 +267,7 @@
           "measurement": "total_power_consumption",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT -mean(\"value\") FROM \"total_power_consumption\" WHERE time > now()-1h GROUP BY time(1m) fill(null)",
+          "query": "SELECT -last(\"value\") FROM \"total_power_consumption\" WHERE time > now()-1h GROUP BY time(1m) fill(null)",
           "queryType": "randomWalk",
           "rawQuery": true,
           "refId": "A",
@@ -404,7 +307,7 @@
           "measurement": "total_power_production",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"value\") FROM \"total_power_production\" WHERE time > now()-1h GROUP BY time(1m) fill(null)",
+          "query": "SELECT last(\"value\") FROM \"total_power_production\" WHERE time > now()-1h GROUP BY time(1m) fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -429,7 +332,7 @@
       "timeFrom": "1h",
       "timeRegions": [],
       "timeShift": null,
-      "title": "Electricity (last hour)",
+      "title": "Electricity",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -827,6 +730,190 @@
       "type": "stat"
     },
     {
+      "datasource": "Smartmeter DB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "max": 5,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 0,
+        "y": 9
+      },
+      "id": 17,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "total_power_consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(value) FROM \"total_power_production\"",
+          "queryType": "randomWalk",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Current electricity injection",
+      "type": "gauge"
+    },
+    {
+      "datasource": "Smartmeter DB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "max": 10,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "super-light-yellow",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 2.5
+              },
+              {
+                "color": "orange",
+                "value": 5
+              },
+              {
+                "color": "red",
+                "value": 7.5
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 3,
+        "y": 9
+      },
+      "id": 5,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "total_power_consumption",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(value) FROM \"total_power_consumption\"",
+          "queryType": "randomWalk",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Current electricity delivery",
+      "type": "gauge"
+    },
+    {
       "aliasColors": {
         "Electricity injected into net": "green",
         "Electricity used from net": "red",
@@ -849,8 +936,8 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 7,
-        "w": 24,
-        "x": 0,
+        "w": 18,
+        "x": 6,
         "y": 9
       },
       "hiddenSeries": false,
@@ -905,7 +992,7 @@
           "measurement": "total_power_consumption",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT -sum(\"value\") FROM \"total_power_consumption\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
+          "query": "SELECT -last(\"value\") FROM \"total_power_consumption\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
           "queryType": "randomWalk",
           "rawQuery": true,
           "refId": "A",
@@ -945,7 +1032,7 @@
           "measurement": "total_power_production",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT sum(\"value\") FROM \"total_power_production\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
+          "query": "SELECT last(\"value\") FROM \"total_power_production\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -984,48 +1071,9 @@
           "measurement": "actual_tarif",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"value\") FROM \"actual_tarif\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
+          "query": "SELECT last(\"value\") FROM \"actual_tarif\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
           "rawQuery": true,
           "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Solar power produced",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "solar_power",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"value\") FROM \"solar_power\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
-          "rawQuery": true,
-          "refId": "D",
           "resultFormat": "time_series",
           "select": [
             [
@@ -1048,7 +1096,7 @@
       "timeFrom": "24h",
       "timeRegions": [],
       "timeShift": null,
-      "title": "Electricity (last 24 hours)",
+      "title": "Electricity ",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1155,7 +1203,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Consumption (low tarif)",
+          "alias": "Low tarif",
           "groupBy": [
             {
               "params": [
@@ -1173,7 +1221,7 @@
           "measurement": "actual_consumption",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"value\")/24 FROM \"total_power_consumption\" WHERE (\"tarif\" =2) AND $timeFilter GROUP BY time(1d) fill(null)",
+          "query": "SELECT mean(\"value\")*24 FROM \"total_power_consumption\" WHERE (\"tarif\" =2)  GROUP BY time(1d) fill(null)",
           "queryType": "randomWalk",
           "rawQuery": true,
           "refId": "A",
@@ -1201,7 +1249,7 @@
           ]
         },
         {
-          "alias": "Consumption (normal tarif)",
+          "alias": "Normal tarif",
           "groupBy": [
             {
               "params": [
@@ -1218,7 +1266,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"value\")/24 FROM \"total_power_consumption\" WHERE (\"tarif\" =1) AND $timeFilter GROUP BY time(1d) fill(null)",
+          "query": "SELECT mean(\"value\")*24 FROM \"total_power_consumption\" WHERE (\"tarif\" =1)  GROUP BY time(1d) fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -1243,7 +1291,7 @@
       "timeFrom": "7d",
       "timeRegions": [],
       "timeShift": null,
-      "title": "Electricity (last week)",
+      "title": "Electricity delivered ",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1376,7 +1424,7 @@
       "timeFrom": "24h",
       "timeRegions": [],
       "timeShift": null,
-      "title": "Gas used (last 24 hours)",
+      "title": "Gas used",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1431,5 +1479,5 @@
   "timezone": "",
   "title": "Home - Energy",
   "uid": "8E1uagigk",
-  "version": 40
+  "version": 56
 }

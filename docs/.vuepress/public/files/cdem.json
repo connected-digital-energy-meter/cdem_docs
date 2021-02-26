@@ -11,12 +11,12 @@
         "type": "mqtt in",
         "z": "3754a753.818db8",
         "name": "MQTT Payload topic",
-        "topic": "<your basetopic>/payload",
+        "topic": "iot/myhome/cdem/payload",
         "qos": "1",
         "datatype": "json",
         "broker": "3a09552c.f19afa",
         "x": 110,
-        "y": 100,
+        "y": 140,
         "wires": [
             [
                 "b6d7281e.aa3328",
@@ -51,12 +51,12 @@
         "z": "3754a753.818db8",
         "name": "Current Power",
         "func": "return [\n  // Actual Tarif (at this moment)\n  {\n    payload: {\n      value : msg.payload.actual_tarif,\n      label: (msg.payload.actual_tarif == 1 ? 'high' : 'low')\n    }\n  },\n  // Total Power Consumption (current power consumption over all phases)\n  {\n    payload: {\n      value : msg.payload.total_power_consumption,\n      tarif: msg.payload.actual_tarif\n    }\n  },\n  // Total Power Production (current power production over all phases)\n  {\n    payload: {\n      value : msg.payload.total_power_production,\n      tarif: msg.payload.actual_tarif\n    }\n  }\n];",
-        "outputs": 3,
+        "outputs": 4,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 360,
-        "y": 100,
+        "y": 140,
         "wires": [
             [
                 "74ddfeab.7d121"
@@ -66,18 +66,14 @@
             ],
             [
                 "13989f1b.812bc1"
-            ]
+            ],
+            []
         ],
         "outputLabels": [
             "Actual Tarif",
             "Total Power Consumption",
             "Total Power Production",
-            "l1 Power Consumption",
-            "l2 Power Consumption",
-            "l3 Power Consumption",
-            "l1 Power Production",
-            "l2 Power Production",
-            "l3 Power Production"
+            ""
         ]
     },
     {
@@ -93,7 +89,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 350,
-        "y": 440,
+        "y": 480,
         "wires": []
     },
     {
@@ -101,13 +97,13 @@
         "type": "function",
         "z": "3754a753.818db8",
         "name": "Historic Power",
-        "func": "return [,\n  // Consumption Low Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.consumption_low_tarif\n    }\n  },\n  // Consumption High Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.consumption_high_tarif\n    }\n  },\n  // Production Low Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.production_low_tarif\n    }\n  },\n  // Production High Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.production_high_tarif\n    }\n  },\n];",
+        "func": "return [\n  // Consumption Low Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.consumption_low_tarif\n    }\n  },\n  // Consumption High Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.consumption_high_tarif\n    }\n  },\n  // Production Low Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.production_low_tarif\n    }\n  },\n  // Production High Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.production_high_tarif\n    }\n  }\n];",
         "outputs": 4,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 360,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "511c3fd7.5daff"
@@ -134,13 +130,13 @@
         "type": "function",
         "z": "3754a753.818db8",
         "name": "Gas",
-        "func": "return [,\n  // Gas Meter (total history meter value)\n  {\n    payload: {\n      value : msg.payload.gas_meter_m3\n    }\n  },\n];",
+        "func": "return [\n  // Gas Meter (total history meter value)\n  {\n    payload: {\n      value : msg.payload.gas_meter_m3\n    }\n  }\n];",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 330,
-        "y": 320,
+        "y": 360,
         "wires": [
             [
                 "6cd58bb2.abb264"
@@ -155,13 +151,13 @@
         "type": "function",
         "z": "3754a753.818db8",
         "name": "Water",
-        "func": "return [,\n  // Water Meter (total history meter value)\n  {\n    payload: {\n      value : msg.payload.water_meter_m3\n    }\n  },\n];",
+        "func": "return [\n  // Water Meter (total history meter value)\n  {\n    payload: {\n      value : msg.payload.water_meter_m3\n    }\n  }\n];",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 330,
-        "y": 380,
+        "y": 420,
         "wires": [
             [
                 "d0d6337c.f521f"
@@ -222,7 +218,7 @@
         "org": "organisation",
         "bucket": "bucket",
         "x": 760,
-        "y": 160,
+        "y": 200,
         "wires": []
     },
     {
@@ -240,7 +236,7 @@
         "org": "organisation",
         "bucket": "bucket",
         "x": 770,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -258,7 +254,7 @@
         "org": "organisation",
         "bucket": "bucket",
         "x": 760,
-        "y": 240,
+        "y": 280,
         "wires": []
     },
     {
@@ -276,7 +272,7 @@
         "org": "organisation",
         "bucket": "bucket",
         "x": 760,
-        "y": 280,
+        "y": 320,
         "wires": []
     },
     {
@@ -294,7 +290,7 @@
         "org": "organisation",
         "bucket": "bucket",
         "x": 730,
-        "y": 320,
+        "y": 360,
         "wires": []
     },
     {
@@ -312,14 +308,14 @@
         "org": "organisation",
         "bucket": "bucket",
         "x": 730,
-        "y": 380,
+        "y": 420,
         "wires": []
     },
     {
         "id": "3a09552c.f19afa",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "<IP adress of your MQTT broker>",
+        "broker": "<IP of your mqtt broker>",
         "port": "1883",
         "clientid": "",
         "usetls": false,
