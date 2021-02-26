@@ -1,36 +1,78 @@
-# Installing the firmware
+# Compiling and Flashing the Firmware
 
 ![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
-## Install and setup Arduino Ide
+<!-- Maybe a nice image here of arduino ide with arrow to our PCB -->
 
-### Arduino IDE
+## Install Arduino IDE
 
-In order to install the firmware on your ESP32 you need to install and get familiar with Arduino IDE.
-Please check [the website of Arduino](https://www.arduino.cc/en/Guide) for more information on that.
+In order to compile and flash the firmware for your ESP32 you will need to install Arduino IDE. Instructions for most operating system can be found on the website of [Arduino](https://www.arduino.cc/en/Guide) itself.
 
-### Arduino core for the ESP32
+## Download the Latest Firmware
 
-1. download [ESP32 by Espressif Systems](https://github.com/espressif/arduino-esp32#using-through-arduino-ide) (the firmware is tested with v1.0.4)
-2. open Boards Manager from `Tools => Board` menu and install `esp32 by Espressif Systems` platform. 
-3. next select `Adafruit ESP32 Feather` board from `Tools => Board => ESP32 Arduino` menu after installation
+Download the latest firmware for the ESP32 from the [CDEM GitHub page](https://github.com/pwo-iot-opportunities/smartmeter_featherfirmware/releases). Extract the ZIP file somewhere on your system.
 
-### Async MQTT client library
+Open Arduino IDE and traverse to the location you extracted the ZIP file.
 
-Download [the library](https://github.com/marvinroger/async-mqtt-client) as a zip file and include it as such or clone the repo in the directory `Arduino/libraries` which can be found under your user profile.
+Next of you will be required to install the different libraries the firmware depends on to do its work.
 
-This library has [the following dependency](https://github.com/me-no-dev/AsyncTCP), install it the same way.
+## Install ESP32 board packages and tools
 
-## Download the firmware
+Start the Arduino IDE and navigate to `File => Preferences`.
 
-Now that your Arduino IDE is ready to compile and upload the firmware it's time to download it.
+Now add the stable release link `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json` to the **Additional Boards Manager URLs**. Multiple URLs can be added by clicking the small window icon next to the input field and using a URL per line.
 
-You can download the latest version [here](https://github.com/pwo-iot-opportunities/smartmeter_featherfirmware/releases).
+Open `Tools => Board => Board Manager ...` and search for `esp32`. Next install the `esp32 by Espressif Systems` (the firmware is tested with v1.0.4)
 
-## Compile and upload the firmware
+Last select the `Adafruit ESP32 Feather` board from the `Tools => Board => ESP32 Arduino` menu after installation
 
-Now open the firmware in Arduino IDE and connect your ESP32 via USB. Select the correct `COM-port` and compile and upload the firmware to the ESP32.
+## Installing Required Libraries
 
-:::tip Note
+Several libraries have to be installed in order for the firmware to be compiled. The following sections describe how each library can be installed.
+
+::: tip  Git
+If you are familiar with git you can also clone the library repositories in your user home directory under `Arduino/libraries` and checkout the required release tags. The `Arduino/libraries` path is automatically included when the project is compiled.
+:::
+
+### Async MQTT client for ESP8266 and ESP32
+
+The Async MQTT client library allows the firmware to connect to an MQTT broker and publish messages.
+
+Download the `v0.8.1` release of the [Async MQTT Client library](https://github.com/marvinroger/async-mqtt-client/releases) as a zip file and include it via `Sketch => Include Library => Add ZIP Library ...`.
+
+### Async TCP Library for ESP32 Arduino
+
+The Async MQTT client depends on the Async TCP Library to setup a TCP connection with the broker.
+
+Navigate to the GitHub page of the [Async TCP Library](https://github.com/me-no-dev/AsyncTCP) and click the **green** `Code` button. Select `Download ZIP` from the dropdown.
+
+Include the ZIP file in Arduino IDE via `Sketch => Include Library => Add ZIP Library ...`.
+
+::: tip Git
+If you are familiar with git you can also clone the repository in your user home directory under `Arduino/libraries` and checkout the `v0.8.1` tag.
+:::
+
+### ArduinoJson
+
+The ArduinoJson library allows easy parsing and conversion of JSON strings. The full payload of all the meter telemetry is transmitted as JSON. 
+
+Follow the instructions below or [checkout the video of the author](https://www.youtube.com/watch?v=GUTpaY1YaXo&feature=youtu.be).
+
+1. Open the Arduino Library Manager via `Tools => Manage Libraries`
+2. Search for `ArduinoJson` (make sure to use the library by **Benoit Blanchon**)
+3. Select the version: `6.17.3 `
+4. Click install.
+
+![ArduinoJson](./images/arduino_json.png)
+
+## Compile and Upload the Firmware
+
+Now connect your ESP32 via USB. Select the correct `COM-port` from `Tools => Port` and compile and upload the firmware to the ESP32.
+
+::: warning Configuration
 Keep the ESP32 connected and Arduino IDE running for a quick configuration of your firmware.
 :::
+
+If all went well you should get similar output to that shown below.
+
+![Successful compilation](./images/compiled_succesfully.png)
