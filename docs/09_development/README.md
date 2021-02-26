@@ -23,11 +23,10 @@ The P1 port is a serial interface that uses a standard RJ12 connector.
 | 5   | Data                |
 | 6   | GND (ground)        |
 
-> **Safety**
->
-> In order to protect both the user and the Fluvius Smart Meter the P1 port is galvanically isolated from the mains.
->
-> ![Image](./images/image2.png)
+**Safety**
+
+In order to protect both the user and the Fluvius Smart Meter the P1 port is galvanically isolated from the mains.
+![Image](./images/image2.png)
 
 #### +5V Power supply
 
@@ -92,13 +91,13 @@ For more information on the OBIS codes see the [DSMR 5 standard](/files/dsmr5.pd
 | OBIS reference | Value | Example |
 |---|---|---|
 | 0-0:96.1.1.255 | Equipment identifier | 0-0:96.1.1(4B384547303034303436333935353037) |
-| 1-0:1.8.1.255 | Meter Reading electricity delivered to client (normal tariff) in 0,001 kWh | 1-0:1.8.1(123456.789*kWh) |
-| 1-0:1.8.2.255 | Meter Reading electricity delivered to client (low tariff) in 0,001 kWh | 1-0:1.8.2(123456.789*kWh) |
-| 1-0:2.8.1.255 | Meter Reading electricity delivered by client (normal tariff) in 0,001 kWh | 1-0:2.8.1(123456.789*kWh) |
-| 1-0:2.8.2.255 | Meter Reading electricity delivered by client (low tariff) in 0,001 kWh | 1-0:2.8.2(123456.789*kWh) |
-| 0-0:96.14.0.255 | Tariff indicator electricity. (1=normal, 2=low) The tariff indicator can be used to switch tariff dependent loads e.g boilers. This is responsibility of the P1 user | 0-0:96.14.0(0002) |
-| 1-0:1.7.0.255 | Actual electricity power delivered (+P) in 1 Watt resolution | 1-0:1.7.0(01.193*kW) |
-| 1-0:2.7.0.255 | Actual electricity power received (-P) in 1 Watt resolution | 1-0:2.7.0(00.000*kW) |
+| 1-0:1.8.1.255 | Meter Reading electricity consumption (normal tariff) in 0,001 kWh | 1-0:1.8.1(123456.789*kWh) |
+| 1-0:1.8.2.255 | Meter Reading electricity consumption (low tariff) in 0,001 kWh | 1-0:1.8.2(123456.789*kWh) |
+| 1-0:2.8.1.255 | Meter Reading electricity injected (normal tariff) in 0,001 kWh | 1-0:2.8.1(123456.789*kWh) |
+| 1-0:2.8.2.255 | Meter Reading electricity injected (low tariff) in 0,001 kWh | 1-0:2.8.2(123456.789*kWh) |
+| 0-0:96.14.0.255 | Tariff indicator electricity. **(1=normal, 2=low)** | 0-0:96.14.0(0002) |
+| 1-0:1.7.0.255 | Actual electricity power consumption in 1 Watt resolution | 1-0:1.7.0(01.193*kW) |
+| 1-0:2.7.0.255 | Actual electricity power injected in 1 Watt resolution | 1-0:2.7.0(00.000*kW) |
 | 0-0:96.7.21.255 | Number of power failures in any phases | 0-0:96.7.21(00004) |
 | 0-0:96.7. 9.255 | Number of long power failures in any phases | 0-0:96.7.9(00002) |
 | 1-0:99:97.0.255 | Power failure event log | 1-0:99.97.0(2)(0-0:96.7.19)(101208152415W)(0000000240*s)(101208151004W)(0000000301*s) |
@@ -114,18 +113,18 @@ For more information on the OBIS codes see the [DSMR 5 standard](/files/dsmr5.pd
 | 1-0:31.7.0.255 | Instantaneous current L1 | 1-0:31.7.0(001*A) |
 | 1-0:51.7.0.255 | Instantaneous current L2 | 1-0:51.7.0(002*A) |
 | 1-0:71.7.0.255 | Instantaneous current L3 | 1-0:71.7.0(003*A) |
-| 1-0:21.7.0.255 | Instantaneous active power L1 (+P) | 1-0:21.7.0(01.111*kW) |
-| 1-0:41.7.0.255 | Instantaneous active power L2 (+P) | 1-0:41.7.0(02.222*kW) |
-| 1-0:61.7.0.255 | Instantaneous active power L3 (+P) | 1-0:61.7.0(03.333*kW) |
-| 1-0:22.7.0.255 | Instantaneous active power L1 (-P) | 1-0:22.7.0(04.444*kW) |
-| 1-0:42.7.0.255 | Instantaneous active power L2 (-P) | 1-0:42.7.0(05.555*kW) |
-| 1-0:62.7.0.255 | Instantaneous active power L3 (-P) | 1-0:62.7.0(06.666*kW) |
+| 1-0:21.7.0.255 | Instantaneous active power consumption L1 | 1-0:21.7.0(01.111*kW) |
+| 1-0:41.7.0.255 | Instantaneous active power consumption L2 | 1-0:41.7.0(02.222*kW) |
+| 1-0:61.7.0.255 | Instantaneous active power consumption L3 | 1-0:61.7.0(03.333*kW) |
+| 1-0:22.7.0.255 | Instantaneous active power injected L1 | 1-0:22.7.0(04.444*kW) |
+| 1-0:42.7.0.255 | Instantaneous active power injected L2 | 1-0:42.7.0(05.555*kW) |
+| 1-0:62.7.0.255 | Instantaneous active power injected L3 | 1-0:62.7.0(06.666*kW) |
 | 0-0:96.3.10.255 | Breaker state | 0-0:96.3.10(1) |
 | 0-0:17.0.0.255 | Limiter treshold | 0-0:17.0.0(123.4*kW) |
 | 1-0:31.4.0.255 | Fuse supervision threshold (L1) | 1-0:31.4.0(001*A) |
 
 ::: warning Warning
-The Obis-references for High and Low tarif are switch for the Belgian meter compared to the Dutch meter!
+The Obis-references for High and Low tarif are switched for the Belgian meter compared to the Dutch meter!
 :::
 
 ##### Messages
@@ -133,7 +132,7 @@ The Obis-references for High and Low tarif are switch for the Belgian meter comp
 | OBIS reference | Value | Example |
 |---|---|---|
 | 0-0:96.1.4.255 | Version information | 0-0:96.1.4(50) |
-| 0-0:96.13.0.255 | Text message max 1024 characters. | 0:96.13.0(303132333435363738393A3B3C3D3E3F303132333435363738393A3B3C3D3E3F303132333435363738393A3B3C3D3E3F303132333435363738393A3B3C3D3E3F303132333435363738393A3B3C3D3E3F) |
+| 0-0:96.13.0.255 | Text message max 1024 characters. | 0:96.13.0(303132333435363738393A3B3C3D3E3F3031) |
 | 0-0:96.13.1.255 | Consumer message code | 0-0:96.13.1(3031203631203831) |
 
 ##### Gas data
@@ -169,11 +168,11 @@ Be aware of the fact that the number of OBIS codes and the order of them is not 
 
 ## Development of the hardware
 
-<!-- TODO - Place here the information (schematics) of the pcb and the links to the Circuitmaker files. -->
+![Image](./images/image6.png)
+![Image](./images/image7.png)
 
-You can download the circuit, pcb and gerber files [here](https://workspace.circuitmaker.com/Projects/Details/Nico-De-Witte/cdem).
+You can download the circuit, pcb and gerber files [here](https://workspace.circuitmaker.com/Projects/Details/Nico-De-Witte/Connected-Digital-Energy-Meter).
 
-<!-- TODO - Build a mirrored version in a project with better name. -->
 <!-- TODO - Add the Gerber files to the circuitmaker project. -->
 
 ## Development of the firmware

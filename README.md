@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/966c6ad8-b113-4dee-bcba-3ec9c168ec96/deploy-status)](https://app.netlify.com/sites/connected-digital-energy-meter/deploys)
+
 # Connected Digital Energy Meter
 
 Connected Digital Energy Meter documentation for the PWO project IoT opportunities.

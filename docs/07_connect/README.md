@@ -30,11 +30,9 @@ Use an RJ11 or RJ12 cable to connect your Digital Energy Meter device to the Flu
 Do make sure you have a straight cable and not a crossover cable.
 :::
 
-Connect to the P1 port of the digital meter (the right one if standing in front of the meter). The S1 port will not work.
+Connect to the **P1 port** of the digital meter (the right one if standing in front of the meter). The S1 port will not work.
 
 ![image](./images/digital_meter.png)
-
-<!-- TODO - Draw arrow on P1 and cross on S1 -->
 
 Now just power your Digital Energy Meter device with a USB power supply.
 

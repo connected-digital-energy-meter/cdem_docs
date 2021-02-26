@@ -78,43 +78,22 @@ If you ever lend the device or give it to someone else, make sure to reset the d
 
 ## Configuration Settings Reference
 
-* Wifi SSID
+* **WiFi SSID**: The SSID (Service Set IDentifier) of an access point in your local home network that the CDEM device can use to connect to your network and MQTT broker.
 
-    The SSID (Service Set IDentifier) of an accesspoint in your home-network that the kit can use to connect to the internet.
+* **WiFi password**: The password to connect to your local network.
 
-* Wifi password
+* **Use DHCP or not**: If you use DHCP (Dynamic Host Configuration Protocol) the CDEM device gets it's network settings automatically from your router/access point. If you want to configure those settings yourself, don't use DHCP.
 
-    The password to connect to that SSID.
+* **Static IP**: The IP address you want your CDEM device to use in your network. Check your network configuration before assigning this so you do not create conflicts with other network devices.
 
-* Use DHCP or not
+* **Subnet Mask**: The subnet mask for the device to use in case you assign it a static IP address.
 
-    if you use DHCP (Dynamic Host Configuration Protocol) the kit get's it's network settings automaticly from your router/switch. If you want to configure those settings yourself, don't use DHCP.
+* **Default gateway**: The IP address to use as a default gateway. This should be the internal IP address of your local router.
 
-* Static IP
+* **MQTT broker IP Address**: This is the IP Address of the MQTT broker the CDEM device should use to publish your data to.
 
-    The IP adress you want your kit to use in your network. Check your network configuration before assigning this.
+* **MQTT broker port**: This is the port used to communicate with the MQTT broker. Usually this is port `1883`.
 
-* Subnet Mask
+* **MQTT broker base topic**: Your meter data is published to a topic on the MQTT broker. The topic can use some hierarchical levels by separating sub-topics using a formward slash. Different devices usually publish their data on different topics. The factory default for the base topic is `iot/myhome/cdem`.
 
-    The Subnet Mask you want your kit to use in your network. Check your network configuration before assigning this.
-
-* Default gateway
-
-    The Default Gateway you want your kit to use in your network. Check your network configuration before assigning this.
-
-* MQTT broker IP-adress
-
-    This is the IP-adress of the MQTT broker you have setup localy or in the cloud. 
-
-* MQTT broker port
-
-    This is the port used to communicate with the MQTT broker. Usualy this is port 1883.
-
-* MQTT broker base topic
-
-    Each data is published to a topic on the MQTT broker. Data from the same device usualy is combined in a base topic.
-    The factory default for the base topic is `iot/vives/smartmeter/`.
-
-* Period
-
-    The kit will periodicaly read the data from the P1 port and publish it to your MQTT broker. The lenght of that period [seconds] can be set with this configuration.
+* **Read Period**: The device will periodically read the data from the P1 port and publish it to the selected MQTT broker. The time between different reads can be configured between `1` and `3600` seconds.
