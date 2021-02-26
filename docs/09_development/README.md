@@ -23,11 +23,10 @@ The P1 port is a serial interface that uses a standard RJ12 connector.
 | 5   | Data                |
 | 6   | GND (ground)        |
 
-> **Safety**
->
-> In order to protect both the user and the Fluvius Smart Meter the P1 port is galvanically isolated from the mains.
->
-> ![Image](./images/image2.png)
+**Safety**
+
+In order to protect both the user and the Fluvius Smart Meter the P1 port is galvanically isolated from the mains.
+![Image](./images/image2.png)
 
 #### +5V Power supply
 
@@ -125,7 +124,7 @@ For more information on the OBIS codes see the [DSMR 5 standard](/files/dsmr5.pd
 | 1-0:31.4.0.255 | Fuse supervision threshold (L1) | 1-0:31.4.0(001*A) |
 
 ::: warning Warning
-The Obis-references for High and Low tarif are switch for the Belgian meter compared to the Dutch meter!
+The Obis-references for High and Low tarif are switched for the Belgian meter compared to the Dutch meter!
 :::
 
 ##### Messages
@@ -133,7 +132,7 @@ The Obis-references for High and Low tarif are switch for the Belgian meter comp
 | OBIS reference | Value | Example |
 |---|---|---|
 | 0-0:96.1.4.255 | Version information | 0-0:96.1.4(50) |
-| 0-0:96.13.0.255 | Text message max 1024 characters. | 0:96.13.0(303132333435363738393A3B3C3D3E3F303132333435363738393A3B3C3D3E3F303132333435363738393A3B3C3D3E3F303132333435363738393A3B3C3D3E3F303132333435363738393A3B3C3D3E3F) |
+| 0-0:96.13.0.255 | Text message max 1024 characters. | 0:96.13.0(303132333435363738393A3B3C3D3E3F3031) |
 | 0-0:96.13.1.255 | Consumer message code | 0-0:96.13.1(3031203631203831) |
 
 ##### Gas data
@@ -169,11 +168,11 @@ Be aware of the fact that the number of OBIS codes and the order of them is not 
 
 ## Development of the hardware
 
-<!-- TODO - Place here the information (schematics) of the pcb and the links to the Circuitmaker files. -->
+![Image](./images/image6.png)
+![Image](./images/image7.png)
 
-You can download the circuit, pcb and gerber files [here](https://workspace.circuitmaker.com/Projects/Details/Nico-De-Witte/cdem).
+You can download the circuit, pcb and gerber files [here](https://workspace.circuitmaker.com/Projects/Details/Nico-De-Witte/Connected-Digital-Energy-Meter).
 
-<!-- TODO - Build a mirrored version in a project with better name. -->
 <!-- TODO - Add the Gerber files to the circuitmaker project. -->
 
 ## Development of the firmware

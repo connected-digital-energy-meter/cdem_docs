@@ -13,7 +13,9 @@ As of July 2019 Fluvius has been installing digital meters and must install at l
 
 The main goal of this project is to build an open source solution for do-it-yourself users and manufacturers that want to use the P1 port of the Fluvius Digital Meter to register its data to an MQTT broker.
 
-<!-- TODO - Explain our goal a bit more => Evolving from digital meter to smart meter by making its data available to rest of the domotics network. Often DIY'ers are the first line in creating these types of solutions. -->
+In order to make your Fluvius Digital Meter part of your smart home, the first step is making its data available to the rest of the domotics network. Often DIY'ers are the first line in creating these types of solutions. In this case monitor and optimize the energy flow at your home.
+
+With this project we developed a Connected Digital Energy Meter, that consists of some hardware and firmware, for the sole purpose of making the data of the Fluvius Digital Meter available via MQTT. All development information is made available with this documentation for the do-it-yourself community. 
 
 ## Research Project
 

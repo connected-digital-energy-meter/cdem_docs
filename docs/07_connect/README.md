@@ -34,8 +34,6 @@ Connect to the **P1 port** of the digital meter (the right one if standing in fr
 
 ![image](./images/digital_meter.png)
 
-<!-- TODO - Draw arrow on P1 and cross on S1 -->
-
 Now just power your Digital Energy Meter device with a USB power supply.
 
 <!-- TODO - Photo of the whole setup -->

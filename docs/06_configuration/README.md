@@ -7,46 +7,25 @@ You can acces this via a serial communication software like [PuTTY](https://www.
 
 ## Configuration settings
 
-* Wifi SSID
+* **Wifi SSID**: The SSID (Service Set IDentifier) of an accesspoint in your home-network that the kit can use to connect to the internet.
 
-    The SSID (Service Set IDentifier) of an accesspoint in your home-network that the kit can use to connect to the internet.
+* **Wifi password**: The password to connect to that SSID.
 
-* Wifi password
+* **Use DHCP or not**: If you use DHCP (Dynamic Host Configuration Protocol) the kit get's it's network settings automaticly from your router/switch. If you want to configure those settings yourself, don't use DHCP.
 
-    The password to connect to that SSID.
+* **Static IP**: The IP adress you want your kit to use in your network. Check your network configuration before assigning this.
 
-* Use DHCP or not
+* **Subnet Mask**: The Subnet Mask you want your kit to use in your network. Check your network configuration before assigning this.
 
-    if you use DHCP (Dynamic Host Configuration Protocol) the kit get's it's network settings automaticly from your router/switch. If you want to configure those settings yourself, don't use DHCP.
+* **Default gateway**: The Default Gateway you want your kit to use in your network. Check your network configuration before assigning this.
 
-* Static IP
+* **MQTT broker IP-adress**: This is the IP-adress of the MQTT broker you have setup localy or in the cloud. 
 
-    The IP adress you want your kit to use in your network. Check your network configuration before assigning this.
+* **MQTT broker port**: This is the port used to communicate with the MQTT broker. Usualy this is port 1883.
 
-* Subnet Mask
+* **MQTT broker base topic**: Each data is published to a topic on the MQTT broker. Data from the same device usualy is combined in a base topic. The factory default for the base topic is `iot/myhome/cdem`.
 
-    The Subnet Mask you want your kit to use in your network. Check your network configuration before assigning this.
-
-* Default gateway
-
-    The Default Gateway you want your kit to use in your network. Check your network configuration before assigning this.
-
-* MQTT broker IP-adress
-
-    This is the IP-adress of the MQTT broker you have setup localy or in the cloud. 
-
-* MQTT broker port
-
-    This is the port used to communicate with the MQTT broker. Usualy this is port 1883.
-
-* MQTT broker base topic
-
-    Each data is published to a topic on the MQTT broker. Data from the same device usualy is combined in a base topic.
-    The factory default for the base topic is `iot/myhome/cdem`.
-
-* Period
-
-    The kit will periodicaly read the data from the P1 port and publish it to your MQTT broker. The lenght of that period [seconds] can be set with this configuration.
+* **Period**: The kit will periodicaly read the data from the P1 port and publish it to your MQTT broker. The lenght of that period [seconds] can be set with this configuration.
 
 ## Configuration wizard
 

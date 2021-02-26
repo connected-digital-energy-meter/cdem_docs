@@ -10,7 +10,7 @@
 
 ![image](./images/afbeelding1.jpg)
 
-We have provided a bottom and top part you can 3D print that form the housing for your CDEM device, you can find those files [here](https://github.com/pwo-iot-opportunities/smartmeter_housing).
+We have provided a bottom and top part you can 3D print that form the housing for your CDEM device, you can find those files [here](https://github.com/connected-digital-energy-meter/cdem_housing).
 
 We advice you to print the parts in PLA material with standard parameters, without supports or rafts.
 
