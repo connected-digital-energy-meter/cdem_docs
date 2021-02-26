@@ -1,11 +1,82 @@
-# Configuration
+# Device Config
 
-![UNDER CONSTRUCTION](./images/underconstruction.jpg)
+Make sure you have the CDEM device connected to your host computer using a USB cable.
 
-Upon the first startup of the firmware the factory default settings are loaded and you automaticly are redirected to the configuration wizard. 
-You can acces this via a serial communication software like [PuTTY](https://www.putty.org/) or the serial monitor of Arduino IDE. You just need to connect the ESP32 to your system with a USB cable.
+To alter the configuration of the device you will need a terminal emulator application such as the Arduino monitor `Tools => Serial Monitor` or [PuTTY](https://www.putty.org/).
 
-## Configuration settings
+Upon the first startup of the firmware the factory default settings are loaded and you automatically are redirected to the configuration wizard of the device.
+
+![Initial Boot](./images/initial_boot.png)
+
+If you do not see any output in your terminal emulator app, press the reset button on the CDEM device. Don't disconnect the device, it may close your terminal emulator app.
+
+::: warning ✋ Configuration is Mandatory
+Do note that the device will not boot past the configuration wizard for as long as the configuration is not altered and saved. This is a prelimary safety measure to protect your data and make sure you as an owner of the device has taken the time to configure the device.
+:::
+
+## Configuration Wizard
+
+The configuration wizard allows a first time user to configure the device in an easy and straight-forward way. It will request all required configuration parameters to be specified, show examples and check if your input is correct. The default configuration can also be kept by just pressing `ENTER`.
+
+::: tip Non-volatile memory
+The configuration is saved in the flash of the microcontroller, a non-volatile memory region. This means that it will persist even if power is taken away from the device. Of course it can always be altered later on by you as a user. See [changing the configuration](#changing-the-configuration).
+:::
+
+### Network Settings
+
+First the Configuration wizard will request your WiFi SSID and Password. This is required so the device can connect to your local network and therefore to the MQTT broker. The device does not make any attempt to the connect to the Internet unless you will use a public external broker.
+
+Your password is also save inside the device and will never be made public. It is only used by the device itself. No services are running on the CDEM device that allow incoming connections.
+
+![WiFi Configuration](./images/wifi.png)
+
+::: tip Arduino Serial Monitor
+To supply information to the device, type your text in the top of the Arduino Serial Monitor and press enter to confirm.
+::::
+
+Next you will be asked if you want to use DHCP or not. If not, a static IP address, subnet mask and default gateway for your network communication will be requested. Since no communication to the CDEM device is required, we encourage you to use DHCP and allow your router in your home network to supply a dynamic IP address.
+
+### MQTT Settings
+
+Once your network has been configured you will be asked for the MQTT broker IP-address, port and base topic.
+
+The IP address of your broker is the IP address of the device your broker is running on (NAS, server, Raspberry Pi, ...).
+
+In most cases the port should be left to it's default of `1883` unless you configured the broker to use another port.
+
+The base topic can any topic you choose. Topics can be hierarchical and sub-topics can be separated from each other using forward slashes `/`. Just make sure not to end or start your topic with a forward slash. Also document the topic somewhere, as you will need it later on.
+
+![MQTT Settings](./images/mqtt_settings.png)
+
+### Meter Settings
+
+Last but not least you will be asked how often you wish to publish the meter data. This can range from `1` second to `3600` seconds. The quicker you publish the data, the more granular your graphs will be able to display the data. However, it will also require more data storage. A good value is every `30` seconds.
+
+### Confirmation
+
+Once the wizard has been completed you will be presented with the full configuration of the device and you will be requested to confirm your settings. Answering `y` will save the settings and reboot the device while answering `n` will restart the configuration wizard.
+
+![Final Configuration](./images/final_config.png)
+
+## Changing the Configuration
+
+Changing the device settings can only be done in the 10 second window while the device is booting by holding your finger to the VIVES logo on the PCB (capacitive touch pad). You can restart the device anytime by pressing the small reset button on the PCB (a small toothpick hole is provisioned in the casing).
+
+In this 10 second window the device will output a count-down via the serial port and blink both LED's blue.
+
+![Booting](./images/boot_config_window.png)
+
+Once the touch has been detected, the boot menu and the current device configuration will be outputted to the serial port and you can alter all the settings similar to a computer BIOS.
+
+![Boot Config](./images/boot_config.png)
+
+The menu will also allow you to start the configuration wizard or reset the device to factory default settings.
+
+::: warning Factory Default
+If you ever lend the device or give it to someone else, make sure to reset the device to its factory default settings.
+:::
+
+## Configuration Settings Reference
 
 * Wifi SSID
 
@@ -47,27 +118,3 @@ You can acces this via a serial communication software like [PuTTY](https://www.
 * Period
 
     The kit will periodicaly read the data from the P1 port and publish it to your MQTT broker. The lenght of that period [seconds] can be set with this configuration.
-
-## Configuration wizard
-
-First the Configuration wizard wil ask you for the Wifi SSID and password so it can connect to internet via your wifi.
-
-Next you will be asked if you want to use dhcp or not. Depending on your answer, you will be asked for a static IP adress, subnet mask and default gateway for your network communication.
-
-Once the internet communication is configured you will be asked for the MQTT broker IP-adress, port and base topic. So publishing to the MQQT broker is possible.
-
-Finaly you will be asked for the period in second you want to read and publish the data.
-
-You need to confirm and save these settings before you can use the kit.
-
-## Boot menu 
-
-If you want to go into the boot menu, just reset the device via the reset button or just interupt the power supply and then hold your finger to the VIVES logo on the pcb.
-
-In the boot menu you can seperatly change the network/wifi settings, the MQTT settings and the meter settings or you can use the wizard. You also can return to the factory default settings.
-You have the option to save or discard any changes made and leave this menu, the kit then boots with the new configuration.
-
-
-
-
-
