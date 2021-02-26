@@ -32,7 +32,7 @@ Do make sure you have a straight cable and not a crossover cable.
 
 Connect to the P1 port of the digital meter (the right one if standing in front of the meter). The S1 port will not work.
 
-![image](./images/digital_meter.jpg)
+![image](./images/digital_meter.png)
 
 <!-- TODO - Draw arrow on P1 and cross on S1 -->
 
