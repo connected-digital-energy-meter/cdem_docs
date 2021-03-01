@@ -1,4 +1,4 @@
-# Connecting to the Fluvius meter
+# Connecting the CDEM
 
 ![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
@@ -9,7 +9,7 @@ Before the data of the Fluvius digital meter can be read out, one has to activat
 You will need the following in order to make your request:
 
 * your ID card
-* a cardreader or itsme to login
+* a card reader or [itsme](https://www.itsme.be/) to login
 * a recent energy invoice of your current supplier
 
 After filling in the online form, the activation process can take up to several days. If your meter has just been placed, you should wait a couple of days before making this request to make sure that the meter is registered with Fluvius.
@@ -30,10 +30,10 @@ Use an RJ11 or RJ12 cable to connect your Digital Energy Meter device to the Flu
 Do make sure you have a straight cable and not a crossover cable.
 :::
 
-Connect to the **P1 port** of the digital meter (the right one if standing in front of the meter). The S1 port will not work.
+Connect to the **P1 port** of the digital meter (the right hand one when standing in front of the meter). The S1 port will not work.
 
 ![image](./images/digital_meter.png)
 
-Now just power your Digital Energy Meter device with a USB power supply.
+Now just power your Connected Digital Energy Meter device by connecting a USB micro power supply to the power port of the CDEM device.
 
 <!-- TODO - Photo of the whole setup -->

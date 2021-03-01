@@ -11,7 +11,7 @@ Upon the first startup of the firmware the factory default settings are loaded a
 If you do not see any output in your terminal emulator app, press the reset button on the CDEM device. Don't disconnect the device, it may close your terminal emulator app.
 
 ::: warning ✋ Configuration is Mandatory
-Do note that the device will not boot past the configuration wizard for as long as the configuration is not altered and saved. This is a prelimary safety measure to protect your data and make sure you as an owner of the device has taken the time to configure the device.
+Do note that the device will not boot past the configuration wizard for as long as the configuration is not altered and saved. This is a preliminary safety measure to protect your data and make sure you as an owner of the device has taken the time to configure the device.
 :::
 
 ## Configuration Wizard
@@ -94,6 +94,6 @@ If you ever lend the device or give it to someone else, make sure to reset the d
 
 * **MQTT broker port**: This is the port used to communicate with the MQTT broker. Usually this is port `1883`.
 
-* **MQTT broker base topic**: Your meter data is published to a topic on the MQTT broker. The topic can use some hierarchical levels by separating sub-topics using a formward slash. Different devices usually publish their data on different topics. The factory default for the base topic is `iot/myhome/cdem`.
+* **MQTT broker base topic**: Your meter data is published to a topic on the MQTT broker. The topic can use some hierarchical levels by separating sub-topics using a forward slash. Different devices usually publish their data on different topics. The factory default for the base topic is `iot/myhome/cdem`.
 
 * **Read Period**: The device will periodically read the data from the P1 port and publish it to the selected MQTT broker. The time between different reads can be configured between `1` and `3600` seconds.
