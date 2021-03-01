@@ -20,7 +20,7 @@ module.exports = {
           '/05_mqtt/',         
           '/06_configuration/',
           '/07_connect/',         
-          '/08_working/',    
+          '/08_operation/',    
           '/09_development/',    
           '/10_output/',
           '/11_docker_compose/',
