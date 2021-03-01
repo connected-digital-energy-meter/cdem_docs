@@ -179,6 +179,6 @@ You can download the circuit, pcb and gerber files [here](https://workspace.circ
 
 This flowchart explains the program structure of the firmware.
 
-<!-- TODO - Place here a flowchart of the firmware. -->
+![Image](./images/image8.png)
 
 
