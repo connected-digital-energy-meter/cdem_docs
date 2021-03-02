@@ -1,7 +1,5 @@
 # Frequently Asked Questions
 
-![UNDER CONSTRUCTION](./images/underconstruction.jpg)
-
 ## Should I use a public MQTT broker?
 
 It is adviced to keep all the information localy and not in the cloud because it's sensitive data that one could use to determine when nobody is at home. So we recommend not using a public MQTT broker.
@@ -33,4 +31,3 @@ If your setup doesn't do the expeceted you can folow these problem detecting ste
 
    - Check if you have internet connection in your network. If not, it is possible that your network is unable to reach a DNS server and therefore has trouble locating your devices.
 
-<!-- TODO - Add FAQ -->

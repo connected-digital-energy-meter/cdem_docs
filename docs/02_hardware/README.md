@@ -31,10 +31,8 @@ The table below provides an overview of the components required for the CDEM shi
 | 16 Pin Header | 22-28-4161 | `U2` | 1 | [3049545](https://be.farnell.com/molex/22-28-4161/connector-header-16pos-1row-2/dp/3049545) | Male, 2.54 mm Pitch, 1 Rows, 16 Contacts, Through Hole Straight |
 
 ::: tip Datasheets
-While Farnell only allow SME's to order components, the part numbers are provided so you can easily look for alternatives. Make sure to consult the datasheets of the components when selecting alternative components. While resistors and such are not that critical, the pinouts of the connectors and IC's are. Also make sure to take the key properties into account.
+While Farnell only allow SME's to order components, the part numbers are provided so you can easily look for alternatives. Make sure to consult the datasheets of the components when selecting alternative components. While resistors and such are not that critical, the pinouts of the connectors and IC's are. Also make sure to take the key properties into account. We can recommend [Gotron](https://www.gotron.be/) and [Conrad](https://www.conrad.be/).
 :::
-
-<!-- TODO - Provide another alternative ? GOTRON https://www.gotron.be/ ?-->
 
 ### Microcontroller
 
