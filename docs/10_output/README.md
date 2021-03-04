@@ -147,8 +147,6 @@ You can download a sample dashboard [here](/files/grafana.json).
 
 ![image](./images/afbeelding5.png)
 
-<!-- TODO: Change this image once we have actual data  -->
-
 ### Interpret your dashboard
 
 * In the electricity graphs you can detect spikes in delivery and start investegating the cause and if you can either make improvements or redirect this energy usage to a low tarif period.
