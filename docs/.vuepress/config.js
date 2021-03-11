@@ -9,7 +9,7 @@ module.exports = {
       { text: 'Contact', link: 'mailto:nico.dewitte@vives.be' },
     ],
     sidebarDepth: 1,
-    repo: 'https://github.com/pwo-iot-opportunities/smartmeter_docs',
+    repo: 'https://github.com/connected-digital-energy-meter/cdem_docs',
     docsDir: 'docs',
     docsBranch: 'master',
     sidebar: [
@@ -52,6 +52,6 @@ module.exports = {
         type: 'output',
         defaultTitle: 'Output',
       }],
-    ['@dovyp/vuepress-plugin-clipboard-copy', true],    
+    ['vuepress-plugin-code-copy', true],
   ],  
 }

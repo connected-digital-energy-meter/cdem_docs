@@ -1,7 +1,7 @@
 {
-  "name": "smartmeter_docs",
+  "name": "cdem_docs",
   "version": "1.0.0",
-  "description": "Documentation of the Smart Meter Project",
+  "description": "Documentation of the Connected Digital Energy Meter project",
   "main": "README.md",
   "directories": {
     "doc": "docs"
@@ -13,21 +13,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pwo-iot-opportunities/smartmeter_docs.git"
+    "url": "git+https://github.com/connected-digital-energy-meter/cdem_docs.git"
   },
   "keywords": [
+    "cdem",
     "smart",
     "meter",
     "iot",
     "vives"
   ],
-  "author": "Ronny Mees",
+  "author": "Ronny Mees, Nico De Witte",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pwo-iot-opportunities/smartmeter_docs/issues"
+    "url": "https://github.com/connected-digital-energy-meter/cdem_docs/issues"
   },
-  "homepage": "https://github.com/pwo-iot-opportunities/smartmeter_docs#readme",
+  "homepage": "https://github.com/connected-digital-energy-meter/cdem_docs#readme",
   "dependencies": {
-    "vuepress": "^1.7.1"
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "vuepress-plugin-zooming": "^1.1.8"
   }
 }
