@@ -1,8 +1,8 @@
-# Using the output
+# Building a Dashboard
 
 ![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
-The firmware publishes your data to a MQTT broker. In order to use it, you still need to integrate that information into your dashboard or demotics system.
+The firmware publishes your data to an MQTT broker. In order to use it, you still need to integrate that information into your dashboard or demotics system.
 We have provided you with a example of how to do that with the help of Node-Red, InfluxDB and Grafana.
 
 Because this information must be available at all times you need a installation device that is running constantly. This can be a PC, NAS or in our case a Raspberry Pi.
