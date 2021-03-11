@@ -19,7 +19,7 @@
   "links": [],
   "panels": [
     {
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -108,7 +108,7 @@
       "type": "stat"
     },
     {
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -205,7 +205,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -372,7 +372,7 @@
       }
     },
     {
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -461,7 +461,7 @@
       "type": "stat"
     },
     {
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -550,7 +550,7 @@
       "type": "stat"
     },
     {
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -640,7 +640,7 @@
       "type": "stat"
     },
     {
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -730,7 +730,7 @@
       "type": "stat"
     },
     {
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -816,7 +816,7 @@
       "type": "gauge"
     },
     {
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -924,7 +924,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1143,7 +1143,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1336,7 +1336,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Smartmeter DB",
+      "datasource": "CDEM",
       "fieldConfig": {
         "defaults": {
           "custom": {},

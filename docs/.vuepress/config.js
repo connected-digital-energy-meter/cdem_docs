@@ -22,9 +22,10 @@ module.exports = {
           '/07_connect/',         
           '/08_operation/',    
           '/09_building_a_dashboard/',
-          '/10_docker_compose/',
-          '/11_development/',    
-          '/12_faq/',    
+          '/10_home_assistant/',
+          '/11_docker_compose/',
+          '/12_development/',    
+          '/13_faq/',    
     ]    
   },
   markdown: {
