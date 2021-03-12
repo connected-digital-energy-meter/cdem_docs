@@ -249,18 +249,18 @@ You can probable leave the options as is. Click `Import` to finish the import.
 
 ## Interpreting the Dashboard
 
-* In the electricity graphs you can detect spikes in delivery and start investigating the cause and if you can either make improvements or redirect this energy usage to a low tarif period.
+* In the electricity graphs you can detect spikes in delivery and start investigating the cause. The next step is to check if you can either make improvements or redirect this energy usage to a low tarif period.
 
 ![image](./images/afbeelding6.png)
 
 * You can also evaluate your consumption in low and normal tarif to make decisions about when to use the large energy consuming appliances.
 
-* If you have a form of domotics you could use the tarif indicator to shut down some of your appliances (freezer, boiler, ...) while in normal tarif. You can do this by adding some automation with Node-red.
+* If you have a form of domotics you could use the tarif indicator to shut down some of your appliances (freezer, boiler, ...) while in normal tarif. You can do this by adding some automation with Node-RED.
 
 ## Future
 
 Once all the MQTT data from your Connected Digital Energy Meter is redirected to your InfluxDB you can add extra's like:
 
-- Power info from your Solar Panel Inverter
-- Outdoor and indoor temperature
-- Your central heating system
+* Power info from your Solar Panel Inverter
+* Outdoor and indoor temperature
+* Your central heating system

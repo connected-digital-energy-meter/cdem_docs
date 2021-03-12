@@ -4,18 +4,27 @@
 
 ## Communication with the P1 port of the Fluvius Smart Meter
 
-All data communication with the Fluvius Smart Meter runs via the `P1 port`. The S1 port provides a limited posibility of data and therefore we won't be using this port.
+All data communication with the Fluvius Digital Meter runs via the `P1 port`. The P1 port follows the [DSMR 5 standard](/files/dsmr5.pdf) of the Dutch Smart Meter, extended with the [e-Mucs specification](/files/emucs.pdf).
 
-The P1 port follows the [DSMR 5 standard](/files/dsmr5.pdf) of the Dutch Smart Meter extended with the [e-Mucs specification](/files/emucs.pdf).
+::: tip S1 Port
+The Fluvius digital meter also has an S1 port. This user port (S1) is designed to provide "raw" data to an application (CEMS) at a particularly high frequency. The application must further process this "raw" data to make advanced calculations allowing for very detailed consumption feedback and control.
+:::
+
 
 ### Physical connection
 
-The P1 port is a serial interface that uses a standard RJ12 connector.
+The `P1` port is a serial interface that uses a standard RJ12 connector.
 
-![Image](./images/image1.png)
+::: tip RJ11 vs RJ12
+The only difference between RJ11 and RJ12 is in how they are wired and the number of the wires that are being used. RJ12 is a 6P6C wiring standard. RJ11 is a 6P4C wiring standard and only has four wires connected and the remaining two slots are no longer used.
+:::
 
-| Pin | Signal name         |
-|-----|---------------------|
+For the CDEM device it does not matter if you use an RJ11 or RJ12 cable because the power supply of the meter is not used (two outer pins). The reason being that the current the meter can deliver at this port is quitte limited (less than 300mA).
+
+![RJ12 Pinout](./images/image1.png)
+
+| Pin | Signal name |
+| :---: | --- |
 | 1   | + 5V (Power supply) |
 | 2   | Data request        |
 | 3   | Data GND (ground)   |
@@ -25,18 +34,19 @@ The P1 port is a serial interface that uses a standard RJ12 connector.
 
 **Safety**
 
-In order to protect both the user and the Fluvius Smart Meter the P1 port is galvanically isolated from the mains.
-![Image](./images/image2.png)
+In order to protect both the user and the Fluvius digital meter, the `P1` port is galvanically isolated from the mains.
 
-#### +5V Power supply
+![Port Schematic](./images/image2.png)
 
-The P1 interface provides a stable +5V DC power supply via "+5V" (pin 1) and "GND"(pin 6) lines to provide a connected IoT device with a power source.
+#### Power supply
+
+The `P1` interface provides a stable `+5V DC` power supply via `pin 1` (5V) and `pin 6` (GND) to provide a connected IoT device with a power source.
 
 U = 5,0 V ( max = 5,5 V with I = 0 mA , min = 4,9 V with I = 250 mA )
 
 #### Data request
 
-The P1 port is activated (will start sending data) by setting "Data request" (pin 2) high (4,0V to 5,5V). While recieving data, this line must be kept high.
+The P1 port is activated (will start sending data) by setting "Data request" (pin 2) high (4,0V to 5,5V). While receiving data, this line must be kept high.
 
 ::: warning Warning
 To stop receiving data the "Data request" line must be put in a high impedance mode and must not be connected to the GND or 0V
@@ -44,7 +54,7 @@ To stop receiving data the "Data request" line must be put in a high impedance m
 
 #### Data
 
-Here we run into our first problem. Due to the use of optocouplers, the "Data" (pin 5) line must be designed as an **Open Collector** output and must be **logically inverted** before it can be used with IoT device ( Raspberri Pi, ESP32, Arduino, ...).
+Here we run into our first problem. Due to the use of opto couplers, the "Data" (pin 5) line must be designed as an **Open Collector** output and must be **logically inverted** before it can be used with IoT device ( Raspberry Pi, ESP32, Arduino, ...).
 
 A "Data" line LOW has a voltage of 0,2 V (0 - 1V), HIGH has a voltage of 5,0V with a maximum current of 30 mA.
 
@@ -67,6 +77,7 @@ Due to the 115200 baud-rate the max. cable length for this serial communication 
 The Fluvius Smart Meter sends its data to the connected IoT device every single second and the transmission of the entire P1 telegram is completed within 1s.
 
 The format of transmitted data is defined as “8N1”. Namely:
+
 - 1 start bit,
 - 8 data bits,
 - no parity bit and
