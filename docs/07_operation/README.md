@@ -1,5 +1,9 @@
 # Device Operation
 
+![UNDER CONSTRUCTION](./images/underconstruction.jpg)
+
+<!-- TODO: volledig wijzigen naar de nieuwe pcb -->
+
 The CDEM device is equipped with two RGB status LEDs on the opposite side of the RJ11 connector. The left is the communication LED and the right one is the data LED. These LEDs indicate what the device status is at all times and should provide the user some basic feedback.
 
 ![Both Status LEDs Off](./images/both_off.png)
@@ -84,7 +88,7 @@ When this happens after connecting the CDEM device to the meter for the first ti
 
 This can be a wiring/connection problem. Make sure that the cable you are using is ok. Also try not to use a cable that is longer than a few meters. The signal may degenerate too much if the cable is too long.
 
-It could also be that the meter is not yet activated for outputting its data via the P1 port. Make sure you activated the meter online - see [Activating the Fluvius Meter Port](./07_connect/#activating-the-fluvius-meter-port). Make sure you received an email or SMS from Fluvius indicating that the meter has been activated.
+It could also be that the meter is not yet activated for outputting its data via the P1 port. Make sure you activated the meter online - see [Activating the Fluvius Meter Port](/05_connect/#activating-the-fluvius-meter-port). Make sure you received an email or SMS from Fluvius indicating that the meter has been activated.
 
 Also make sure that the shield has been soldered correctly and no short-circuits have been made or components have been forgotten. Double check that you did not flip the 74HCT14 inverter IC.
 

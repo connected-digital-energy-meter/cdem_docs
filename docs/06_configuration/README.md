@@ -1,4 +1,8 @@
-# Device Config
+# Configuring your CDEM
+
+![UNDER CONSTRUCTION](./images/underconstruction.jpg)
+
+<!-- TODO: volledig wijzigen naar de webinterface configuratie -->
 
 Make sure you have the CDEM device connected to your host computer using a USB cable.
 

@@ -1,5 +1,9 @@
 # MQTT
 
+Before taking your CDEM in operation you have to provide a MQTT broker service in your local network.
+
+## What is MQTT ?
+
 MQTT is one of the most commonly used protocols for Internet of Things devices to communicate with each other. MQTT stands for Message Queuing Telemetry Transport. It is a very lightweight messaging protocol that uses a **publish / subscribe** mechanism to exchange data between different clients. It is small in size, low in power consumption and uses minimized data packages, ideal for machine-to-machine communication and therefor for the Internet of Things.
 
 Lets consider the situation where we have temperature sensor that want to share its current data with other devices. On the other hand we have devices such as a smartphone or computer who want to receive this data to process it or display it in a dashboard.
@@ -17,13 +21,13 @@ So basically there are two things that happen:
 * The sensor specifies a **topic** under which it will **publish** its data. For example `temperature`. Then it will publish its temperature value to this topic.
 * Anyone who wants to receive the data can then **subscribe** to the topic `temperature`. Every time the sensor publishes new data, all subscribers are automatically notified of the new temperature value.
 
-## MQTT with CDEM
+## How does CDEM use MQTT ?
 
 The CDEM devices basically does the same thing as the aforementioned temperature sensor. It reads the energy data from the digital meter and publishes that data to an MQTT broker.
 
-From that point on any other interested services (Home Assistant, NodeRED, ...) can access the data. This of course within your own home network if you are not using a public broker (which we discourage anyway).
+From that point on any other interested services (Home Assistant, openHAB, NodeRED, ...) can access the data. This of course within your own home network if you are not using a public broker (which we discourage anyway).
 
-## Mosquitto
+## Installing a MQTT broker service
 
 [Mosquitto](https://mosquitto.org) is one of the brokers that can be used to communicate with MQTT. It's a simple and lightweight broker, and is available on many different platforms (Docker, Raspberry Pi, standalone, NAS, ...).
 
@@ -62,7 +66,7 @@ If you have a docker environment on any of your network devices (server, NAS, ..
 
 For a more advanced [all in one setup](/11_docker_compose) checkout the documentation on using docker-compose.
 
-## MQTT Explorer
+## Testing your MQTT broker service
 
 Feel free to test your broker using a tool such as [MQTT Explorer](http://mqtt-explorer.com/). It's an MQTT client application that allows you to see all data passing by on your broker as well as allow you to publish messages on a topic.
 

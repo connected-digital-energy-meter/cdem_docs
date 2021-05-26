@@ -1,14 +1,20 @@
-# Compiling and Flashing the Firmware
+# Firmware
 
-![Flashing Firmware](./images/flash_firmware.jpg)
+![UNDER CONSTRUCTION](./images/underconstruction.jpg)
+
+Now that you have your pcb it's time to upload the firmware into the ESP12 chipset.
 
 ## Install Arduino IDE
 
-In order to compile and flash the firmware for your ESP32 you will need to install Arduino IDE. Instructions for most operating system can be found on the website of [Arduino](https://www.arduino.cc/en/Guide) itself.
+![Arduino](./images/arduino_icon.png)
+
+In order to compile and flash the firmware for your ESP12 you will need to install Arduino IDE. Instructions for most operating system can be found on the website of [Arduino](https://www.arduino.cc/en/Guide) itself.
 
 ## Download the Latest Firmware
 
-Download the latest firmware for the ESP32 from the [CDEM Firmware GitHub page](https://github.com/connected-digital-energy-meter/cdem_firmware/releases).
+<!-- TODO: controleren of dit nog klopt -->
+
+Download the latest firmware for the ESP12 from the [CDEM Firmware GitHub page](https://github.com/connected-digital-energy-meter/cdem_firmware/releases).
 
 Under `Assets` you will find the ZIP file `cdem_firmware_vx_x_x.zip`.
 
@@ -20,7 +26,9 @@ Open Arduino IDE and traverse to the location you extracted the ZIP file.
 
 Next of you will be required to install the different libraries the firmware depends on to do its work.
 
-## Install ESP32 board packages and tools
+## Install ESP12 board packages and tools
+
+<!-- TODO: controleren of dit nog klopt -->
 
 Start the Arduino IDE and navigate to `File => Preferences`.
 
@@ -31,6 +39,8 @@ Open `Tools => Board => Board Manager ...` and search for `esp32`. Next install 
 Last select the `Adafruit ESP32 Feather` board from the `Tools => Board => ESP32 Arduino` menu after installation
 
 ## Installing Required Libraries
+
+<!-- TODO: controleren of dit nog klopt -->
 
 Several libraries have to be installed in order for the firmware to be compiled. The following sections describe how each library can be installed.
 
@@ -67,12 +77,18 @@ Follow the instructions below or [checkout the video of the author](https://www.
 
 ## Compile and Upload the Firmware
 
-Now connect your ESP32 via USB. Select the correct `COM-port` from `Tools => Port` and compile and upload the firmware to the ESP32.
+<!-- TODO: controleren of dit nog klopt -->
 
-::: warning ⌨ Configuration
-Keep the ESP32 connected and Arduino IDE running for a quick configuration of your firmware.
-:::
+Now connect your CDEM pcb via USB. Select the correct `COM-port` from `Tools => Port` and compile and upload the firmware to the ESP12.
 
 If all went well you should get similar output to that shown below.
 
 ![Successful compilation](./images/compiled_succesfully.png)
+
+## Development information 
+
+<!-- TODO: Hier komt de onwikkelinfo van de firmware -->
+
+This flowchart explains the program structure of the firmware.
+
+![Image](./images/image8.png)

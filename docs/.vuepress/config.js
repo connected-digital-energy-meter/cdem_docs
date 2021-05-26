@@ -4,6 +4,10 @@ module.exports = {
   themeConfig: {
     logo: '/files/afbeelding1.png',
     nav: [
+      { text: 'Version', ariaLabel: 'Version menu', items:[
+        { text: 'Version 1', link: 'https://v1-connected-digital-energy-meter.netlify.app/'},
+        { text: 'Last Version', link: 'https://connected-digital-energy-meter.netlify.app/'},
+      ]},
       { text: 'Home', link: '/' },
       { text: 'VIVES', link: 'https://www.vives.be/nl/onderzoek' },      
       { text: 'Contact', link: 'mailto:nico.dewitte@vives.be' },
@@ -15,17 +19,17 @@ module.exports = {
     sidebar: [
 		      '/01_introduction/',
           '/02_hardware/',
-          '/03_assembly/',
-          '/04_firmware/',
-          '/05_mqtt/',         
-          '/06_configuration/',
-          '/07_connect/',         
-          '/08_operation/',    
-          '/09_building_a_dashboard/',
+          '/03_firmware/',
+          '/04_mqtt/',   
+          '/05_connect/',               
+          '/06_configuration/',          
+          '/07_operation/',              
+          '/08_building_a_dashboard/',
+          '/09_openhab/',
           '/10_home_assistant/',
           '/11_docker_compose/',
-          '/12_development/',    
-          '/13_faq/',    
+          '/12_energysavings/',
+          '/13_faq/',  
     ]    
   },
   markdown: {
