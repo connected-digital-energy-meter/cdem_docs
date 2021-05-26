@@ -4,45 +4,78 @@
 
 <!-- TODO: volledig wijzigen naar de webinterface configuratie -->
 
-Make sure you have the CDEM device connected to your host computer using a USB cable.
-
-To alter the configuration of the device you will need a terminal emulator application such as the Arduino monitor `Tools => Serial Monitor` or [PuTTY](https://www.putty.org/).
-
-Upon the first startup of the firmware the factory default settings are loaded and you automatically are redirected to the configuration wizard of the device.
-
-![Initial Boot](./images/initial_boot.png)
-
-If you do not see any output in your terminal emulator app, press the reset button on the CDEM device. Don't disconnect the device, it may close your terminal emulator app.
+Upon the first startup of the firmware, the factory default settings are loaded. These default settings need to be altered to suit your own home network configuration before the device will function correctly.
 
 ::: warning ✋ Configuration is Mandatory
-Do note that the device will not boot past the configuration wizard for as long as the configuration is not altered and saved. This is a preliminary safety measure to protect your data and make sure you as an owner of the device has taken the time to configure the device.
+In its initial state, the device will not boot past the point of setting up the access point. This because your network information is required, before the datagrams can be published to an MQTT broker. This is also a preliminary safety measure to protect your data and make sure you as an owner of the device have taken the time to configure the device.
 :::
 
-## Configuration Wizard
+The device will at least require the following information:
 
-The configuration wizard allows a first time user to configure the device in an easy and straight-forward way. It will request all required configuration parameters to be specified, show examples and check if your input is correct. The default configuration can also be kept by just pressing `ENTER`.
+* Your WiFi SSID
+* Your WiFi password
+* An MQTT broker IP address
 
-::: tip Non-volatile memory
-The configuration is saved in the flash of the microcontroller, a non-volatile memory region. This means that it will persist even if power is taken away from the device. Of course it can always be altered later on by you as a user. See [changing the configuration](#changing-the-configuration).
+::: tip No Internet required
+The device does not access the Internet in any way unless you are using a public MQTT broker. No information is send to any third party and no information is fetched for any purposes. The device also does not allow any external connection to be made to the device itself, except for the configuration procedure at boot.
 :::
+
+## Accessing the Configuration Page
+
+Make sure you have the CDEM device connected to your host computer using a USB-C cable.
+
+::: warning More power
+In some cases the CDEM device will draw a bit more power than allowed by the Fluvius digital meter when configuring the device (as it sets up a WiFi access point). Because of this we recommend connecting the device to a computer via USB or using a smartphone power adapter when configuring the device.
+:::
+
+![Connecting the CDEM Device](./images/connection.jpg)
+
+The device can be configured by connecting to the access point provided by the device on boot-up using a smartphone or computer. This access point will only be **available for a limited time of 5 minutes**. If the configuration page is not accessed within the time window the device will boot using its current configuration.
+
+To connect to the access point, reboot the device by disconnecting and connecting it back to the power supply. Once the **COMM LED** slowly fades in and out, the access point should be available.
+
+<!-- TODO - Animated gif of fading comm led -->
+
+Use the information below to connect to the access point:
+
+* **WiFi SSID:** `CDEM-Config`
+* **WiFi Password:** `smartmeter`
+
+![Access Point](./images/access_points.jpg)
+
+You should now be able to open a browser and navigate to the configuration page located at [http://172.16.10.1](http://172.16.10.1). This can also be accomplished by scanning the QR code below.
+
+![QR Code Configuration Page](./images/qr_configuration_page.png)
+
+If the connection to the configuration page fails to load, check your connection to the access point. If for some reason the connection is lost, you may need to reboot the device as the 5 minute window may have passed.
+
+Once the configuration page is loaded, you have all the time in the world to complete the configuration as the access point will be kept operational until you reboot the device or save the configuration.
+
+<!-- TODO - Take new screenshot with default configuration -->
+
+![Config Page](./images/config_page.png)
+
+## Configuring the Device
+
+To configure the device, just alter the current settings. All settings are validated before they are saved to the internal device memory.
+
+<!-- TODO - Bricked device => reflash -->
 
 ### Network Settings
 
-First the Configuration wizard will request your WiFi SSID and Password. This is required so the device can connect to your local network and therefore to the MQTT broker. The device does not make any attempt to the connect to the Internet unless you will use a public external broker.
+The first configuration parameters involve your **network settings**. This is required so the device can connect to your local network and therefore to the MQTT broker. The device does not make any attempt to the connect to the Internet unless you use a public external broker, which is highly discouraged.
 
-Your password is also save inside the device and will never be made public. It is only used by the device itself. No services are running on the CDEM device that allow incoming connections.
+Your password is also saved inside the device and will never be made public. It is only used by the device itself. No services are running on the CDEM device that allow incoming connections except for the configuration portal.
 
 ![WiFi Configuration](./images/wifi.png)
 
-::: tip 🖥 Arduino Serial Monitor
-To supply information to the device, type your text in the top of the Arduino Serial Monitor and press enter to confirm.
-::::
+Next you will be able to select to **use DHCP or not**. If not, you will need to provide a static IP address, subnet mask and default gateway for your network communication. Since no communication to the CDEM device is required, we encourage you to use DHCP and allow your router in your home network to supply a dynamic IP address.
 
-Next you will be asked if you want to use DHCP or not. If not, a static IP address, subnet mask and default gateway for your network communication will be requested. Since no communication to the CDEM device is required, we encourage you to use DHCP and allow your router in your home network to supply a dynamic IP address.
+![Static IP](./images/static_ip.png)
 
 ### MQTT Settings
 
-Once your network has been configured you will be asked for the MQTT broker IP-address, port and base topic.
+Next you will need to configure your MQTT broker IP-address, port and base topic.
 
 The IP address of your broker is the IP address of the device your broker is running on (NAS, server, Raspberry Pi, ...).
 
@@ -54,30 +87,31 @@ The base topic can any topic you choose. Topics can be hierarchical and sub-topi
 
 ### Meter Settings
 
-Last but not least you will be asked how often you wish to publish the meter data. This can range from `1` second to `3600` seconds. The quicker you publish the data, the more granular your graphs will be able to display the data. However, it will also require more data storage. A good value is every `30` seconds.
+Last but not least can change how often you wish to publish the meter data. This can range from `1` second to `3600` seconds. The quicker you publish the data, the more granular your graphs will be able to display the data. However, it will also require more data storage. A good value is every `30` seconds.
 
-### Confirmation
+![Meter Settings](./images/meter.png)
 
-Once the wizard has been completed you will be presented with the full configuration of the device and you will be requested to confirm your settings. Answering `y` will save the settings and reboot the device while answering `n` will restart the configuration wizard.
+### Saving
 
-![Final Configuration](./images/final_config.png)
+Once you are satisfied with your configuration, you can save the settings in the memory of the device by clicking the `Save` button.
 
-## Changing the Configuration
+If all goes well, the device will save the settings and continue the boot process.
 
-Changing the device settings can only be done in the 10 second window while the device is booting by holding your finger to the VIVES logo on the PCB (capacitive touch pad). You can restart the device anytime by pressing the small reset button on the PCB (a small toothpick hole is provisioned in the casing).
+<!-- TODO - Screenshot of ok page -->
 
-In this 10 second window the device will output a count-down via the serial port and blink both LED's blue.
+## Altering the Configuration
 
-![Booting](./images/boot_config_window.png)
+Changing the device settings can be done at any point. All you need to do is:
 
-Once the touch has been detected, the boot menu and the current device configuration will be outputted to the serial port and you can alter all the settings similar to a computer BIOS.
-
-![Boot Config](./images/boot_config.png)
-
-The menu will also allow you to start the configuration wizard or reset the device to factory default settings.
+1. Connect the device to a computer of smartphone adapter.
+2. Reboot the device.
+3. Connect to the access point `CDEM-Config` with the password `smartmeter`.
+4. Traverse to the configuration page: [http://172.16.10.1](http://172.16.10.1)
+5. Alter the configuration settings.
+6. Save the settings using `Save` or discard the changes using `Cancel`.
 
 ::: warning 🏭 Factory Default
-If you ever lend the device or give it to someone else, make sure to reset the device to its factory default settings.
+If you ever lend the device or give it to someone else, make sure to reset the device to its factory default settings. This can be achieved by accessing the configuration portal and hitting the `Factory Defaults` button.
 :::
 
 ## Configuration Settings Reference
