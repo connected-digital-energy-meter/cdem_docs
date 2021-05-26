@@ -260,3 +260,7 @@ Once all the MQTT data from your Connected Digital Energy Meter is redirected to
 * Power info from your Solar Panel Inverter
 * Outdoor and indoor temperature
 * Your central heating system
+
+Of course is visualisation of the energy value's only the first step in energy effeciency.
+The next step will be to use that data to make your home energy consumption better.
+See chapter [Energy Efficiency](/12_energysavings) for more information on that.
