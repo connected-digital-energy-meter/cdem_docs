@@ -34,10 +34,12 @@ Connect to the **P1 port** of the digital meter (the right hand one when standin
 
 ![image](./images/digital_meter.png)
 
-Your CDEM will boot up because it draws it's power from the Fluvius digital meter.
+Your CDEM device will immediately start booting as it draws it's power from the Fluvius digital meter.
+
+<!-- TODO - Remark on status leds when everything is ok ? -->
 
 ## Mounting your CDEM
 
-We advice you to use the box to protect your pcb. You can use double sided tape to stick it to the side of your Fluvius Digital Meter.
+We advice you to use the casing to protect your PCB. You can use double sided tape to stick it to the side of your Fluvius digital meter.
 
 <!-- TODO - afbeelding van de volledige setup toevoegen -->
