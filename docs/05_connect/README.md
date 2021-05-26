@@ -1,4 +1,4 @@
-# Connecting the CDEM
+# Connecting your CDEM
 
 ![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
@@ -22,9 +22,9 @@ The actual meter activation process can take up to **72 hours**. Normally you sh
 
 ## Connecting to the Fluvius meter
 
-Use an RJ11 or RJ12 cable to connect your Digital Energy Meter device to the Fluvius digital meter. This is the same cable as used with the old telephone connections. Chances are you have one laying around if you have Proximus VDSL at home.
+Use the RJ12 cable to connect your Digital Energy Meter device to the Fluvius digital meter.
 
-![RJ11](./images/rj11.jpg)
+![RJ12](./images/rj12.jpg)
 
 ::: warning 📞 Straight
 Do make sure you have a straight cable and not a crossover cable.
@@ -34,6 +34,10 @@ Connect to the **P1 port** of the digital meter (the right hand one when standin
 
 ![image](./images/digital_meter.png)
 
-Now just power your Connected Digital Energy Meter device by connecting a USB micro power supply to the power port of the CDEM device.
+Your CDEM will boot up because it draws it's power from the Fluvius digital meter.
 
-<!-- TODO - Photo of the whole setup -->
+## Mounting your CDEM
+
+We advice you to use the box to protect your pcb. You can use double sided tape to stick it to the side of your Fluvius Digital Meter.
+
+<!-- TODO - afbeelding van de volledige setup toevoegen -->
