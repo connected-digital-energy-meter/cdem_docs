@@ -85,10 +85,3 @@ If all went well you should get similar output to that shown below.
 
 ![Successful compilation](./images/compiled_succesfully.png)
 
-## Development information 
-
-<!-- TODO: Hier komt de onwikkelinfo van de firmware -->
-
-This flowchart explains the program structure of the firmware.
-
-![Image](./images/image8.png)

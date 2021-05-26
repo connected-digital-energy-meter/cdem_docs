@@ -47,10 +47,3 @@ To safely take your Connected Digital Enery Meter in operation we recemend putti
 
 You can order the casing we used on [naam leverancier](...).
 
-## Development information 
-
-<!-- TODO: Hier komt de onwikkelinfo van het bordje -->
-
-![Image](./images/image6.png)
-![Image](./images/image7.png)
-

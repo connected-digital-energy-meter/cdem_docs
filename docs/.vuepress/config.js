@@ -29,7 +29,8 @@ module.exports = {
           '/10_home_assistant/',
           '/11_docker_compose/',
           '/12_energysavings/',
-          '/13_faq/',  
+          '/13_technical/', 
+          '/14_faq/', 
     ]    
   },
   markdown: {
