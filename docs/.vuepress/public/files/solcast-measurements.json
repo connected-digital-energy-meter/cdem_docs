@@ -1,0 +1,638 @@
+[
+    {
+        "id": "6d901644.9b66e8",
+        "type": "tab",
+        "label": "solcast Measurements",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3cec473a.378b88",
+        "type": "influxdb in",
+        "z": "6d901644.9b66e8",
+        "influxdb": "c416a097.55c75",
+        "name": "PV Power PT5M",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "",
+        "x": 760,
+        "y": 360,
+        "wires": [
+            [
+                "8d2bcf41.a4e12"
+            ]
+        ]
+    },
+    {
+        "id": "2a3434e2.eff88c",
+        "type": "inject",
+        "z": "6d901644.9b66e8",
+        "name": "Request last hour",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "query",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "55fc72a0.7b28dc"
+            ]
+        ]
+    },
+    {
+        "id": "a9ce167e.a4aaf8",
+        "type": "debug",
+        "z": "6d901644.9b66e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1250,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a39b45b2.3656e8",
+        "type": "change",
+        "z": "6d901644.9b66e8",
+        "name": "Conversion POST measurements",
+        "rules": [
+            {
+                "t": "set",
+                "p": "measurements",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.measurements",
+                "pt": "msg",
+                "to": "measurements",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "measurements",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1200,
+        "y": 420,
+        "wires": [
+            [
+                "c785a270.23b42",
+                "ef551284.4723e"
+            ]
+        ]
+    },
+    {
+        "id": "8d2bcf41.a4e12",
+        "type": "split",
+        "z": "6d901644.9b66e8",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 690,
+        "y": 540,
+        "wires": [
+            [
+                "31a333e.a0a0bcc"
+            ]
+        ]
+    },
+    {
+        "id": "63eeb858.497f38",
+        "type": "join",
+        "z": "6d901644.9b66e8",
+        "name": "",
+        "mode": "auto",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1130,
+        "y": 540,
+        "wires": [
+            [
+                "a39b45b2.3656e8"
+            ]
+        ]
+    },
+    {
+        "id": "31a333e.a0a0bcc",
+        "type": "change",
+        "z": "6d901644.9b66e8",
+        "name": "conversion to solcast payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.period_end",
+                "pt": "msg",
+                "to": "payload.time",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.total_power",
+                "pt": "msg",
+                "to": "payload.mean",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.period",
+                "pt": "msg",
+                "to": "PT5M",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "payload.time",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.mean",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 904,
+        "y": 540,
+        "wires": [
+            [
+                "63eeb858.497f38"
+            ]
+        ]
+    },
+    {
+        "id": "c785a270.23b42",
+        "type": "http request",
+        "z": "6d901644.9b66e8",
+        "name": "Solcast API - post measurements",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.solcast.com.au/rooftop_sites/<your solcast APIkey>/measurements",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "basic",
+        "x": 1120,
+        "y": 360,
+        "wires": [
+            [
+                "40b72260.4ced5c"
+            ]
+        ]
+    },
+    {
+        "id": "40b72260.4ced5c",
+        "type": "switch",
+        "z": "6d901644.9b66e8",
+        "name": "StatusCode",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "399",
+                "vt": "num",
+                "v2": "501",
+                "v2t": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 1030,
+        "y": 240,
+        "wires": [
+            [
+                "a9ce167e.a4aaf8"
+            ],
+            [
+                "a9ce167e.a4aaf8"
+            ],
+            [
+                "a9ce167e.a4aaf8",
+                "aa8f51c5.5d05a"
+            ]
+        ]
+    },
+    {
+        "id": "aa8f51c5.5d05a",
+        "type": "change",
+        "z": "6d901644.9b66e8",
+        "name": "timestamp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "delete",
+                "p": "statusCode",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1210,
+        "y": 200,
+        "wires": [
+            [
+                "8383972d.8bfb88"
+            ]
+        ]
+    },
+    {
+        "id": "8383972d.8bfb88",
+        "type": "delay",
+        "z": "6d901644.9b66e8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 960,
+        "y": 140,
+        "wires": [
+            [
+                "a56479e4.f73d08"
+            ]
+        ]
+    },
+    {
+        "id": "fa7cfbc0.0f3948",
+        "type": "inject",
+        "z": "6d901644.9b66e8",
+        "name": "last 25h",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 22 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "query",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 380,
+        "wires": [
+            [
+                "a56479e4.f73d08"
+            ]
+        ]
+    },
+    {
+        "id": "a56479e4.f73d08",
+        "type": "change",
+        "z": "6d901644.9b66e8",
+        "name": "set msg query",
+        "rules": [
+            {
+                "t": "set",
+                "p": "query",
+                "pt": "msg",
+                "to": "SELECT mean(\"value\")  FROM \"<your influxDB measurement>\" WHERE (time >= now()-25h AND time <= now()-7m) GROUP BY time(5m) fill(0)",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 380,
+        "wires": [
+            [
+                "3cec473a.378b88"
+            ]
+        ]
+    },
+    {
+        "id": "d8631d16.f59f",
+        "type": "inject",
+        "z": "6d901644.9b66e8",
+        "name": "between last 48h to last 24h",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "query",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 460,
+        "wires": [
+            [
+                "e7721cba.59998"
+            ]
+        ]
+    },
+    {
+        "id": "e7721cba.59998",
+        "type": "change",
+        "z": "6d901644.9b66e8",
+        "name": "set msg query",
+        "rules": [
+            {
+                "t": "set",
+                "p": "query",
+                "pt": "msg",
+				"to": "SELECT mean(\"value\")  FROM \"<your influxDB measurement>\" WHERE (time >= now()-48h AND time <= now()-24h) GROUP BY time(5m) fill(0)",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 460,
+        "wires": [
+            [
+                "3cec473a.378b88"
+            ]
+        ]
+    },
+    {
+        "id": "40add997.f4d958",
+        "type": "inject",
+        "z": "6d901644.9b66e8",
+        "name": "last 10h",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "query",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 540,
+        "wires": [
+            [
+                "b72d2692.c8fae8"
+            ]
+        ]
+    },
+    {
+        "id": "b72d2692.c8fae8",
+        "type": "change",
+        "z": "6d901644.9b66e8",
+        "name": "set msg query",
+        "rules": [
+            {
+                "t": "set",
+                "p": "query",
+                "pt": "msg",
+                "to": "SELECT mean(\"value\")  FROM \"<your influxDB measurement>\" WHERE (time >= now()-10h AND time <= now()-7m) GROUP BY time(5m) fill(0)",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 540,
+        "wires": [
+            [
+                "3cec473a.378b88"
+            ]
+        ]
+    },
+    {
+        "id": "2e927f70.e67d5",
+        "type": "comment",
+        "z": "6d901644.9b66e8",
+        "name": "cycl. intraday delivery",
+        "info": "",
+        "x": 180,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "3e0f970d.4b4ec8",
+        "type": "comment",
+        "z": "6d901644.9b66e8",
+        "name": "Further queries and delivery",
+        "info": "",
+        "x": 200,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "55fc72a0.7b28dc",
+        "type": "change",
+        "z": "6d901644.9b66e8",
+        "name": "set msg query",
+        "rules": [
+            {
+                "t": "set",
+                "p": "query",
+                "pt": "msg",
+                "to": "SELECT mean(\"value\")  FROM \"<your influxDB measurement>\" WHERE (time >= now()-1h AND time <= now()-7m) GROUP BY time(5m) fill(0)",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 459,
+        "y": 200,
+        "wires": [
+            [
+                "3cec473a.378b88"
+            ]
+        ]
+    },
+    {
+        "id": "ce11536a.6437f",
+        "type": "comment",
+        "z": "6d901644.9b66e8",
+        "name": "HTTP Response - if error (!=200) try again in 5min",
+        "info": "",
+        "x": 1050,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5543242d.3d4ddc",
+        "type": "comment",
+        "z": "6d901644.9b66e8",
+        "name": "influx query",
+        "info": "",
+        "x": 750,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b3865564.b09898",
+        "type": "comment",
+        "z": "6d901644.9b66e8",
+        "name": "solcast POST",
+        "info": "",
+        "x": 1050,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "21346cbe.6abb94",
+        "type": "comment",
+        "z": "6d901644.9b66e8",
+        "name": "Convert influx response to solcast measurements",
+        "info": "",
+        "x": 860,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "ef551284.4723e",
+        "type": "debug",
+        "z": "6d901644.9b66e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1450,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "c416a097.55c75",
+        "type": "influxdb",
+        "hostname": "influxdb",
+        "port": "8086",
+        "protocol": "http",
+        "database": "home",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    }
+]
