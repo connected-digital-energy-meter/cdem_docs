@@ -38,4 +38,5 @@ The result could look like this:
 
 Of course is visualisation of the energy value's only the first step in energy effeciency.
 The next step will be to use that data to make your home energy consumption better.
-See chapter [Energy Efficiency](/12_energysavings) for more information on that.
+
+See chapter [Energy Efficiency](/12_energysavings) for some suggestions on that.
