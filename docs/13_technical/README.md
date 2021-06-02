@@ -60,8 +60,6 @@ A "Data" line LOW has a voltage of 0,2 V (0 - 1V), HIGH has a voltage of 5,0V wi
 
 The solution is either to use a pre-made cable like for instance [this one](https://www.sossolutions.nl/slimme-meter-kabel), or to provide the signal inversion yourself.
 
-<!-- TODO: klopt dit nog ? -->
-
 ![Image](./images/image3.png)
 
 
@@ -183,10 +181,41 @@ Be aware of the fact that the number of OBIS codes and the order of them is not 
 
 ## How is the hardware build ? 
 
-<!-- TODO: Hier komt de onwikkelinfo van het bordje -->
+**1. Connection to the Fluvius Meter**
+
+![Image](./images/image3.png)
+
+We use the power supply provided from the Fluvius Meter (pin 1). The maximum output is 250 mA which is at the limit of what we need for our ESP12.
+:::danger Limited Power supply
+Should your CDEM experience power problems it will reboot often.
+Then we advice to use a external usb power supply.
+:::
+
+**2. USB connection and UART bridge**
 
 ![Image](./images/image6.png)
+
+We have provided a usb connection on the PCB in order to be able to load the firmware via a UART bridge and provide a external power supply if necessary.
+
+**3. Voltage regulator 5V to 3.3V**
+
+<!--TODO: dit moet mogelijks nog aangepast worden naar een nieuwe versie -->
+
 ![Image](./images/image7.png)
+
+We have provided a voltage regulator that provides the board of 3.3V.
+
+**4. Processor**
+
+![Image](./images/image9.png)
+
+The heart of the board is a ESP-12E chipset that provides us with a processor and wifi module.
+
+**5. Extra**
+
+![Image](./images/image10.png)
+
+Finaly we also provided some small circuits for communication led's, push buttons and a jumper.
 
 ## How is the firmware build ? 
 

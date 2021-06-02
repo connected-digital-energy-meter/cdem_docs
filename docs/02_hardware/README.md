@@ -4,7 +4,7 @@
 
 This chapter contains order and development information for the hardware of the Connected Digital Energy Meter device.
 
-![UNDER CONSTRUCTION](./images/pcb.jpg)
+![IMAGE](./images/pcb.jpg)
 
 ## CDEM pcb
 

@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: files/hero.png
+heroImage: files/pcb.jpg
 tagline: The first steps towards making your digital utility meters smart
 actionText: Get Started →
 actionLink: /01_introduction/
