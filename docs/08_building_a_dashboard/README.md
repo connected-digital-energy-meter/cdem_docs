@@ -1,9 +1,10 @@
 # Building a Dashboard
 
-Once your meter data reaches the MQTT broker it can basically be coupled to anything. Think [Home Assistant](https://www.home-assistant.io/), [openHAB](https://www.openhab.org/), [Node-RED](https://nodered.org/), [Grafana](https://grafana.com/), ... and if you know you way around any programming languages, changes are there is an MQTT library available.
+Once your meter data reaches the MQTT broker it can basically be coupled to anything. Think [Home Assistant](https://www.home-assistant.io/), [openHAB](https://www.openhab.org/), [Node-RED](https://nodered.org/), [Grafana](https://grafana.com/), ... and if you know you way around any programming languages, chances are there is an MQTT library available.
+
+In this chapter we'll describe the process of setting up a Grafana dashboard. No programming knowledge is required, it just takes some basic configuration and you'll see your telemetry flash by in no time.
 
 ![Grafana Dashboard](./images/dashboard.png)
-In this chapter we'll describe the process of setting up a Grafana dashboard. No programming knowledge is required, it just takes some basic configuration and you'll see your telemetry flash by in no time.
 
 Because this setup should be running at all times, you will need a device to host the services we'll be setting up. This can be a PC, NAS or for example a Raspberry Pi. The services we will be setting up include [InfluxDB](https://www.influxdata.com/), [Node-RED](https://nodered.org/) and [Grafana](https://grafana.com/).
 

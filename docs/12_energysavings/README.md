@@ -1,7 +1,5 @@
 # Energy Efficiency
 
-![UNDER CONSTRUCTION](./images/underconstruction.jpg)
-
 Things become interesting when you use the information from the Fluvius Smart Meter combined with other information from your home or third party's in order to automate some of your energy usage. The main goal here will be to use the energy more effeciently.
 
 ## Smart plug
@@ -24,11 +22,14 @@ One could set the following rules (example for a boiler):
 ![IMAGE](./images/afbeelding1.png)
 
 @t1:
-* Use a the weather prediction or solar forcast (see further in this chapter) to figure out if you can expect solar energy producton or not.
+* Use a the weather prediction or solar forcast (see further in this chapter) to figure out if you can expect solar energy production or not.
 * If you can't expect much solar energy production you switch on the boiler on.
 
 @t2:
-* If the boiler wasn't active @t1 then switch it on.
+* If the boiler wasn't active @t1 then switch it on if there is sufficient energy injected into the net.
+
+@Start low tarif:
+* If the boiler hasn't been switched on today then switch it on.
 
 To determine the t1 and t2 timestamps the boiler follow these instructions:
 1. Wait until the start of low tariff and then unplug your boiler.

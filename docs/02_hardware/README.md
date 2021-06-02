@@ -21,10 +21,12 @@ When ordering your pcb you will need to upload the following information:
 
 We can advice the following suppliers :
 
-<!-- TODO: een lijst met mogelijke pcb leveranciers toevoegen -->
-* supplier 1
-* supplier 2
-* supplier 3
+* [JLCPCB](https://jlcpcb.com/)
+<figure class="video_container">
+  <iframe src="https://jlcpcb.com/video/place.v2.mp4" frameborder="0" allowfullscreen="true"> </iframe>
+</figure>
+* [ALLPCB](https://www.allpcb.com/)
+* [PCBWay](https://www.pcbway.com/)
 
 ## RJ12 cable 
 

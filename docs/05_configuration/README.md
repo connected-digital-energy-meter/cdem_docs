@@ -2,8 +2,6 @@
 
 ![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
-<!-- TODO: volledig wijzigen naar de webinterface configuratie -->
-
 Upon the first startup of the firmware, the factory default settings are loaded. These default settings need to be altered to suit your own home network configuration before the device will function correctly.
 
 ::: warning ✋ Configuration is Mandatory
