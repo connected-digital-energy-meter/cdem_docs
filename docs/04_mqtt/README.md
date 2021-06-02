@@ -27,7 +27,7 @@ The CDEM devices basically does the same thing as the aforementioned temperature
 
 From that point on any other interested services (Home Assistant, openHAB, NodeRED, ...) can access the data. This of course within your own home network if you are not using a public broker (which we discourage anyway).
 
-## Installing a MQTT broker service
+## Installing an MQTT broker service
 
 [Mosquitto](https://mosquitto.org) is one of the brokers that can be used to communicate with MQTT. It's a simple and lightweight broker, and is available on many different platforms (Docker, Raspberry Pi, standalone, NAS, ...).
 

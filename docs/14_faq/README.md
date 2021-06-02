@@ -1,8 +1,10 @@
 # Frequently Asked Questions
 
-## Should I use a public MQTT broker?
+::: details Should I use a public MQTT broker?
+It is our personal opinion that it is better practice to keep the MQTT data local instead of in the cloud. It's sensitive data that one could use to determine when nobody is at home. So we recommend not using a public MQTT broker.
+:::
 
-It is adviced to keep all the information localy and not in the cloud because it's sensitive data that one could use to determine when nobody is at home. So we recommend not using a public MQTT broker.
+<!-- TODO - Refactor the rest of this to use details container -->
 
 ## How can i use this device to save on my energy bill?
 

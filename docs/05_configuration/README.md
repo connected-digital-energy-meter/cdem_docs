@@ -22,7 +22,7 @@ The device does not access the Internet in any way unless you are using a public
 
 Make sure you have the CDEM device connected to your host computer using a USB-C cable.
 
-::: warning More power
+::: warning 🔌 More power
 In some cases the CDEM device will draw a bit more power than allowed by the Fluvius digital meter when configuring the device (as it sets up a WiFi access point). Because of this we recommend connecting the device to a computer via USB or using a smartphone power adapter when configuring the device.
 :::
 
@@ -30,9 +30,9 @@ In some cases the CDEM device will draw a bit more power than allowed by the Flu
 
 The device can be configured by connecting to the access point provided by the device on boot-up using a smartphone or computer. This access point will only be **available for a limited time of 5 minutes**. If the configuration page is not accessed within the time window the device will boot using its current configuration.
 
-To connect to the access point, reboot the device by disconnecting and connecting it back to the power supply. Once the **COMM LED** slowly fades in and out, the access point should be available.
+To connect to the access point, reboot the device by disconnecting and connecting it back to the power supply. Once the **COMM LED** blinks green with an interval of about 2 seconds, the access point should be available.
 
-<!-- TODO - Animated gif of fading comm led -->
+<!-- TODO - Animated gif of blinking comm led -->
 
 Use the information below to connect to the access point:
 
@@ -40,6 +40,8 @@ Use the information below to connect to the access point:
 * **WiFi Password:** `smartmeter`
 
 ![Access Point](./images/access_points.jpg)
+
+Make sure to disable your data connection as it may interfere with connecting to the configuration page of the CDEM device.
 
 You should now be able to open a browser and navigate to the configuration page located at [http://172.16.10.1](http://172.16.10.1). This can also be accomplished by scanning the QR code below.
 
