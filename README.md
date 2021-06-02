@@ -19,3 +19,7 @@ npm run docs:dev
 ```
 
 Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
+
+## Emojis
+
+Find them on [https://emojipedia.org/](https://emojipedia.org/).
