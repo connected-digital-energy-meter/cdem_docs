@@ -1,14 +1,18 @@
 # Hardware
 
-This chapter contains order and development information for the hardware of the Connected Digital Energy Meter device.
+The **CDEM - Connected Digital Energy Meter** device is a standalone PCB that can be directly connected to a Belgian digital electricity meter. It can then read the P1 port of the digital meter and send that information to an MQTT broker.
 
 ![IMAGE](./images/pcb.jpg)
 
-## CDEM PCB
+<!-- TODO - Image of newest PCB + some margin around picture -->
 
-We have developed a PCB to read the P1 port of the digital meter and send that information to an MQTT broker. Due to the number of small components we advice you to order an assembled PCB, rather then solder it yourself.
+The newer versions of the PCB (v4.0 and up) are stand-alone devices and require no external power source. They draw their power from the digital meter.
 
-### Ordering Files
+All hardware is open source and can be modified to fit your own needs. Feel free to download the [KiCad project files](https://github.com/connected-digital-energy-meter/cdem-hardware) at Github.
+
+## Ordering Your Own CDEM
+
+Due to the number of small components we advice you to order an assembled PCB, rather then solder it yourself.
 
 When ordering your PCB you will need to upload the following information:
 
