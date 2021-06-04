@@ -1,7 +1,5 @@
 # Home Assistant
 
-![UNDER CONSTRUCTION](./images/underconstruction.jpg)
-
 [Home Assistant](https://www.home-assistant.io/) is a open source home automation platform.
 
 In this chapter we will be discribing how to import the MQTT data from your CDEM for displaying and automation purposes.

@@ -42,9 +42,10 @@ Make sure that the RJ12 cable has 6 wires and that both sides have the wires in 
 
 ## Box
 
-To safely take your Connected Digital Enery Meter in operation we recemend putting it into a casing.
+To safely take your Connected Digital Enery Meter in operation we recommend putting it into a casing.
+We use the [1591XXM from HAMMOND](http://www.hammondmfg.com/pdf/1591XXM.pdf).
 
-<!-- TODO: afbeelding van dit doosje -->
+![IMAGE](./images/box.jpg)
 
-You can order the casing we used on [naam leverancier](...).
+You can order the casing we used on [Conrad](https://www.conrad.be/p/hammond-electronics-1591xxmsbk-1591xxmsbk-universele-behuizing-85-x-56-x-25-abs-zwart-1-stuks-485622).
 
