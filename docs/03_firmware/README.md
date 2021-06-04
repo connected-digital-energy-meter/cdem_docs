@@ -20,7 +20,7 @@ Once installed, start the IDE to continue.
 
 Before any applications can be compiled for the ESP12, the board support package and tools need to be installed.
 
-Navigate to `File => Preferences` and add the stable release link `http://arduino.esp8266.com/stable/package_esp8266com_index.json` to the **Additional Boards Manager URLs**. Multiple URLs can be added by clicking the small window icon next to the input field and using a URL per line.
+Navigate to `File => Preferences` and add the stable release link `http://arduino.esp8266.com/stable/package_esp8266com_index.json` to the **Additional Boards Manager URLs**. Multiple URLs can be added by clicking the small window icon next to the input field and using one URL per line.
 
 ![Board Manager URLs](./images/board_manager_urls.png)
 
@@ -35,14 +35,13 @@ Download the latest firmware for the ESP12 from the [CDEM Firmware GitHub page](
 ::: tip Latest Firmware
 Make sure to download the latest firmware so you are up-to-date with the latest changes.
 
-Not that the `v1.x` releases targeted the old hardware (using ESP32) while the newer `v2.x` and up releases target the standalone ESP12 system (PCB v4.0 and up).
+Note that the `v1.x` releases targeted the old hardware (using ESP32) while the newer `v2.x` and up releases target the standalone ESP12 system (PCB v4.0 and up).
+<!-- TODO - Refer to technical section where different PCB's are shown -->
 :::
 
-Under `Assets` you will find the ZIP file `cdem_firmware_vx_x_x.zip`.
+Under `Assets` you will find the source code ZIP file. Download this file to your local system.
 
 ![Firmware](./images/download_firmware.png)
-
-<!-- TODO - Update screenshot to latest version -->
 
 Extract the ZIP file somewhere on your system.
 
@@ -54,7 +53,7 @@ Now select the `Generic ESP8266 Module` board from the `Tools => Board => ESP826
 
 Next you will be required to install the different libraries the firmware depends on to do its work.
 
-## Installing Required Libraries
+## Installing the Required Libraries
 
 Several libraries have to be installed in order for the firmware to be compiled. The following sections describe how each library can be installed.
 
@@ -66,9 +65,11 @@ If you are familiar with git you can also clone the library repositories in your
 
 The firmware for the ESP12 module you downloaded is only the tip of the iceberg. Most of the functionality of the firmware is provided by the `Connected Digital Energy Meter` library.
 
-Download the latest release of the [Connected Digital Energy Meter library](https://github.com/connected-digital-energy-meter/connected-digital-energy-meter/releases) as a zip file and include it via `Sketch => Include Library => Add ZIP Library ...`.
+Download the latest release of the [Connected Digital Energy Meter library](https://github.com/connected-digital-energy-meter/connected-digital-energy-meter/releases) as a zip file to your local system.
 
-<!-- TODO - Add screenshot here of release page -->
+![CDEM Library Latest Release](./images/download_library.png)
+
+Make sure that you have opened the firmware project in the Arduino IDE. Next include the CDEM library via `Sketch => Include Library => Add ZIP Library ...`.
 
 ### The PubSubClient Library
 
