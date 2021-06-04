@@ -73,7 +73,7 @@ Here we run into our third problem. The P1 communication protocol of a Fluvius S
 
 The interface must use a fixed transfer speed of 115200 baud. 
 
-::: tip Note
+::: warning ❗ Cable length restriction
 Due to the 115200 baud-rate the max. cable length for this serial communication is 2,5 m.
 :::
 
@@ -137,7 +137,7 @@ For more information on the OBIS codes see the [DSMR 5 standard](/files/dsmr5.pd
 | 0-0:17.0.0 | Limiter treshold | 0-0:17.0.0(123.4*kW) |
 | 1-0:31.4.0 | Fuse supervision threshold (L1) | 1-0:31.4.0(001*A) |
 
-::: warning Warning
+::: warning 🔥 Belgian vs Dutch meter
 The Obis-references for High and Low tarif are switched for the Belgian meter compared to the Dutch meter!
 **(1 = normal tarif , 2 = low tarif)**
 :::
@@ -177,18 +177,57 @@ The Obis-references for High and Low tarif are switched for the Belgian meter co
 | 0-n:96.1.0 | Equipment identifier | 0-1:96.1.0(3232323241424344313233343536373839) |
 | 0-n:24.2.1 | Last 5-minute Meter reading in 0,001m3 and capture time | 0-1:24.2.1(12785.123*m3) |
 
-::: warning Warning
+::: warning 🔥 Warning
 Be aware of the fact that the number of OBIS codes and the order of them is not fixed. Therefore the connected IoT device must be able to interpret the P1 telegram.
 :::
 
 ## How is the hardware build ? 
+
+### Version 1
+
+![IMAGE](./images/pcb_v1.png)
+
+This is our [first prototype model](https://workspace.circuitmaker.com/Projects/Details/RonnyMees/FluviusMeterv1) to establish proof of concept, being able to read the P1 telegram from the Fluvius Digital Meter.
+
+This pcb works in conjunction with the [Feather Huzzah 32](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather).
+
+### Version 2
+
+![IMAGE](./images/pcb_v2.png)
+
+This is our [second prototype model](https://workspace.circuitmaker.com/Projects/Details/Nico-De-Witte/cdem) to establish proof of concept, provide a fully functional device that reads the P1 telegram from the Fluvius Digital Meter and publishes it toe a MQTT broker.
+
+This pcb works in conjunction with the [Feather Huzzah 32](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather).
+
+### Version 3
+
+![IMAGE](./images/pcb_v3.png)
+
+In the previous version the usb connector and the RJ12 connector where on opposite sides, therefore we made a [third prototype model]() that was a mirrored version of the second version. This model was never made.
+
+This pcb works in conjunction with the [Feather Huzzah 32](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather).
+
+### Version 4
+
+![IMAGE](./images/pcb_v4.jpg)
+
+During a meeting with Fluvius we decided to build a new version that could work standalone (with the power provided by the Fluvius Digital Meter). Due to the powerlimitations we had to rethink our concept and look for low power consuming components to be able to build that [fourth prototype model](https://github.com/connected-digital-energy-meter/cdem-hardware).
+
+### Version 5
+
+<!-- TODO : Toevoegen foto -->
+
+<!-- TODO : Github link toevoegen -->
+Due to some power issue's and a fault we discoverd in the previous prototype we made a [last prototype model]() that also will be the production version.
+
+For the production version we provide some build information of the pcb.
 
 **1. Connection to the Fluvius Meter**
 
 ![Image](./images/image3.png)
 
 We use the power supply provided from the Fluvius Meter (pin 1). The maximum output is 250 mA which is at the limit of what we need for our ESP12.
-:::danger Limited Power supply
+:::danger 🔌 Limited Power supply
 Should your CDEM experience power problems it will reboot often.
 Then we advice to use a external usb power supply.
 :::

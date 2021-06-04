@@ -1,7 +1,5 @@
 # openHAB
 
-![UNDER CONSTRUCTION](./images/underconstruction.jpg)
-
 <!-- TOTO: Test if this info is correct and complete to setup openHab CDEM info page -->
 
 [openHAB](https://www.openhab.org/) is a open source home automation platform.
