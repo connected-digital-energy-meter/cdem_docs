@@ -1,7 +1,5 @@
 # Hardware
 
-![UNDER CONSTRUCTION](./images/underconstruction.jpg)
-
 This chapter contains order and development information for the hardware of the Connected Digital Energy Meter device.
 
 ![IMAGE](./images/pcb.jpg)
