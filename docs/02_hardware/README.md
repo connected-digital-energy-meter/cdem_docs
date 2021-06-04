@@ -51,3 +51,5 @@ A case that fits is the [1591XXM from HAMMOND](http://www.hammondmfg.com/pdf/159
 ![IMAGE](./images/box.jpg)
 
 You can order this case on [Conrad](https://www.conrad.be/p/hammond-electronics-1591xxmsbk-1591xxmsbk-universele-behuizing-85-x-56-x-25-abs-zwart-1-stuks-485622).
+
+You will need to make a small adjustment to the box, a small opening in the box for the RJ12 connector. You can do this with a small saw or cutter.
