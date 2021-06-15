@@ -45,11 +45,17 @@ Under `Assets` you will find the source code ZIP file. Download this file to you
 
 Extract the ZIP file somewhere on your system.
 
+::: tip 🐑 Git Clone
+You can also clone the project using GIT if you are familiar with it. That way you can easily pull new updates from our code repository.
+
+To clone the project just execute the command `git clone https://github.com/connected-digital-energy-meter/cdem-firmware.git` somewhere you wish to store the project.
+:::
+
 Open Arduino IDE and traverse to the location you extracted the ZIP file. Select the project and open it.
 
 ![Opened Firmware](./images/opened_firmware.png)
 
-Now select the `Generic ESP8266 Module` board from the `Tools => Board => ESP8266 Boards` menu after installation. Select the correct `COM-port` from `Tools => Port`.
+Now select the `Generic ESP8266 Module` board from the `Tools => Board => ESP8266 Boards` menu after installation. Select the correct `COM-port` from `Tools => Port` (make sure the device is connected to your computer).
 
 Next you will be required to install the different libraries the firmware depends on to do its work.
 
@@ -80,7 +86,11 @@ PubSubClient is a client library for MQTT messaging.
 3. Select the version: `2.8.0`
 4. Click install.
 
-![ArduinoJson](./images/pub_sub_client.png)
+![PubSubClient](./images/pub_sub_client.png)
+
+::: warning 🚨 Other MQTT Libraries
+There are a lot of other MQTT libraries out there and each has its pitfalls. PubSubClient is one of the most mature which is still being maintained.
+:::
 
 ### The ArduinoJson Library
 
@@ -101,6 +111,6 @@ Select the Upload button and watch the magic happen. If all went well you should
 
 ![Successful Compilation](./images/compiled_successfully.png)
 
-After a couple of seconds the device should start to output messages to the serial monitor and the green LED on the board should blink with an interval of about 2 seconds.
+After a couple of seconds the device should start to output messages to the serial monitor and the green LED on the board should blink with an interval of about 2 seconds. This means that the device is awaiting configuration.
 
 ![Serial Monitor](./images/serial_monitor.png)
