@@ -1,57 +1,24 @@
 # Docker Compose
 
-![UNDER CONSTRUCTION](./images/underconstruction.jpg)
+Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. 
 
-TODO
+Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels.
 
-```yaml
-version: "3.7"
+Docker Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
 
-services:
+To learn more about all the features of Compose, [checkout their documentation](https://docs.docker.com/compose/).
 
-  influxdb:
-    environment:
-      INFLUXDB_DB: home
-      INFLUXDB_ADMIN_USER: admin
-      INFLUXDB_ADMIN_PASSWORD: xxxxxxxxx
-      INFLUXDB_USER: grafana
-      INFLUXDB_USER_PASSWORD: xxxxxxxxxxxxxx
-    image: influxdb:1.8.4
-    restart: unless-stopped
-    networks:
-      - backend
-    volumes:
-      - influxdb:/var/lib/influxdb
+## Full Setup
 
-  grafana:
-    image: grafana/grafana:7.4.1
-    restart: unless-stopped
-    ports:
-      - "3000:3000"
-    depends_on:
-      - influxdb
-    networks:
-      - backend
-    volumes:
-      - grafana-storage:/var/lib/grafana
+If you have a usable docker/compose environment, you can use the full setup to experiment with the CDEM system. Using this approach will allow you to setup all the required components for your CDEM processing, including:
 
-  nodered:
-    image: nodered/node-red:1.2.9
-    restart: unless-stopped
-    ports:
-      - "1880:1880"
-    depends_on:
-      - influxdb
-    networks:
-      - backend
-    volumes:
-      - nodered-storage:/data
+* An MQTT Broker
+* NodeRED
+* Grafana
+* InfluxDB
+* *Home-Assistant - Not yet implemented*
+* *OpenHAB - Not yet implemented*
 
-volumes:
-  grafana-storage:
-  influxdb:
-  nodered-storage:
+The docker-compose setup can be found at [https://github.com/connected-digital-energy-meter/cdem-docker-compose](https://github.com/connected-digital-energy-meter/cdem-docker-compose). It features a single-command setup with full provisioning of the system and dashboards.
 
-networks:
-  backend:
-```
+This setup is still experimental and should probable only be used by those who know their way around docker.
