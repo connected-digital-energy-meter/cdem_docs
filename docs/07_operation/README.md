@@ -2,104 +2,75 @@
 
 ![UNDER CONSTRUCTION](./images/underconstruction.jpg)
 
-<!-- TODO: volledig wijzigen naar de nieuwe pcb -->
+The CDEM device is equipped with three status LEDs (power, comm and data) next to the RJ12 connector. These LEDs indicate what the device status is at all times and should provide the user some basic feedback.
 
-The CDEM device is equipped with two RGB status LEDs on the opposite side of the RJ11 connector. The left is the communication LED and the right one is the data LED. These LEDs indicate what the device status is at all times and should provide the user some basic feedback.
+<!-- TODO: Change image to all led's off  -->
+![Status LEDs Off](./images/blank.png)
 
-![Both Status LEDs Off](./images/both_off.png)
+## Power
+
+Once your CDEM device is powered the **POWER** led will light up blue. This led should be on during operation.
+
+<!-- TODO: Change image to power led on  -->
+![Power led on](./images/blank.png)
 
 ## Booting
 
-Once your CDEM device is powered it will start **booting**. This is indicated by both status LEDs blinking blue with a delay of 1 second.
+Once your CDEM device is powered it will start **booting**.
 
-![Booting Status](./images/booting.gif)
+If it's the first time you power your CDEM device the **COMM** and **DATA** led's will alternate indicating you need to configure your device using the configuration page (see [Configuring your CDEM](/05_configuration)).
 
-If the touch pad is held while booting, the device will enter the **boot menu** and both LEDs will blink blue with a delay of 1 second, but in an alternating pattern.
+<!-- TODO: Change image to alternating comm and data led's  -->
+![Com data led alternating](./images/blank.png)
 
-![Boot Menu](./images/boot_menu.gif)
+If a configuration already exists you still get the 5 minute window to acces the configuration page to make changes to your configuration.
+In that case the **COMM** led will blink green.
 
-::: tip Separate LEDs
-Only while booting should you take both LEDs into account at the same time to determine the current status. All the steps in the boot-process are depicted using the blue LEDs.
+<!-- TODO: Change image to comm led blinking  -->
+![Comm led blinking](./images/blank.png)
 
-Once the boot process is finished, the LEDs should be considered separately. The left one depicting the communication state and the right one the data state.
+## External communication
+
+Once your CDEM device is boot your device will try to establish a wifi connection.
+As long there is no wifi connection the **COMM* led will be off.
+
+<!-- TODO: Change image to comm led off  -->
+![Comm led off](./images/blank.png)
+
+If a wifi connection has been established, the **COMM** led wil indicate that by flashing green.
+Now your CDEM device will try to setup a broker connection.
+
+<!-- TODO: Change image to comm led flashing  -->
+![Comm led short flash](./images/blank.png)
+
+Upon a succesfull wifi and broker connection the **COMM* led wil turn green.
+
+<!-- TODO: Change image to comm led on  -->
+![Comm led on](./images/blank.png)
+
+## Internal communication
+
+If the communication between your CDEM device and the Fluvius meter is operational the **DATA** led will light up orange.
+
+Should there be a communication fault between your CDEM device and the Fluvius meter the **DATA** led will indicate that by blinking orange.
+:::warning ✋ Communicationsjumper  
+If the **DATA** led is blinking orange the first time you use your CDEM device, see if you have refitted the communicationsjumper.
+
+<!-- TODO: Change image to communicationsjumper  -->
+![Comm led on](./images/blank.png)
 :::
-
-### The Communication LED
-
-The communication LED (left one) depicts the current state of all communication to the outside. This includes both the MQTT broker connection as well as the WiFi status.
-
-Basically there are three states that the communication LED will display.
-
-#### No Communication
-
-In case there is no active WiFi connection and therefore also no MQTT broker connection, the communication LED will blink red rapidly.
-
-![No WiFi](./images/no_comm.gif)
-
-This should not be a problem right after booting as it will take a few seconds to setup the WiFi connection. If this status does change, then the connection to the WiFi network fails. This can either be problem with range or a bad SSID or Password.
-
-If it happens after some time, it may be that the device is requesting a new IP address from your router or that the connection was momentarily lost. If this does not happen too often and quickly restores, it should not be a problem.
-
-#### WiFI Up but no MQTT Connection
-
-Once the WiFi has come up, the communication led will turn purple/magenta. This indicates that the connection is being setup with the MQTT broker. This process can take a few second.
-
-![No MQTT](./images/left_purple.png)
-
-If the state does not change after a few seconds, there is problem connecting to the MQTT broker. This can be caused by a mis-configured broker. Double check the IP address of the broker.
-
-Also make sure that the broker is available from the WiFi network the CDEM device is connected to. A quick check can be to connect to the same network using a laptop and pinging the broker via it's IP address.
-
-#### Communication Up
-
-If all went well and both WiFi and MQTT are up and running, the communication LED should turn lime green.
-
-![Communication up](./images/left_green.png)
-
-### The Data LED
-
-The data LED (right one) depicts the current state of the connection with the digital meter. This includes both be able to read the datagrams as well as decode them.
-
-Basically there are three states that the data LED will display.
-
-#### Starting Meter
-
-When the device finished booting and the WiFi was initialized (does not have to be connected), the CDEM device will request data from the digital meter. In this initial state the data led will turn purple/magenta, indicating that the meter readout is starting.
-
-![Starting Meter](./images/right_purple.png)
-
-After a few seconds the data led will indicate if the data readout was successful or erroneous.
-
-#### Data Readout Successful
-
-If the data was read successfully from the meter and validated, then the data LED will turn lime green, indicating an all is good status.
-
-![Data ok](./images/right_green.png)
-
-#### Meter Connection Error
-
-In case the data read-out from the digital meter fails, the data LED will blink red rapidly.
-
-![No Data](./images/no_data.gif)
-
-If it happens once in a while, it means that the connection to the meter is not optimal and the meter sometimes fails to answer the data request in the given time window or that the data validation failed. This can happen if the wire signal is not ideal and interference is being picked up from another source. It can help to use a shorter cable and placing the device closer to the meter.
-
-When this happens after connecting the CDEM device to the meter for the first time or if the LED does not turn back green after a couple of minutes (depending on the read-out time you configured), there is probable another cause.
-
-This can be a wiring/connection problem. Make sure that the cable you are using is ok. Also try not to use a cable that is longer than a few meters. The signal may degenerate too much if the cable is too long.
-
-It could also be that the meter is not yet activated for outputting its data via the P1 port. Make sure you activated the meter online - see [Activating the Fluvius Meter Port](/05_connect/#activating-the-fluvius-meter-port). Make sure you received an email or SMS from Fluvius indicating that the meter has been activated.
-
-Also make sure that the shield has been soldered correctly and no short-circuits have been made or components have been forgotten. Double check that you did not flip the 74HCT14 inverter IC.
 
 ## Your device at work
 
-Once your device has WiFi connection and is connected to your MQTT broker it will periodically:
+Once your device is operational it will periodically:
 
 * read a datagram from the P1 port of your Fluvius Digital Meter
 * validate the received datagram
 * decode the datagram to a human readable format
 * publish that human readable format to your MQTT broker
+
+<!-- TODO: Change image to all led's on  -->
+![All led's on](./images/blank.png)
 
 ## Your Data
 
@@ -157,16 +128,4 @@ Using a tool such as [MQTT Explorer](http://mqtt-explorer.com/), you can easily 
 
 ![MQTT Explorer](./images/mqtt_explorer.png)
 
-## Resetting your device
 
-In the unfortunate case the firmware of your CDEM device crashes or gets stuck, you can always safely reset your device by pressing the small reset button just above the RJ11 connector.
-
-Place a thin but not sharp pin into the hole just beneath the VIVES logo and press gently.
-
-Your device will then reboot.
-
-Of course you can also interrupt the USB power supply to do this.
-
-<!-- ## In Case of Serious Problems -->
-
-<!-- Attach to computer and use Arduino IDE -->

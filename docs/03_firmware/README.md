@@ -36,7 +36,8 @@ Download the latest firmware for the ESP12 from the [CDEM Firmware GitHub page](
 Make sure to download the latest firmware so you are up-to-date with the latest changes.
 
 Note that the `v1.x` releases targeted the old hardware (using ESP32) while the newer `v2.x` and up releases target the standalone ESP12 system (PCB v4.0 and up).
-<!-- TODO - Refer to technical section where different PCB's are shown -->
+
+For more information on the versions see our [Technical information](/13_technical/#how-is-the-hardware-build).
 :::
 
 Under `Assets` you will find the source code ZIP file. Download this file to your local system.
