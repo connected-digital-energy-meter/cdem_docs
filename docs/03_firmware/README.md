@@ -108,6 +108,13 @@ The ArduinoJson library allows easy parsing and conversion of JSON strings. The 
 
 Make sure your CDEM is connected to your host PC via USB and that the correct port is selected.
 
+:::warning ✋ Communicationsjumper  
+Before uploading your firmware the communicationsjumper on your CDEM device should be removed. Don't forget to put it back after uploading the firmware.
+
+<!-- TODO: Change image to communicationsjumper  -->
+![Comm led on](./images/blank.png)
+:::
+
 Select the Upload button and watch the magic happen. If all went well you should get similar output to that shown below.
 
 ![Successful Compilation](./images/compiled_successfully.png)
