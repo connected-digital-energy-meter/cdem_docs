@@ -4,8 +4,6 @@
 It is our personal opinion that it is better practice to keep the MQTT data local instead of in the cloud. It's sensitive data that one could use to determine when nobody is at home. So we recommend not using a public MQTT broker.
 :::
 
-<!-- TODO - Refactor the rest of this to use details container -->
-
 ::: details How can i use this device to save on my energy bill?
 * For starters you can use the output of your production ( if you have solar pannels ) and your consumption of energy to detect when u use most energy and at what tarif you use it. If you can figure out what devices or actions cause that energy usage you can adjust your habits so u use energy when it is least expensive for you.
 * If you have a domotics system you can automate the above and cut the power to certain appliance when the energy price is high and your production is low.
@@ -20,9 +18,28 @@ When u notice that your CDEM is rebooting unexpectedly from time to time, then i
 ![IMAGE](./images/power_supply.jpg)
 :::
 
-::: details General troubleshooting
+::: details My DATA led keeps blinking orange
 
-<!-- TODO: aanpassen aan de nieuwe versie van hardware/firmware -->
+When the DATA led keeps blinking orange there is a problem with the communication between your CDEM device and the Fluvius Meter.
+
+First check if you refitted the communicationsjumper.
+
+If that's ok, then you probably have a faulty RJ12 cable. Just replace it.
+
+:::
+
+::: details I can't upload the firmware
+
+First check if you have removed the communicationsjumper.
+
+Also check if you are using the correct COM port.
+
+If that's ok, then you probably have a faulty RJ12 cable. Just replace it.
+
+:::
+
+
+::: details General troubleshooting
 
 If your setup doesn't do the expeceted you can folow these problem detecting steps:
 
