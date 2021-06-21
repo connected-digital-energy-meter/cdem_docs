@@ -1,10 +1,10 @@
 # MQTT
 
-Before taking your CDEM in operation you have to provide a MQTT broker service in your local network.
-
-## What is MQTT ?
-
 MQTT is one of the most commonly used protocols for Internet of Things devices to communicate with each other. MQTT stands for Message Queuing Telemetry Transport. It is a very lightweight messaging protocol that uses a **publish / subscribe** mechanism to exchange data between different clients. It is small in size, low in power consumption and uses minimized data packages, ideal for machine-to-machine communication and therefor for the Internet of Things.
+
+![MQTT Logo](./images/mqtt-logo.png)
+
+## An Example
 
 Lets consider the situation where we have temperature sensor that want to share its current data with other devices. On the other hand we have devices such as a smartphone or computer who want to receive this data to process it or display it in a dashboard.
 
@@ -28,6 +28,8 @@ The CDEM devices basically does the same thing as the aforementioned temperature
 From that point on any other interested services (Home Assistant, openHAB, NodeRED, ...) can access the data. This of course within your own home network if you are not using a public broker (which we discourage anyway).
 
 ## Installing an MQTT broker service
+
+Before taking your CDEM in operation you have to provide a MQTT broker service in your local network.
 
 [Mosquitto](https://mosquitto.org) is one of the brokers that can be used to communicate with MQTT. It's a simple and lightweight broker, and is available on many different platforms (Docker, Raspberry Pi, standalone, NAS, ...).
 
