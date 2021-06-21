@@ -123,6 +123,6 @@ After a couple of seconds the device should start to output messages to the seri
 
 ![Serial Monitor](./images/serial_monitor.png)
 
-The green communication LED on the board should also blink with an interval of about 2 seconds. This means that the device has put up a WiFi access point and is awaiting configuration.
+The green communication LED on the board should start to blink with an interval of about 2 seconds. This means that the device has put up a WiFi access point and is awaiting configuration.
 
 ![Captive Portal](./images/captive_portal.gif)

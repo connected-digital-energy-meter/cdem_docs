@@ -1,7 +1,5 @@
 # Configuring your CDEM
 
-![UNDER CONSTRUCTION](./images/underconstruction.jpg)
-
 Upon the first startup of the firmware, the factory default settings are loaded. These default settings need to be altered to suit your own home network configuration before the device will function correctly.
 
 ::: warning ✋ Configuration is Mandatory
@@ -14,7 +12,7 @@ The device will at least require the following information:
 * Your WiFi password
 * An MQTT broker IP address
 
-::: tip No Internet required
+::: tip 🌐 No Internet required
 The device does not access the Internet in any way unless you are using a public MQTT broker. No information is send to any third party and no information is fetched for any purposes. The device also does not allow any external connection to be made to the device itself, except for the configuration procedure at boot.
 :::
 
@@ -34,7 +32,7 @@ To connect to the access point, reboot the device by disconnecting and connectin
 
 <!-- TODO - Animated gif of blinking comm led -->
 
-[Captive Portal Status](./images/captive_portal.gif)
+![Captive Portal Status](./images/captive_portal.gif)
 
 Use the information below to connect to the access point:
 
