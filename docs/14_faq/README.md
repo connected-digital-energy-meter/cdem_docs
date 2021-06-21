@@ -62,3 +62,25 @@ If your setup doesn't do the expeceted you can folow these problem detecting ste
    - Check if you have internet connection in your network. If not, it is possible that your network is unable to reach a DNS server and therefore has trouble locating your devices.
 
 :::
+
+<!-- ---------------------------------------------------------- -->
+
+::: details Can I see if my user ports are activated?
+Yes you can. Go to Fluvius digital meter and hit the lime green user button once. The display should become lit. A small arrow should be placed above G. If not, than your user ports are not activated.
+
+![Active User Ports](./images/active_user_ports.png)
+:::
+
+<!-- ---------------------------------------------------------- -->
+
+::: details I am getting a lot of timeouts
+If the timeouts counter in the `stats` topic is increasing, there might be a problem with the readout of the meter. Can have several causes:
+
+* The Fluvius user ports are not activated (anymore). If this is a fresh setup you may need to wait a few days longer for the ports to become active. If this was a functioning setup, you need to check the digital meter.
+* The RJ12 cable is faulty and may need to be replaced.
+* The program jumper is not placed (correctly) on your CDEM device. Checkout the [Compile and Configure the Firmware](/03_firmware/#compile-and-upload-the-firmware) section for more information.
+:::
+
+<!-- TODO - Redirect to correct sections -->
+
+<!-- ---------------------------------------------------------- -->

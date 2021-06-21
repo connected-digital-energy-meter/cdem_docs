@@ -108,12 +108,9 @@ The ArduinoJson library allows easy parsing and conversion of JSON strings. The 
 
 Make sure your CDEM is connected to your host PC via USB and that the correct port is selected.
 
-:::warning ✋ Communicationsjumper  
-Before uploading your firmware the communicationsjumper on your CDEM device should be removed. Don't forget to put it back after uploading the firmware.
+Before trying to upload your firmware to your CDEM device, make sure to remove the program jumper on the PCB.
 
-<!-- TODO: Change image to communicationsjumper  -->
-![Comm led on](./images/blank.png)
-:::
+![Program Jumper Off](./images/blank.png)
 
 Select the Upload button and watch the magic happen. If all went well you should get similar output to that shown below.
 
@@ -126,3 +123,7 @@ After a couple of seconds the device should start to output messages to the seri
 The green communication LED on the board should start to blink with an interval of about 2 seconds. This means that the device has put up a WiFi access point and is awaiting configuration.
 
 ![Captive Portal](./images/captive_portal.gif)
+
+Don't forget to put back the program jumper after uploading the firmware or the device will not be able to read the data from the meter later on.
+
+![Program Jumper On](./images/blank.png)

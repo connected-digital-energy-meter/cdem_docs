@@ -1,76 +1,84 @@
 # Device Operation
 
-![UNDER CONSTRUCTION](./images/underconstruction.jpg)
+The CDEM device is equipped with three status LEDs (power, comm and data) next to the RJ12 connector. These LEDs indicate what the device status is at all times and should provide the user with some basic feedback.
 
-The CDEM device is equipped with three status LEDs (power, comm and data) next to the RJ12 connector. These LEDs indicate what the device status is at all times and should provide the user some basic feedback.
+<!-- TODO - Update to v5 PCB -->
 
-<!-- TODO: Change image to all led's off  -->
-![Status LEDs Off](./images/blank.png)
+![CDEM Status LEDs](./images/cdem_status_leds.png)
 
-## Power
+The following sections describe the different steps in the boot process and operational modes with their corresponding status LEDs.
 
-Once your CDEM device is powered the **POWER** led will light up blue. This led should be on during operation.
+## A Powered CDEM Device
+
+Once your CDEM device is powered, the **power** LED will light up solid blue. This LED should be on during operation.
 
 <!-- TODO: Change image to power led on  -->
-![Power led on](./images/blank.png)
+![Power LED on](./images/cdem_only_power.png)
 
-## Booting
-
-Once your CDEM device is powered it will start **booting**.
-
-If it's the first time you power your CDEM device the **COMM** and **DATA** led's will alternate indicating you need to configure your device using the configuration page (see [Configuring your CDEM](/05_configuration)).
-
-<!-- TODO: Change image to alternating comm and data led's  -->
-![Com data led alternating](./images/blank.png)
-
-If a configuration already exists you still get the 5 minute window to acces the configuration page to make changes to your configuration.
-In that case the **COMM** led will blink green.
-
-<!-- TODO: Change image to comm led blinking  -->
-![Comm led blinking](./images/blank.png)
-
-## External communication
-
-Once your CDEM device is boot your device will try to establish a wifi connection.
-As long there is no wifi connection the **COMM* led will be off.
-
-<!-- TODO: Change image to comm led off  -->
-![Comm led off](./images/blank.png)
-
-If a wifi connection has been established, the **COMM** led wil indicate that by flashing green.
-Now your CDEM device will try to setup a broker connection.
-
-<!-- TODO: Change image to comm led flashing  -->
-![Comm led short flash](./images/blank.png)
-
-Upon a succesfull wifi and broker connection the **COMM* led wil turn green.
-
-<!-- TODO: Change image to comm led on  -->
-![Comm led on](./images/blank.png)
-
-## Internal communication
-
-If the communication between your CDEM device and the Fluvius meter is operational the **DATA** led will light up orange.
-
-Should there be a communication fault between your CDEM device and the Fluvius meter the **DATA** led will indicate that by blinking orange.
-:::warning ✋ Communicationsjumper  
-If the **DATA** led is blinking orange the first time you use your CDEM device, see if you have refitted the communicationsjumper.
-
-<!-- TODO: Change image to communicationsjumper  -->
-![Comm led on](./images/blank.png)
+::: danger 💡 Power Issue
+If the power LED is on continuously when the device is plugged into the digital meter, there might be a power or the device might be faulty. Disconnect the device immediately and check the [Troubleshooting](/15_troubleshooting) section for more information.
 :::
 
-## Your device at work
+## The Boot Process
 
-Once your device is operational it will periodically:
+Immediately after applying power, the CDEM device will start the boot process.
+
+Then the device will setup a configuration access point for about 5 minutes. This is indicated by the green communication LED blinking slowly (interval of about 2 seconds). You can either connect to the device and select the 'Boot without Saving' option from the configuration page or wait 5 minutes for the portal window to pass.
+
+![CDEM Captive Portal](./images/captive_portal.gif)
+
+### Default Configuration
+
+If the device has not been configured properly, it will not boot past the point of setting up the access point. This because your network information is required, before the datagrams can be published to an MQTT broker. This is also a preliminary safety measure to protect your data and make sure you as an owner of the device have taken the time to configure the device. This state will be indicated by the two LEDs (data and comm) blinking alternately (a police light as it were). Checkout the [Configuring your CDEM](/05_configuration) section for more information on how to configure the device properly.
+
+![CDEM Default Config](./images/default_config.gif)
+
+## Communication Status
+
+Once the device configuration has been validated, the device will continue the boot process by trying to connect to the WiFi network. As long as no WiFi connection could be established, the data LED will be off.
+
+![CDEM No WiFi](./images/cdem_no_wifi.png)
+
+The moment an active WiFi connection can be established, the **data LED will flash quickly** while trying to **connect to the broker**.
+
+![CDEM WiFi - No MQTT](./images/cdem_wifi_no_mqtt.gif)
+
+If all goes well and the MQTT broker can be reached, the communication LED should turn solid green.
+
+![CDEM Communications OK](./images/cdem_comm_on.png)
+
+## Meter Readout Status
+
+While setting up the WiFi connection and trying to connect to the broker, the CDEM device will continue the boot process and initialize the digital meter. This is indicated by the data LED blinking rapidly (interval of about 500 milliseconds).
+
+![Awaiting Meter Data](./images/meter_timeout.gif)
+
+Once a datagram has been successfully read from the digital meter, the data LED should turn solid orange.
+
+![CDEM All Ok](./images/cdem_all_ok.png)
+
+If the data led keeps blinking orange and does not turn solid green after some time (depends on the readout interval you configured), then there please check the following:
+
+* That the user ports of the Fluvius digital meter have been activated.
+* That the cable is an RJ12 cable with 6 wires and is still ok. You may need to try out another cable.
+* That the program jumper has been refitted in the correct position on your CDEM device.
+
+<!-- TODO - Image here of the correct program jumper position -->
+
+If neither of these help fixing the problem, please checkout the [Troubleshooting](/15_troubleshooting) section for more tips.
+
+## Your Device at Work
+
+If the device is fully operational and configured properly, then it will periodically:
 
 * read a datagram from the P1 port of your Fluvius Digital Meter
 * validate the received datagram
 * decode the datagram to a human readable format
 * publish that human readable format to your MQTT broker
 
-<!-- TODO: Change image to all led's on  -->
-![All led's on](./images/blank.png)
+In this case all three LEDs on the device should be lit continuously.
+
+![CDEM All Ok](./images/cdem_all_ok.png)
 
 ## Your Data
 
@@ -128,4 +136,44 @@ Using a tool such as [MQTT Explorer](http://mqtt-explorer.com/), you can easily 
 
 ![MQTT Explorer](./images/mqtt_explorer.png)
 
+### Statistical Information
 
+Next to the meter data, the device will also periodically send some statistical information in JSON format on the subtopic `stats`:
+
+```json
+{
+  "decoded": 41887,
+  "timeouts": 0,
+  "published": 41887,
+  "crcerrors": 0,
+  "uptime": "4d 21h 58m 16s 70ms"
+}
+```
+
+The following information is included in this payload:
+
+* `decoded`: the number of successfully decoded datagrams.
+* `timeouts`: the number of times the meter timed out while receiving data.
+* `published`: the number of datagrams that have been scheduled for publishing.
+* `crcerrors`: the number of crc error checks that have occurred when validating the datagrams.
+* `uptime`: the time the device has been up and running.
+
+### Device Details
+
+When the device has booted successfully it will also send a one time device details message in JSON format on the subtopic `announce`:
+
+```json
+{
+  "ip": "xxx.xxx.xxx.xxx",
+  "mac": "XX:XX:XX:XX:XX:XX",
+  "lib-version": "v1.1.0",
+  "pcb-version": "v4.0",
+}
+```
+
+The following information is included in this payload:
+
+* `ip`: the local IP address of the device.
+* `mac`: the MAC address of the WiFi interface of the device.
+* `lib-version`: the version of the `connected-digital-energy-meter` library the firmware is using.
+* `pcb-version`: the version of the PCB hardware used for your CDEM device.

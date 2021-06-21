@@ -38,25 +38,7 @@ Connect to the **P1 port** of the digital meter (the right hand one when standin
 
 Your CDEM device will immediately start booting as it draws it's power from the Fluvius digital meter. This is indicated by the power LED on the CDEM device lighting up blue.
 
-![CDEM Powered](./images/powered_cdem.png)
-
-<!-- TODO - Remark on status leds when everything is ok ? -->
-
-Then the device will setup a configuration access point for about 5 minutes. This is indicated by the green communication LED blinking slowly (interval of about 2 seconds). You can either connect to the device and select the 'Boot without Saving' option from the configuration page or wait 5 minutes for the portal window to pass.
-
-![CDEM Captive Portal](./images/captive_portal.gif)
-
-If all goes well the communication LED should turn solid green. Then the data LED should start blinking rapidly (interval of about 500 milliseconds).
-
-![Awaiting Meter Data](./images/meter_timeout.gif)
-
-::: warning 💤 Inactive Ports
-If the user ports of the meter have not (yet) been activated, the data LED will keep blinking. Once the ports are activated, the data LED will turn solid orange.
-:::
-
-Once a datagram has been successfully read from the digital meter, the data LED should turn solid orange.
-
-![CDEM All Ok](./images/cdem_all_ok.png)
+[Device Operation](/07_operation) provides detailed information about the status LEDs and all the different states the device operates in.
 
 ## Mounting your CDEM
 
