@@ -6,7 +6,7 @@ The **CDEM - Connected Digital Energy Meter** device is a standalone PCB that ca
 
 <!-- TODO - Image of newest PCB + some margin around picture -->
 
-The newer versions of the PCB (v4.0 and up) are stand-alone devices and require no external power source. They draw their power from the digital meter.
+The newer versions of the PCB (v4.0 and up) are stand-alone devices and require no external power supply. They draw their energy from the digital meter.
 
 All hardware is open source and can be modified to fit your own needs. Feel free to download the [KiCad project files](https://github.com/connected-digital-energy-meter/cdem-hardware) at Github.
 
@@ -44,12 +44,18 @@ Make sure that the RJ12 cable has 6 wires and that both sides have the wires in 
 
 ## Casing
 
-To safely take your Connected Digital Energy Meter in operation we recommend putting it into a casing. This protects the PCB from dust and such and also makes sure the electronics cannot be short circuited by accident.
+To safely take your Connected Digital Energy Meter in operation we recommend putting it into a decent casing. This protects the PCB from dust and such and also makes sure the electronics cannot be short circuited by accident.
 
 A case that fits is the [1591XXM from HAMMOND](http://www.hammondmfg.com/pdf/1591XXM.pdf).
 
-![IMAGE](./images/box.jpg)
+![Casing](./images/box.jpg)
+
+<!-- TODO - Photo of latest PCB inside case -->
 
 You can order this case on [Conrad](https://www.conrad.be/p/hammond-electronics-1591xxmsbk-1591xxmsbk-universele-behuizing-85-x-56-x-25-abs-zwart-1-stuks-485622).
 
-You will need to make a small adjustment to the box, a small opening in the box for the RJ12 connector. You can do this with a small saw or cutter.
+You will need to make a small adjustment to the box. A small opening will need to be made in the box for the RJ12 connector. You can do this using a small saw or cutter.
+
+<!-- TODO - Photo of latest PCB inside case with cut hole on side -->
+
+If you wish you can mount the PCB inside the case using 4 small 1/4" self-tapping screws, but it is not a requirement.

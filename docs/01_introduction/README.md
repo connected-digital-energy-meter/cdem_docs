@@ -4,7 +4,7 @@ As of July 2019 Fluvius has been installing digital meters and must install at l
 
 ![Digital Utility Meters](./images/fluviusdigitalemeter.jpg)
 
-As of January 2021 the constitutional Court has decided these digital meters will not be subtracting produced energy with solar panels from consumed energy from the net. Instead you will need a new contract with your energy supplier for delivery of energy to het net.
+As of January 2021 the constitutional Court has decided these digital meters will not be subtracting produced energy with solar panels from consumed energy from the net. Instead you will need a new contract with your energy supplier for delivery of energy to the net.
 
 Now more then ever it is in everybody's interest to monitor your energy consumption and if possible automate your home for optimal use of energy.
 
