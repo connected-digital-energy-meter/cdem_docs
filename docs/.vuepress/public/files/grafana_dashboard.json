@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 3,
   "links": [],
   "panels": [
     {
@@ -23,7 +22,6 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 0,
           "mappings": [],
           "thresholds": {
@@ -48,7 +46,7 @@
       "id": 7,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -58,9 +56,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "targets": [
         {
           "groupBy": [
@@ -77,19 +76,19 @@
               "type": "fill"
             }
           ],
-          "measurement": "consumption_high_tarif",
+          "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"consumption_high_tarif\" GROUP BY * ORDER BY DESC LIMIT 1",
           "queryType": "randomWalk",
-          "rawQuery": true,
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "consumption_high_tarif"
                 ],
                 "type": "field"
               },
@@ -104,7 +103,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Electricity from net (High tarif)",
+      "title": "Total Electricity Consumed (High Tarif)",
       "type": "stat"
     },
     {
@@ -112,7 +111,6 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 0,
           "mappings": [],
           "thresholds": {
@@ -137,7 +135,7 @@
       "id": 9,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -147,9 +145,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "targets": [
         {
           "groupBy": [
@@ -166,19 +165,19 @@
               "type": "fill"
             }
           ],
-          "measurement": "production_high_tarif",
+          "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"production_high_tarif\" GROUP BY * ORDER BY DESC LIMIT 1",
           "queryType": "randomWalk",
-          "rawQuery": true,
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "production_high_tarif"
                 ],
                 "type": "field"
               },
@@ -193,7 +192,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Electricity into net (High tarif)",
+      "title": "Total Electricity Produced (High Tarif)",
       "type": "stat"
     },
     {
@@ -208,7 +207,6 @@
       "datasource": "CDEM",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "kwatt"
         },
         "overrides": []
@@ -239,7 +237,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -267,7 +265,7 @@
           "measurement": "total_power_consumption",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT -last(\"value\") FROM \"total_power_consumption\" WHERE time > now()-1h GROUP BY time(1m) fill(null)",
+          "query": "SELECT -last(\"total_power_consumption\") FROM \"meter_data\" WHERE time > now()-1h GROUP BY time(1m) fill(null)",
           "queryType": "randomWalk",
           "rawQuery": true,
           "refId": "A",
@@ -307,7 +305,7 @@
           "measurement": "total_power_production",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(\"value\") FROM \"total_power_production\" WHERE time > now()-1h GROUP BY time(1m) fill(null)",
+          "query": "SELECT last(\"total_power_production\") FROM \"meter_data\" WHERE time > now()-1h GROUP BY time(1m) fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -376,7 +374,6 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 0,
           "mappings": [],
           "thresholds": {
@@ -401,7 +398,7 @@
       "id": 8,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -411,9 +408,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "targets": [
         {
           "groupBy": [
@@ -430,19 +428,19 @@
               "type": "fill"
             }
           ],
-          "measurement": "consumption_low_tarif",
+          "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"consumption_low_tarif\" GROUP BY * ORDER BY DESC LIMIT 1",
           "queryType": "randomWalk",
-          "rawQuery": true,
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "consumption_low_tarif"
                 ],
                 "type": "field"
               },
@@ -457,7 +455,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Electricity from net (Low tarif)",
+      "title": "Total Electricity Consumed (Low Tarif)",
       "type": "stat"
     },
     {
@@ -465,7 +463,6 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 0,
           "mappings": [],
           "thresholds": {
@@ -490,7 +487,7 @@
       "id": 10,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -500,9 +497,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "targets": [
         {
           "groupBy": [
@@ -519,19 +517,19 @@
               "type": "fill"
             }
           ],
-          "measurement": "production_low_tarif",
+          "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"production_low_tarif\" GROUP BY * ORDER BY DESC LIMIT 1",
           "queryType": "randomWalk",
-          "rawQuery": true,
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "production_low_tarif"
                 ],
                 "type": "field"
               },
@@ -546,7 +544,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Electricity into net (Low tarif)",
+      "title": "Total Electricity Produced (Low Tarif)",
       "type": "stat"
     },
     {
@@ -554,7 +552,6 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 0,
           "mappings": [],
           "noValue": "-",
@@ -580,7 +577,7 @@
       "id": 13,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -590,9 +587,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "targets": [
         {
           "groupBy": [
@@ -609,19 +607,19 @@
               "type": "fill"
             }
           ],
-          "measurement": "consumption_low_tarif",
+          "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"gas_meter_m3\" GROUP BY * ORDER BY DESC LIMIT 1",
           "queryType": "randomWalk",
-          "rawQuery": true,
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "gas_meter_m3"
                 ],
                 "type": "field"
               },
@@ -636,7 +634,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Gas",
+      "title": "Total Gas Consumed",
       "type": "stat"
     },
     {
@@ -644,7 +642,6 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 0,
           "mappings": [],
           "noValue": "-",
@@ -670,7 +667,7 @@
       "id": 16,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -680,9 +677,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "targets": [
         {
           "groupBy": [
@@ -699,19 +697,19 @@
               "type": "fill"
             }
           ],
-          "measurement": "consumption_low_tarif",
+          "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
           "query": "SELECT last(\"value\") FROM \"water_meter_m3\" GROUP BY * ORDER BY DESC LIMIT 1",
           "queryType": "randomWalk",
-          "rawQuery": true,
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "water_meter_m3"
                 ],
                 "type": "field"
               },
@@ -726,14 +724,14 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Water",
+      "title": "Total Water Consumed",
       "type": "stat"
     },
     {
       "datasource": "CDEM",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "decimals": 3,
           "mappings": [],
           "max": 5,
           "min": 0,
@@ -752,7 +750,7 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 3,
+        "w": 4,
         "x": 0,
         "y": 9
       },
@@ -766,9 +764,10 @@
           "values": false
         },
         "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdMarkers": true,
+        "text": {}
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "targets": [
         {
           "groupBy": [
@@ -785,19 +784,19 @@
               "type": "fill"
             }
           ],
-          "measurement": "total_power_consumption",
+          "measurement": "meter_data",
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT last(value) FROM \"total_power_production\"",
           "queryType": "randomWalk",
-          "rawQuery": true,
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "total_power_production"
                 ],
                 "type": "field"
               },
@@ -812,14 +811,14 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Current electricity injection",
+      "title": "Current Electricity Production",
       "type": "gauge"
     },
     {
       "datasource": "CDEM",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "decimals": 3,
           "mappings": [],
           "max": 10,
           "min": 0,
@@ -850,8 +849,8 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 3,
-        "x": 3,
+        "w": 4,
+        "x": 4,
         "y": 9
       },
       "id": 5,
@@ -864,9 +863,10 @@
           "values": false
         },
         "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdMarkers": true,
+        "text": {}
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "targets": [
         {
           "groupBy": [
@@ -883,10 +883,10 @@
               "type": "fill"
             }
           ],
-          "measurement": "total_power_consumption",
+          "measurement": "meter_data",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(value) FROM \"total_power_consumption\"",
+          "query": "SELECT last(total_power_consumption) FROM \"meter_data\"",
           "queryType": "randomWalk",
           "rawQuery": true,
           "refId": "A",
@@ -895,7 +895,7 @@
             [
               {
                 "params": [
-                  "value"
+                  "total_power_consumption"
                 ],
                 "type": "field"
               },
@@ -910,7 +910,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Current electricity delivery",
+      "title": "Current Electricity Consumption",
       "type": "gauge"
     },
     {
@@ -927,7 +927,6 @@
       "datasource": "CDEM",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "kwatt"
         },
         "overrides": []
@@ -936,8 +935,8 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 7,
-        "w": 18,
-        "x": 6,
+        "w": 16,
+        "x": 8,
         "y": 9
       },
       "hiddenSeries": false,
@@ -958,7 +957,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -992,7 +991,7 @@
           "measurement": "total_power_consumption",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT -last(\"value\") FROM \"total_power_consumption\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
+          "query": "SELECT -last(\"total_power_consumption\") FROM \"meter_data\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
           "queryType": "randomWalk",
           "rawQuery": true,
           "refId": "A",
@@ -1032,7 +1031,7 @@
           "measurement": "total_power_production",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(\"value\") FROM \"total_power_production\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
+          "query": "SELECT last(\"total_power_production\") FROM \"meter_data\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -1071,7 +1070,7 @@
           "measurement": "actual_tarif",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(\"value\") FROM \"actual_tarif\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
+          "query": "SELECT last(\"actual_tarif\") FROM \"meter_data\" WHERE time > now()-24h GROUP BY time(1m) fill(null)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -1144,23 +1143,9 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "CDEM",
+      "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
           "unit": "kwatth"
         },
         "overrides": []
@@ -1193,7 +1178,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1221,7 +1206,7 @@
           "measurement": "actual_consumption",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"value\")*24 FROM \"total_power_consumption\" WHERE (\"tarif\" =2)  GROUP BY time(1d) fill(null)",
+          "query": "SELECT mean(\"total_power_consumption\")*24 FROM \"meter_data\" WHERE (\"tarif\" =2)  GROUP BY time(1d) fill(null)",
           "queryType": "randomWalk",
           "rawQuery": true,
           "refId": "A",
@@ -1266,7 +1251,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"value\")*24 FROM \"total_power_consumption\" WHERE (\"tarif\" =1)  GROUP BY time(1d) fill(null)",
+          "query": "SELECT mean(\"total_power_consumption\")*24 FROM \"meter_data\" WHERE (\"tarif\" =1)  GROUP BY time(1d) fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -1291,7 +1276,7 @@
       "timeFrom": "7d",
       "timeRegions": [],
       "timeShift": null,
-      "title": "Electricity delivered ",
+      "title": "Electricity Consumption ",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1339,7 +1324,6 @@
       "datasource": "CDEM",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "m3"
         },
         "overrides": []
@@ -1370,7 +1354,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.5.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1398,7 +1382,7 @@
           "measurement": "gas_meter_m3",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT derivative(mean(\"value\"), 1m) FROM \"gas_meter_m3\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT derivative(mean(\"gas_meter_m3\"), 1m) FROM \"meter_data\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
           "queryType": "randomWalk",
           "rawQuery": true,
           "refId": "A",
@@ -1424,7 +1408,7 @@
       "timeFrom": "24h",
       "timeRegions": [],
       "timeShift": null,
-      "title": "Gas used",
+      "title": "Gas Consumption",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1463,10 +1447,534 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 24
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "meter_stats",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "decoded"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Decoded Datagrams",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 4,
+        "y": 24
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "meter_stats",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "published"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Published Datagrams",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 8,
+        "y": 24
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "meter_stats",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "timeouts"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Meter Timeouts",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 12,
+        "y": 24
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "meter_stats",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"uptime\") FROM \"meter_stats\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "uptime"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CDEM Uptime",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 17,
+        "y": 24
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "announce",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "lib-version"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "CDEM Library Version",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 24
+      },
+      "id": 29,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "announce",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "pcb-version"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "CDEM PCB Version",
+      "type": "stat"
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1480,5 +1988,5 @@
   "timezone": "",
   "title": "Home - Energy",
   "uid": "8E1uagigk",
-  "version": 59
+  "version": 60
 }
