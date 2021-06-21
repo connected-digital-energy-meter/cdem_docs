@@ -188,7 +188,7 @@ Now go ahead and hit `Save & Test` to allow Grafana to test the connection to th
 
 ## Node-RED Flow
 
-The next step is to setup a Node-RED flow that will subscribe to our MQTT topic on which the meter is being published, process the data a bit and store it in the InfluxDB.
+The next step is to setup a Node-RED flow that will subscribe to our MQTT topic on which the meter is being published and store its data in the InfluxDB.
 
 Start by opening another browser tab/window and navigating to `http://<raspberry_ip_address>:1880`, where `1880` is the default port on which Node-RED is exposed.
 
@@ -206,7 +206,7 @@ Import the flow into Node-RED by clicking the hamburger menu in the top right an
 
 You should now have a new flow tab on top called `CDEM`. Click to tab to show the flow.
 
-![Node-RED CDEM Flow](./images/afbeelding4.png)
+![Node-RED CDEM Flow](./images/node_red_flow.png)
 
 If you changed the factory default MQTT topic when you configured the CDEM device, you will need to reflect this change in this flow. Double click the `MQTT Payload topic` node in the flow and configure the correct `Topic`. **Do make sure to leave the `/payload` topic intact at the end.**
 
@@ -224,10 +224,6 @@ You can check the data coming in by clicking the small bug icon in the top right
 
 ![Debug Data](./images/debug_data.png)
 
-::: danger 🔥 Error - Unable to parse ...
-If you get the error message `Error: A 400 Bad Request error occurred: {"error":"unable to parse 'water_meter_m3 value=undefined': invalid boolean"}` it means you have no digital water meter connected to the digital electricity meter. You can fix this by disabling the `Water Meter` influx node on the bottom right of the flow. Double click it, click the `Enabled` button in the bottom left and click `Done`. Update the running flow by clicking `Deploy` again.
-:::
-
 ## Grafana Dashboard
 
 Now is the time we all have been waiting for. A visual representation of the Connected Digital Energy Meter data.
@@ -242,7 +238,9 @@ Next click the `Upload JSON file` button and select the template dashboard file 
 
 You can probable leave the options as is. Click `Import` to finish the import.
 
-![image](./images/afbeelding5.png)
+![image](./images/dashboard.png)
+
+<!-- TODO - Update the screenshot with the new dashboard once we have some data -->
 
 ## Interpreting the Dashboard
 

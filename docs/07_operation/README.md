@@ -167,7 +167,7 @@ When the device has booted successfully it will also send a one time device deta
   "ip": "xxx.xxx.xxx.xxx",
   "mac": "XX:XX:XX:XX:XX:XX",
   "lib-version": "v1.1.0",
-  "pcb-version": "v4.0",
+  "pcb-version": "v4.0"
 }
 ```
 
