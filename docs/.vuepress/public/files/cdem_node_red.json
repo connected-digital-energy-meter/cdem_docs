@@ -15,65 +15,15 @@
         "qos": "1",
         "datatype": "json",
         "broker": "3a09552c.f19afa",
-        "x": 110,
-        "y": 140,
+        "nl": false,
+        "rap": false,
+        "x": 390,
+        "y": 160,
         "wires": [
             [
                 "b6d7281e.aa3328",
-                "cd3a0f5e.5fa9a",
-                "a2822db3.3bec2",
-                "caf453bd.77c3d",
-                "d00eacb.e040a5"
+                "e4786363.dc40d"
             ]
-        ]
-    },
-    {
-        "id": "74ddfeab.7d121",
-        "type": "influxdb out",
-        "z": "3754a753.818db8",
-        "influxdb": "c416a097.55c75",
-        "name": "Actual Tarif",
-        "measurement": "actual_tarif",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 730,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "cd3a0f5e.5fa9a",
-        "type": "function",
-        "z": "3754a753.818db8",
-        "name": "Current Power",
-        "func": "return [\n  // Actual Tarif (at this moment)\n  {\n    payload: {\n      value : msg.payload.actual_tarif,\n      label: (msg.payload.actual_tarif == 1 ? 'high' : 'low')\n    }\n  },\n  // Total Power Consumption (current power consumption over all phases)\n  {\n    payload: {\n      value : msg.payload.total_power_consumption,\n      tarif: msg.payload.actual_tarif\n    }\n  },\n  // Total Power Production (current power production over all phases)\n  {\n    payload: {\n      value : msg.payload.total_power_production,\n      tarif: msg.payload.actual_tarif\n    }\n  }\n];",
-        "outputs": 4,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 360,
-        "y": 140,
-        "wires": [
-            [
-                "74ddfeab.7d121"
-            ],
-            [
-                "93d258a8.b931e8"
-            ],
-            [
-                "13989f1b.812bc1"
-            ],
-            []
-        ],
-        "outputLabels": [
-            "Actual Tarif",
-            "Total Power Consumption",
-            "Total Power Production",
-            ""
         ]
     },
     {
@@ -88,200 +38,17 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 350,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "a2822db3.3bec2",
-        "type": "function",
-        "z": "3754a753.818db8",
-        "name": "Historic Power",
-        "func": "return [\n  // Consumption Low Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.consumption_low_tarif\n    }\n  },\n  // Consumption High Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.consumption_high_tarif\n    }\n  },\n  // Production Low Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.production_low_tarif\n    }\n  },\n  // Production High Tarif (total history meter value)\n  {\n    payload: {\n      value : msg.payload.production_high_tarif\n    }\n  }\n];",
-        "outputs": 4,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 360,
-        "y": 220,
-        "wires": [
-            [
-                "511c3fd7.5daff"
-            ],
-            [
-                "7b6661f5.9899b"
-            ],
-            [
-                "b7b8e13b.cd9b9"
-            ],
-            [
-                "261739e.7cc8ac6"
-            ]
-        ],
-        "outputLabels": [
-            "Consumption Low Tarif",
-            "Consumption High Tarif",
-            "Production Low Tarif",
-            "Production High Tarif"
-        ]
-    },
-    {
-        "id": "caf453bd.77c3d",
-        "type": "function",
-        "z": "3754a753.818db8",
-        "name": "Gas",
-        "func": "return [\n  // Gas Meter (total history meter value)\n  {\n    payload: {\n      value : msg.payload.gas_meter_m3\n    }\n  }\n];",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 330,
-        "y": 360,
-        "wires": [
-            [
-                "6cd58bb2.abb264"
-            ]
-        ],
-        "outputLabels": [
-            "Gas Meter"
-        ]
-    },
-    {
-        "id": "d00eacb.e040a5",
-        "type": "function",
-        "z": "3754a753.818db8",
-        "name": "Water",
-        "func": "return [\n  // Water Meter (total history meter value)\n  {\n    payload: {\n      value : msg.payload.water_meter_m3\n    }\n  }\n];",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 330,
-        "y": 420,
-        "wires": [
-            [
-                "d0d6337c.f521f"
-            ]
-        ],
-        "outputLabels": [
-            "Water Meter"
-        ]
-    },
-    {
-        "id": "93d258a8.b931e8",
-        "type": "influxdb out",
-        "z": "3754a753.818db8",
-        "influxdb": "c416a097.55c75",
-        "name": "Total Power Consumption",
-        "measurement": "total_power_consumption",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 770,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "13989f1b.812bc1",
-        "type": "influxdb out",
-        "z": "3754a753.818db8",
-        "influxdb": "c416a097.55c75",
-        "name": "Total Power Production",
-        "measurement": "total_power_production",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 770,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "511c3fd7.5daff",
-        "type": "influxdb out",
-        "z": "3754a753.818db8",
-        "influxdb": "c416a097.55c75",
-        "name": "Consumption Low Tarif",
-        "measurement": "consumption_low_tarif",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 760,
+        "x": 650,
         "y": 200,
         "wires": []
     },
     {
-        "id": "7b6661f5.9899b",
+        "id": "e4786363.dc40d",
         "type": "influxdb out",
         "z": "3754a753.818db8",
         "influxdb": "c416a097.55c75",
-        "name": "Consumption High Tarif",
-        "measurement": "consumption_high_tarif",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 770,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "b7b8e13b.cd9b9",
-        "type": "influxdb out",
-        "z": "3754a753.818db8",
-        "influxdb": "c416a097.55c75",
-        "name": "Production Low Tarif",
-        "measurement": "production_low_tarif",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 760,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "261739e.7cc8ac6",
-        "type": "influxdb out",
-        "z": "3754a753.818db8",
-        "influxdb": "c416a097.55c75",
-        "name": "Production High Tarif",
-        "measurement": "production_high_tarif",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 760,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "6cd58bb2.abb264",
-        "type": "influxdb out",
-        "z": "3754a753.818db8",
-        "influxdb": "c416a097.55c75",
-        "name": "Gas Meter",
-        "measurement": "gas_meter_m3",
+        "name": "Write to InfluxDB Data Measurement",
+        "measurement": "meter_data",
         "precision": "",
         "retentionPolicy": "",
         "database": "database",
@@ -290,16 +57,36 @@
         "org": "organisation",
         "bucket": "bucket",
         "x": 730,
-        "y": 360,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "d0d6337c.f521f",
+        "id": "d443df47.884ab",
+        "type": "mqtt in",
+        "z": "3754a753.818db8",
+        "name": "MQTT Stats topic",
+        "topic": "iot/myhome/cdem/stats",
+        "qos": "1",
+        "datatype": "json",
+        "broker": "3a09552c.f19afa",
+        "nl": false,
+        "rap": false,
+        "x": 400,
+        "y": 300,
+        "wires": [
+            [
+                "d37e75af.9ffb38",
+                "7bf6ede9.3e3404"
+            ]
+        ]
+    },
+    {
+        "id": "d37e75af.9ffb38",
         "type": "influxdb out",
         "z": "3754a753.818db8",
         "influxdb": "c416a097.55c75",
-        "name": "Water Meter",
-        "measurement": "water_meter_m3",
+        "name": "Write to InfluxDB Stats Measurement",
+        "measurement": "meter_stats",
         "precision": "",
         "retentionPolicy": "",
         "database": "database",
@@ -308,7 +95,77 @@
         "org": "organisation",
         "bucket": "bucket",
         "x": 730,
-        "y": 420,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "7bf6ede9.3e3404",
+        "type": "debug",
+        "z": "3754a753.818db8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "aa8df631.6cc658",
+        "type": "mqtt in",
+        "z": "3754a753.818db8",
+        "name": "MQTT Announce topic",
+        "topic": "iot/myhome/cdem/announce",
+        "qos": "1",
+        "datatype": "json",
+        "broker": "3a09552c.f19afa",
+        "nl": false,
+        "rap": false,
+        "x": 380,
+        "y": 440,
+        "wires": [
+            [
+                "776d65a0.307f4c",
+                "d92d0e45.c07e"
+            ]
+        ]
+    },
+    {
+        "id": "776d65a0.307f4c",
+        "type": "influxdb out",
+        "z": "3754a753.818db8",
+        "influxdb": "c416a097.55c75",
+        "name": "Write to InfluxDB Announce Measurement",
+        "measurement": "announce",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 740,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "d92d0e45.c07e",
+        "type": "debug",
+        "z": "3754a753.818db8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 480,
         "wires": []
     },
     {
@@ -320,17 +177,22 @@
         "clientid": "",
         "usetls": false,
         "compatmode": false,
+        "protocolVersion": "4",
         "keepalive": "60",
         "cleansession": true,
         "birthTopic": "",
         "birthQos": "0",
         "birthPayload": "",
+        "birthMsg": {},
         "closeTopic": "",
         "closeQos": "0",
         "closePayload": "",
+        "closeMsg": {},
         "willTopic": "",
         "willQos": "0",
-        "willPayload": ""
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
     },
     {
         "id": "c416a097.55c75",
