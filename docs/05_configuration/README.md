@@ -34,6 +34,8 @@ To connect to the access point, reboot the device by disconnecting and connectin
 
 <!-- TODO - Animated gif of blinking comm led -->
 
+[Captive Portal Status](./images/captive_portal.gif)
+
 Use the information below to connect to the access point:
 
 * **WiFi SSID:** `CDEM-Config`

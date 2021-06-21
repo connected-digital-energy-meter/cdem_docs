@@ -112,6 +112,10 @@ Select the Upload button and watch the magic happen. If all went well you should
 
 ![Successful Compilation](./images/compiled_successfully.png)
 
-After a couple of seconds the device should start to output messages to the serial monitor and the green LED on the board should blink with an interval of about 2 seconds. This means that the device is awaiting configuration.
+After a couple of seconds the device should start to output messages to the serial monitor.
 
 ![Serial Monitor](./images/serial_monitor.png)
+
+The green communication LED on the board should also blink with an interval of about 2 seconds. This means that the device has put up a WiFi access point and is awaiting configuration.
+
+![Captive Portal](./images/captive_portal.gif)
