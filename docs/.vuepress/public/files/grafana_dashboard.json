@@ -59,7 +59,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -79,9 +79,9 @@
           "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
-          "query": "SELECT last(\"value\") FROM \"consumption_high_tarif\" GROUP BY * ORDER BY DESC LIMIT 1",
+          "query": "SELECT last(\"consumption_high_tarif\") FROM \"meter_data\" WHERE $timeFilter GROUP BY time($__interval) fill(null) ORDER BY time DESC",
           "queryType": "randomWalk",
-          "rawQuery": false,
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -148,7 +148,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -168,9 +168,9 @@
           "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
-          "query": "SELECT last(\"value\") FROM \"production_high_tarif\" GROUP BY * ORDER BY DESC LIMIT 1",
+          "query": "SELECT last(\"production_high_tarif\") FROM \"meter_data\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
           "queryType": "randomWalk",
-          "rawQuery": false,
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -237,7 +237,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -265,7 +265,7 @@
           "measurement": "total_power_consumption",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT -last(\"total_power_consumption\") FROM \"meter_data\" WHERE time > now()-1h GROUP BY time(1m) fill(null)",
+          "query": "SELECT -last(\"total_power_consumption\") FROM \"meter_data\" WHERE $timeFilter GROUP BY time(1m) fill(null) ORDER BY time DESC",
           "queryType": "randomWalk",
           "rawQuery": true,
           "refId": "A",
@@ -305,7 +305,7 @@
           "measurement": "total_power_production",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(\"total_power_production\") FROM \"meter_data\" WHERE time > now()-1h GROUP BY time(1m) fill(null)",
+          "query": "SELECT last(\"total_power_production\") FROM \"meter_data\" WHERE $timeFilter GROUP BY time(1m) fill(null) ORDER BY time DESC",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -411,7 +411,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -431,9 +431,9 @@
           "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
-          "query": "SELECT last(\"value\") FROM \"consumption_low_tarif\" GROUP BY * ORDER BY DESC LIMIT 1",
+          "query": "SELECT last(\"consumption_low_tarif\") FROM \"meter_data\" WHERE $timeFilter GROUP BY time($__interval) fill(null) ORDER BY time DESC",
           "queryType": "randomWalk",
-          "rawQuery": false,
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -500,7 +500,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -520,9 +520,9 @@
           "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
-          "query": "SELECT last(\"value\") FROM \"production_low_tarif\" GROUP BY * ORDER BY DESC LIMIT 1",
+          "query": "SELECT last(\"production_low_tarif\") FROM \"meter_data\" WHERE $timeFilter GROUP BY time($__interval) fill(null) ORDER BY time DESC",
           "queryType": "randomWalk",
-          "rawQuery": false,
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -590,7 +590,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -610,9 +610,9 @@
           "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
-          "query": "SELECT last(\"value\") FROM \"gas_meter_m3\" GROUP BY * ORDER BY DESC LIMIT 1",
+          "query": "SELECT last(\"gas_meter_m3\") FROM \"meter_data\" WHERE $timeFilter GROUP BY time($__interval) fill(null) ORDER BY time DESC",
           "queryType": "randomWalk",
-          "rawQuery": false,
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -680,7 +680,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -700,9 +700,9 @@
           "measurement": "meter_data",
           "orderByTime": "DESC",
           "policy": "default",
-          "query": "SELECT last(\"value\") FROM \"water_meter_m3\" GROUP BY * ORDER BY DESC LIMIT 1",
+          "query": "SELECT last(\"water_meter_m3\") FROM \"meter_data\" WHERE $timeFilter GROUP BY time($__interval) fill(null) ORDER BY time DESC",
           "queryType": "randomWalk",
-          "rawQuery": false,
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -767,7 +767,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -787,9 +787,9 @@
           "measurement": "meter_data",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(value) FROM \"total_power_production\"",
+          "query": "SELECT last(\"total_power_production\") FROM \"meter_data\"",
           "queryType": "randomWalk",
-          "rawQuery": false,
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -866,7 +866,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -886,7 +886,7 @@
           "measurement": "meter_data",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(total_power_consumption) FROM \"meter_data\"",
+          "query": "SELECT last(\"total_power_consumption\") FROM \"meter_data\"",
           "queryType": "randomWalk",
           "rawQuery": true,
           "refId": "A",
@@ -957,7 +957,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1178,7 +1178,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1206,7 +1206,7 @@
           "measurement": "actual_consumption",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"total_power_consumption\")*24 FROM \"meter_data\" WHERE (\"tarif\" =2)  GROUP BY time(1d) fill(null)",
+          "query": "SELECT mean(\"total_power_consumption\")*24 FROM \"meter_data\" WHERE (\"actual_tarif\" =2)  GROUP BY time(1d) fill(null)",
           "queryType": "randomWalk",
           "rawQuery": true,
           "refId": "A",
@@ -1251,7 +1251,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"total_power_consumption\")*24 FROM \"meter_data\" WHERE (\"tarif\" =1)  GROUP BY time(1d) fill(null)",
+          "query": "SELECT mean(\"total_power_consumption\")*24 FROM \"meter_data\" WHERE (\"actual_tarif\" =1)  GROUP BY time(1d) fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -1354,7 +1354,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1490,7 +1490,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -1510,6 +1510,8 @@
           "measurement": "meter_stats",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT last(\"decoded\") FROM \"meter_stats\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1574,7 +1576,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -1662,7 +1664,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -1750,7 +1752,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -1842,7 +1844,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -1932,7 +1934,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.7",
+      "pluginVersion": "8.0.1",
       "targets": [
         {
           "groupBy": [
@@ -1978,7 +1980,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 27,
+  "schemaVersion": 30,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1992,5 +1994,5 @@
   "timezone": "",
   "title": "Home - Energy",
   "uid": "8E1uagigk",
-  "version": 61
+  "version": 65
 }
