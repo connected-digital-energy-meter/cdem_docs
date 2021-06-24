@@ -242,6 +242,10 @@ You can probable leave the options as is. Click `Import` to finish the import.
 
 <!-- TODO - Update the screenshot with the new dashboard once we have some data -->
 
+::: tip 📩 Download CSV / Excel History
+If you wish to download a file containing the history of your total consumption and production values, you can achieve this by selecting the `History` panel and navigating to `Inspect => Data`. There you will find the button `Download CSV`.
+:::
+
 ## Interpreting the Dashboard
 
 * In the electricity graphs you can detect spikes in delivery and start investigating the cause. The next step is to check if you can either make improvements or redirect this energy usage to a low tarif period.
