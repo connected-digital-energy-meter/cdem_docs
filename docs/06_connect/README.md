@@ -22,6 +22,10 @@ Once the activation process has been completed, your digital meter will start to
 The actual meter activation process can take up to **72 hours**. Normally you should receive an email from Fluvius when the process is finished and the ports have become available.
 :::
 
+Once the user ports have been activated, it should be indicated by a small arrow above the `GP` on the digital meter. If not, than your user ports are not yet activated.
+
+![Active User Ports](./images/active_user_ports.png)
+
 ## Connecting to the Fluvius meter
 
 Use the RJ12 cable to connect your Digital Energy Meter device to the Fluvius digital meter.
