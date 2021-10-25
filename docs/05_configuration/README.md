@@ -41,9 +41,12 @@ Use the information below to connect to the access point:
 
 ![Access Point](./images/access_points.jpg)
 
-Make sure to disable your data connection as it may interfere with connecting to the configuration page of the CDEM device.
+Make sure to disable your data connection as it will interfere with connecting to the configuration page of the CDEM device.
 
-You should now be able to open a browser and navigate to the configuration page located at [http://172.16.10.1](http://172.16.10.1). This can also be accomplished by scanning the QR code below.
+You should now be able to open a browser and navigate to the configuration page located by entering almost any URL in the location bar of your browser. Best is to enter a URL you have not visited previously as your smartphone may not send a DNS request for that but use its cache. Take for example [config.cdem.be](http://config.cdem.be).
+.
+
+Or you can scan the QR code below which will connect using the IP address.
 
 ![QR Code Configuration Page](./images/qr_configuration_page.png)
 
@@ -53,7 +56,7 @@ Once the configuration page is loaded, you have all the time in the world to com
 
 <!-- TODO - Take new screenshot with default configuration -->
 
-![Config Page](./images/config_page.png)
+![Config Page](./images/config_page.jpg)
 
 ## Configuring the Device
 

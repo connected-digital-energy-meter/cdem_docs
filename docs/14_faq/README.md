@@ -84,3 +84,16 @@ If the timeouts counter in the `stats` topic is increasing, there might be a pro
 <!-- TODO - Redirect to correct sections -->
 
 <!-- ---------------------------------------------------------- -->
+
+::: details Config page cannot be reached
+If you get an error similar to `This site can't be reached` when trying to load the config page. Than check the following things:
+
+* Is the COMM LED slowly blinking ? If not then the captive portal is not active. Reboot the device by unplugging it and plugging it back in.
+* Are you connected to the CDEM-Config access point ? If not, then first connect to it.
+* Did you disable your data-connection on your smartphone? If not, please do so.
+* You may get this error if you are surfing to a URL that you have visited some time ago. Your smartphone is using it's DNS cache to resolve the URL. Try using another URL like for example [config.cdem.be](http://config.cdem.be).
+:::
+
+<!-- TODO - Redirect to correct sections -->
+
+<!-- ---------------------------------------------------------- -->
