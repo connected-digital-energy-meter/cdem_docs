@@ -100,7 +100,7 @@ Once you are satisfied with your configuration, you can save the settings in the
 
 If all goes well, the device will save the settings and continue the boot process.
 
-<!-- TODO - Screenshot of ok page -->
+![Success Page](./images/success_config.png)
 
 ## Altering the Configuration
 
@@ -109,7 +109,7 @@ Changing the device settings can be done at any point. All you need to do is:
 1. Connect the device to a computer of smartphone adapter.
 2. Reboot the device.
 3. Connect to the access point `CDEM-Config` with the password `smartmeter`.
-4. Traverse to the configuration page: [http://172.16.10.1](http://172.16.10.1)
+4. Traverse to the configuration page by accessing some url like [config.cdem.be](http://config.cdem.be)
 5. Alter the configuration settings.
 6. Save the settings using `Save` or discard the changes using `Cancel`.
 

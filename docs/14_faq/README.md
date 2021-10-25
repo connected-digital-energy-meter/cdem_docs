@@ -43,9 +43,10 @@ Make sure to check the following things when uploading the firmware to the CDEM 
 
 1. Is the device connected via USB-C to your computer?
 2. Have you selected the correct COM-port in Arduino IDE?
-3. Have you removed the program jumper from the CDEM device?
+3. Is the jumper placed in the program position? Checkout the [Compile and Configure the Firmware](/03_firmware/#compile-and-upload-the-firmware) section for more information.
 
-<!-- TODO: Add image of removed program jumper here. -->
+![Program Jumper](./images/jumper_program.png)
+
 :::
 
 <!-- ---------------------------------------------------------- -->
@@ -65,8 +66,11 @@ If the timeouts counter in the `stats` topic is increasing, there might be a pro
 
 ![Active User Ports](./images/active_user_ports.png)
 
-2. **The RJ12 cable is faulty** and may need to be replaced.
-3. **The program jumper is not placed (correctly)** on your CDEM device. Checkout the [Compile and Configure the Firmware](/03_firmware/#compile-and-upload-the-firmware) section for more information.
+2. **The RJ12 cable might be faulty** and may need to be replaced.
+3. **Is the jumper placed in the meter position**  on your CDEM device?
+
+![Meter Jumper](./images/jumper_meter.png)
+
 :::
 
 <!-- ---------------------------------------------------------- -->
@@ -83,3 +87,10 @@ If you get an error similar to `This site can't be reached` when trying to load 
 <!-- TODO - Redirect to correct sections -->
 
 <!-- ---------------------------------------------------------- -->
+
+::: details The device is not booting when attached to the meter
+If the device works fine when attached to the computer but it is not booting when connected to the meter, there might be several causes:
+
+1. Your cable is faulty or is actually an RJ11. Make sure the cable is ok and has 6 wires (RJ12) on both sides of the connector.
+2. Your device may request more power than the meter can provide. This may happen when your WiFi access point is far away from the device. It may be necessary to add an external USB-C power adapter to the device (any smartphone adapter should be ok).
+:::

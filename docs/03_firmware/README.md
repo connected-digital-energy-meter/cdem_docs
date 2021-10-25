@@ -108,9 +108,9 @@ The ArduinoJson library allows easy parsing and conversion of JSON strings. The 
 
 Make sure your CDEM is connected to your host PC via USB and that the correct port is selected.
 
-Before trying to upload your firmware to your CDEM device, make sure to remove the program jumper on the PCB.
+Before trying to upload your firmware to your CDEM device, make sure that the jumper is in the programming position as shown in the next image.
 
-![Program Jumper Off](./images/blank.png)
+![Program Jumper](./images/jumper_program.png)
 
 Select the Upload button and watch the magic happen. If all went well you should get similar output to that shown below.
 
@@ -124,6 +124,6 @@ The green communication LED on the board should start to blink with an interval 
 
 ![Captive Portal](./images/captive_portal.gif)
 
-Don't forget to put back the program jumper after uploading the firmware or the device will not be able to read the data from the meter later on.
+Don't forget to put back the jumper into the meter position after uploading the firmware or the device will not be able to read the data from the meter later on.
 
-![Program Jumper On](./images/blank.png)
+![Program Jumper On](./images/jumper_meter.png)
