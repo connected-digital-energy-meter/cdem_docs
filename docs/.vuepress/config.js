@@ -6,11 +6,11 @@ module.exports = {
     nav: [
       { text: 'Version', ariaLabel: 'Version menu', items:[
         { text: 'Version 1', link: 'https://v1-connected-digital-energy-meter.netlify.app/'},
-        { text: 'Last Version', link: 'https://connected-digital-energy-meter.netlify.app/'},
+        { text: 'Latest Version', link: 'https://connected-digital-energy-meter.netlify.app/'},
       ]},
       { text: 'Home', link: '/' },
       { text: 'VIVES', link: 'https://www.vives.be/nl/onderzoek' },      
-      { text: 'Contact', link: 'mailto:nico.dewitte@vives.be' },
+      { text: 'Contact Us', link: 'https://iot-incubator.be/' },
     ],
     sidebarDepth: 1,
     repo: 'https://github.com/connected-digital-energy-meter/cdem_docs',
