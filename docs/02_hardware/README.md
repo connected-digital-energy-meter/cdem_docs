@@ -2,11 +2,11 @@
 
 The **CDEM - Connected Digital Energy Meter** device is a standalone PCB that can be directly connected to a Belgian digital electricity meter. It can then read the P1 port of the digital meter and send that information to an MQTT broker.
 
-![IMAGE](./images/pcb.jpg)
+![IMAGE](./images/CDEM_v5_render.png)
 
-<!-- TODO - Image of newest PCB + some margin around picture -->
-
+::: tip 🎉 Standalone PCB
 The newer versions of the PCB (v4.0 and up) are stand-alone devices and require no external power supply. They draw their energy from the digital meter.
+:::
 
 All hardware is open source and can be modified to fit your own needs. Feel free to download the [KiCad project files](https://github.com/connected-digital-energy-meter/cdem-hardware) at Github.
 
@@ -59,3 +59,13 @@ You will need to make a small adjustment to the box. A small opening will need t
 <!-- TODO - Photo of latest PCB inside case with cut hole on side -->
 
 If you wish you can mount the PCB inside the case using 4 small 1/4" self-tapping screws, but it is not a requirement.
+
+### 3D Printing Case
+
+If you have a 3D printer at your disposal you can also 3D print your own case.
+
+![Render CDEM Case](./images/render_case_cdem.png)
+
+[CDEM - Casing](https://github.com/connected-digital-energy-meter/cdem-case) is a [FreeCAD](https://freecadweb.org) drawing that contains a basic case which can be easily 3D printed. Feel free to alter it as you wish.
+
+<!-- TODO - Picture of our case -->

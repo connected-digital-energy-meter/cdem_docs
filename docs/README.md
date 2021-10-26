@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: files/pcb.jpg
+heroImage: files/CDEM_v5_render.png
 tagline: The first steps towards making your digital utility meters smart
 actionText: Get Started →
 actionLink: /01_introduction/
@@ -35,14 +35,17 @@ All development information is made available with this documentation, open and 
 
 ## Research Project
 
-**Connected Digital Energy Meter** is part of the PWO project **IoT Opportunities**, a research project of [VIVES University College](https://www.vives.be).
+**Connected Digital Energy Meter (CDEM)** is part of the PWO project **IoT Opportunities**, a research project of [VIVES University College](https://www.vives.be). The CDEM project is/was developed by:
 
 * Nico De Witte
 * Ronny Mees
+* Sille Van Landschoot
+
+**IoT Opportunities** is an initiative of [IoT Incubator](https://iot-incubator.be).
 
 ## Disclaimer
 
-The use of this website (and of the information contained therein) is done solely at your own risk. The information on the website is general and not tailored to personal or specific  circumstances. The information on the website and its content are not binding. VIVES makes every effort to provide up-to-date and correct information, however it cannot be completely excluded that the content, information and technical documentation may contain  errors. 
+The use of this website (and of the information contained therein) is done solely at your own risk. The information on the website is general and not tailored to personal or specific  circumstances. The information on the website and its content are not binding. VIVES makes every effort to provide up-to-date and correct information, however it cannot be completely excluded that the content, information and technical documentation may contain  errors.
 
 VIVES shall under no circumstances be held liable by anyone for direct or indirect damage (e.g. injuries, defects or costs) resulting from the use of the information on this website,  or arising from the impossibility of consulting this website, except those caused by gross negligence on the part of VIVES.  The proof of this gross negligence must be provided by the user.
 
