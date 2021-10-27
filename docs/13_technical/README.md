@@ -215,10 +215,10 @@ During a meeting with Fluvius we decided to build a new version that could work 
 
 ### Version 5
 
-<!-- TODO : Toevoegen foto -->
+![PCB v5](./images/pcb_v5.png)
 
 <!-- TODO : Github link toevoegen -->
-Due to some power issue's and a fault we discoverd in the previous prototype we made a [last prototype model]() that also will be the production version.
+Due to some power issue's and a fault we discoverd in the previous prototype we made a final version that solves this issue.
 
 For the production version we provide some build information of the pcb.
 
@@ -228,8 +228,7 @@ For the production version we provide some build information of the pcb.
 
 We use the power supply provided from the Fluvius Meter (pin 1). The maximum output is 250 mA which is at the limit of what we need for our ESP12.
 :::danger 🔌 Limited Power supply
-Should your CDEM experience power problems it will reboot often.
-Then we advice to use a external usb power supply.
+Should your CDEM experience power problems and reboots often, then we advice to use an external USB power supply.
 :::
 
 **2. USB connection and UART bridge**
